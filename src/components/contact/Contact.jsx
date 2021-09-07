@@ -37,7 +37,7 @@ const Contact = () => {
     return (
         <form className="contact-form" onSubmit={handleSubmit(SendEmail)}> 
             <div className="container">
-                <h1 className="text-uppercase text-center mb-4">contact us</h1>
+                <h1 className="text-center mb-4">Contact us</h1>
             <div className="mb-3">
                 <input className="form-control" 
                 type="text" name="name" 

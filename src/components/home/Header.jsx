@@ -15,19 +15,7 @@ const Header = () => {
             Get Started
         </Button>
       </div>
-      <div className="header-image"></div>
-      {/* <Container fluid>
-                <Row>
-                    <Col>
-                        <h2>Investment made easy</h2>
-                        <Button href='#' variant='primary'>Get Started</Button>
-                    </Col>
-                    <Col>
-                        <p>An image is required</p>
-                        <img alt='Investment'/>
-                    </Col>
-                </Row>
-            </Container> */}
+      <div className={`${styles.header_image}`}></div>
     </div>
   );
 };

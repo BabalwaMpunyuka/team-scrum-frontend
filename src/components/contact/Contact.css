@@ -1,40 +1,45 @@
-.contact-form form{
-    margin-left: 15%;
-    width: 70%;
-    font-family: sans-serif;
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  width: 70%;
+  margin: 10px auto;
+  padding: 20px;
 }
 
 .contact-form h1 {
-    font-size: 36px;
-    font-weight: medium;
-    padding-bottom: 5%;
-    margin-top: 20px;
+  font-weight: medium;
+  padding-bottom: 10px;
+  margin-top: 20px;
 }
 
-.form-control{
-    background-color: rgb(218, 232, 251);
-    outline: none;
-    border: none;
+.form-control {
+  background-color: rgb(218, 232, 251);
+  outline: none;
+  border: none;
 }
 
-.contact-form .btn{
-    background-color: #4884FB;
+.contact-form .btn {
+  background-color: #4884fb;
 }
 
-.contact-form .btn:hover{
-    background-color: #3461BB;
+.contact-form .btn:hover {
+  background-color: #3461bb;
 }
 
-@media screen and (max-width:800px) {
-    .contact-form form{
-        width: 70%;
-        margin-left: 120px;
-    }
+@media screen and (max-width: 800px) {
+  .contact-form form {
+    width: 70%;
+    margin-left: 120px;
+  }
 }
 
-@media screen and (max-width:450px) {
-    .contact-form form{
-        width: 100%;
-        margin-left: 0;
-    }
+@media screen and (max-width: 450px) {
+  .contact-form form {
+    width: 100%;
+    margin-left: 0;
+  }
 }
