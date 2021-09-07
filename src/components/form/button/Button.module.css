@@ -1,0 +1,31 @@
+.btn {
+  min-width: 100px;
+  width: auto;
+  height: 41px;
+  border: none;
+        outline: none;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: inherit;
+  background: transparent;
+
+  text-align: center;
+  letter-spacing: 0.005em;
+  color: inherit;
+  transition: all 300s ease-in-out;
+}
+
+.btn:hover{
+    background:rgba(0,0,0,0.4);
+}
+
+.btnPrimary {
+  background: #4884fb;
+  color: #fff;
+}
+
+.btnOutlinePrimary {
+  border: 1px solid #4884fb;
+}
