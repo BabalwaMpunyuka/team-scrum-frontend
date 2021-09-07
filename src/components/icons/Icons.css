@@ -1,0 +1,77 @@
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 7% 0;
+    color: #4884FB;
+    cursor: pointer;
+}
+
+h3{
+    color: black;
+    font-weight: 400;
+}
+
+p{
+    margin-top: 30px;
+    color: black;
+    font-weight: 500;
+}
+
+.awesome{
+    margin-right: 10px;
+    padding: 12px;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    color: white;
+    background-color: #4884FB;
+}
+
+.call{
+    width: 17%;
+    height: 17%;
+    color: red;
+
+}
+
+
+.media-icons{
+    display: flex;
+    flex-direction: row;
+}
+
+.media-icons i{
+    margin-left: 30px;
+    margin-top: 20px;
+    padding: 8px;
+    font-size: 24px;
+    border-radius: 50%;
+    color: #4884FB;
+    background-color: rgb(218, 232, 251);
+}
+
+.media-icons i:nth-child(1){
+    margin-left: -30px;
+}
+
+
+@media screen and (max-width:450px) {
+    .icons{
+        flex-direction: column;
+        padding-bottom: 5%;
+    }
+    
+    .icons p{
+        text-align: center;
+    }
+    
+    .media-icons{
+        margin-bottom: 10%;
+    }
+
+    .media-icons i:nth-child(1){
+        margin-left: 50px;
+    }
+}

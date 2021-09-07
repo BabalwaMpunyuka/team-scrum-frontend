@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 50vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header .header_content {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  flex-direction: column;
+  left: 147px;
+  top: 40px;
+  text-align: left;
+}
+
+.header .header_content h1 {
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+@media screen and (max-width: 780px) {
+  .header .header_content {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 0px;
+    top: 40px;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

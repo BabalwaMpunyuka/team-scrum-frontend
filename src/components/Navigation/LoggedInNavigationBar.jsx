@@ -5,7 +5,8 @@ import Logo from "../Logo/Logo";
 import Button from "../form/button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavigationBar = () => {
+// To be changed when soon
+const LoggedInNavigationBar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
@@ -65,4 +66,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default LoggedInNavigationBar;

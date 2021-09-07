@@ -1,8 +1,13 @@
 import Header from "../components/home/Header";
+import Contact from "../components/contact/Contact";
 
 const Home = () => {
-
-    return <Header/>
-}
+  return (
+    <div>
+      <Header />
+    <Contact />
+    </div>
+  );
+};
 
 export default Home;

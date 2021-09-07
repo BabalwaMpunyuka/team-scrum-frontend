@@ -1,9 +1,3 @@
-.AppLogo {
-  object-fit: cover;
-  width: 60px;
-  height: 50px;
-}
-
 .navbar_wrapper {
   display: flex;
   position: relative;

@@ -1,4 +1,4 @@
-import styles from './NavigationBar.module.css';
+import styles from './Logo.module.css';
 import logo from '../../images/logo_square.png';
 
 const Logo=()=>{
