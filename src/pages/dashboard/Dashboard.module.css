@@ -1,0 +1,38 @@
+.row {
+    padding: 10px;
+}
+.col-md-6 {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 20px;
+}
+.icon {
+    margin: 20px auto;
+    font-size: large;
+    color: #4884FB;
+}
+h2 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1B2559;
+}
+.btn {
+    color: #FFFFFF;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+.business{
+    font-size: 24px;
+}
+.text {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #A3AED0;
+}
