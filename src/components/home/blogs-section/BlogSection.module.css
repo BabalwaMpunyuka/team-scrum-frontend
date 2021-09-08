@@ -1,0 +1,45 @@
+.BlogSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: 50vh;
+  background: #ffffff;
+}
+
+.BlogSection .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around !important;
+}
+
+.BlogSection .row div {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around !important;
+}
+
+.BlogSection h1 {
+  text-align: center;
+}
+
+.BlogSection img {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 298px;
+}
+
+.BlogSection p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  position: relative;
+  top: 140px;
+}

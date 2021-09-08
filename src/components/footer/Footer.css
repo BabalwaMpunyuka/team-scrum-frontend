@@ -1,4 +1,6 @@
 .footer{
+    position: relative;
+    width: 100%;
     background-color: #0c023e;    
     padding-bottom: 20px;
 }
@@ -15,13 +17,13 @@
 }
 
 .footer-links-group{
-    margin: 20px;
+    margin: 20px 0px;
     padding: 20px;
 }
 
 .footer a, .footer p{
     color: white;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 .footer p{

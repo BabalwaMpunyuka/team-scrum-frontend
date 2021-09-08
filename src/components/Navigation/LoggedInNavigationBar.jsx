@@ -40,14 +40,14 @@ const LoggedInNavigationBar = () => {
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/" className="login">
-                <Button type="button" classNames="" variant="primary-outline">
+                <Button type="button" variant="primary-outline">
                   Login
                 </Button>
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/" className="signup">
-                <Button type="button" classNames="" variant="primary">
+                <Button type="button"  variant="primary">
                   Signup
                 </Button>
               </Link>
@@ -55,9 +55,9 @@ const LoggedInNavigationBar = () => {
           </ul>
           <button className={`${styles.mobile_menu_icon}`} onClick={()=>setIsMobile(!isMobile)}>
             {isMobile ? (
-                <FontAwesomeIcon icon={["fas", "times"]} classNames={`${styles.transparent}`}/>
+                <FontAwesomeIcon icon={["fas", "times"]} className={`${styles.transparent}`}/>
             ) : (
-                <FontAwesomeIcon icon={["fas", "bars"]} classNames={`${styles.transparent}`}/>
+                <FontAwesomeIcon icon={["fas", "bars"]} className={`${styles.transparent}`}/>
             )}
           </button>
         </nav>

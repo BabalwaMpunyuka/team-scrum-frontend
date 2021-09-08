@@ -11,7 +11,7 @@ const Header = () => {
           nullam gravida at massa, id nisl porttitor. Non risus in dictum
           tiaenean.
         </p>
-        <Button type="button" classNames="" variant="primary">
+        <Button type="button" variant="primary">
             Get Started
         </Button>
       </div>
