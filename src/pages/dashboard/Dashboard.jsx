@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideNav from './SideNav';
 import { useState } from 'react';
+import Head from './Head';
+import Footer from '../../components/footer/Footer';
 
 const Dashboard = () => {
     const [width, setWidth] = useState(false);
@@ -16,10 +18,13 @@ const Dashboard = () => {
                 <FontAwesomeIcon icon={["fas", "bars"]}/>
             </button>
             <SideNav className={width?`${sideStyles.navbar_width}`:`${sideStyles.navbar_width2}`}/>
+            <Head />
             <div className='container-fluid'>
                 <button className='btn btn-primary btn-md p-5'>
+                    <Link to="/add">
                     Add Business
                     <FontAwesomeIcon icon={["fas", "plus-circle"]} className={dashStyles.icon}/>
+                    </Link>
                 </button>
                 <div className='row'>
                     <div className='col-md-6'>
@@ -36,7 +41,11 @@ const Dashboard = () => {
                         </div>
                         <h2 className={dashStyles.h2}>Financial Modelling</h2>
                         <p className={dashStyles.text}>lorem ipsum take away</p>
-                        <button className="btn btn-primary btn-lg">View</button>
+                        <button className="btn btn-primary btn-lg">
+                            <Link to="/modelling">
+                                View
+                            </Link>
+                        </button>
                     </div>
                 </div>
                 <div className='row'>
@@ -46,7 +55,10 @@ const Dashboard = () => {
                         </div>
                         <h2 className={dashStyles.h2}>Financial Diagnostics</h2>
                         <p className={dashStyles.text}>lorem ipsum take away</p>
-                        <button className="btn btn-primary btn-lg">View</button>
+                        <button className="btn btn-primary btn-lg">
+                            <Link to="/diagnostics">
+                                View
+                            </Link></button>
                     </div>
                     <div className='col-md-6'>
                         <div className={dashStyles.icon}>
@@ -54,10 +66,14 @@ const Dashboard = () => {
                         </div>
                         <h2 className={dashStyles.h2}>External Business Requests</h2>
                         <p className={dashStyles.text}>lorem ipsum take away</p>
-                        <button className="btn btn-primary btn-lg">Make Requests</button>
+                        <button className="btn btn-primary btn-lg">
+                            <Link to="/requests">
+                                Make Requests
+                            </Link></button>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
