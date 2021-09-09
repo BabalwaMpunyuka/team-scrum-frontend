@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import './Contact.css';
-import Icons from '../icons/Icons';
+// import Icons from '../icons/Icons';
 
 const Contact = () => {
     const {handleSubmit} = useForm();

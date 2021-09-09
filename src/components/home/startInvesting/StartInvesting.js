@@ -1,5 +1,3 @@
-import Card from "../../card/Card";
-import Button from "../../form/button/Button";
 import styles from "./StartInvesting.module.css";
 
 import windows_image from "../../../images/companies/windows_img.png";

@@ -1,0 +1,19 @@
+.checkbox{
+    margin-top: 0px;
+}
+
+.checkbox #remember-me{
+    margin-top: 0px;
+}
+
+.checkbox label{
+    text-align: center;
+    font-weight: 500;
+}
+
+.have_an_acc{
+    text-align: center;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
