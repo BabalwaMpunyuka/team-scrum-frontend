@@ -6,6 +6,7 @@ import cartesan from "../../../images/icons/cartesan_icon.svg";
 import dash_icon from "../../../images/icons/dash_icon.svg";
 import line_graph from "../../../images/icons/line_graph_up_icon.svg";
 import stroke from "../../../images/icons/stroke_icon.svg";
+import Button from "../../../components/form/button/Button";
 
 function AreaExpertise() {
   return (
@@ -26,6 +27,9 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
+          <Button type="button" variant="primary">
+            Learn More
+        </Button>
         </div>
 
         <div className={styles.expertise_grid_item}>
@@ -40,6 +44,9 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
+          <Button type="button" variant="primary">
+            Learn More
+        </Button>
         </div>
 
         <div className={styles.expertise_grid_item}>
@@ -53,6 +60,9 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
+          <Button type="button" variant="primary">
+            Learn More
+        </Button>
         </div>
       </div>
     </div>
