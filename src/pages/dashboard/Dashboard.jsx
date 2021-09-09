@@ -13,7 +13,7 @@ const Dashboard = () => {
     const [width, setWidth] = useState(false);
 
     return (
-        <div className="container-fluid">
+        <div className={`container-fluid ${sideStyles.dashboard_wrapper}`}>
             <button className="btn btn-primary btn-md" onClick={()=>setWidth(false)}>
                 <FontAwesomeIcon icon={["fas", "bars"]}/>
             </button>
@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <div className='row'>
                     <div className='col-md-6'>
                         <div className={dashStyles.icon}>
-                            <FontAwesomIcon icon={[""]}/>
+                            <FontAwesomeIcon icon={[""]}/>
                         </div>
                         <h2 className={dashStyles.h2}>Financial Appraisals</h2>
                         <p className={dashStyles.text}>lorem ipsum take away</p>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                     </div>
                     <div className='col-md-6'>
                         <div className={dashStyles.icon}>
-                            <FontAwesomIcon icon={["fas", "chart-line"]}/>
+                            <FontAwesomeIcon icon={["fas", "chart-line"]}/>
                         </div>
                         <h2 className={dashStyles.h2}>Financial Modelling</h2>
                         <p className={dashStyles.text}>lorem ipsum take away</p>
