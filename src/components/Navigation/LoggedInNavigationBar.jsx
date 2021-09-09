@@ -5,7 +5,8 @@ import Logo from "../Logo/Logo";
 import Button from "../form/button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavigationBar = () => {
+// To be changed when soon
+const LoggedInNavigationBar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
@@ -18,7 +19,7 @@ const NavigationBar = () => {
           <ul className={isMobile?`${styles.nav_links_mobile}`:`${styles.nav_links}`}
           onClick={()=>setIsMobile(false)}>
             <li className={`${styles.nav_link}`}>
-              <Link to="/" className="services">
+              <Link to="/" className="about">
                 Services
               </Link>
             </li>
@@ -38,15 +39,15 @@ const NavigationBar = () => {
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/login" className="login">
+              <Link to="/" className="login">
                 <Button type="button" variant="primary-outline">
                   Login
                 </Button>
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/signup" className="signup">
-                <Button type="button" variant="primary">
+              <Link to="/" className="signup">
+                <Button type="button"  variant="primary">
                   Signup
                 </Button>
               </Link>
@@ -65,4 +66,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default LoggedInNavigationBar;

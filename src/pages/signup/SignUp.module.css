@@ -1,0 +1,67 @@
+/* Using module.css enable unique class names to be generated when compiling the css */
+.error {
+  position: absolute;
+  color: red;
+  font-size: 0.5em;
+}
+
+.sign_up_img {
+  margin-top: 20px;
+  width: 482px;
+  height: 493px;
+  border-right: 1px solid grey;
+  object-fit: cover;
+}
+
+.sign_up {
+  margin-top: 20px;
+}
+
+.sign_up h1 {
+  text-align: center;
+}
+
+.form_input {
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  font-family: inherit;
+}
+
+.form_group:nth-child(1) {
+  margin-top: 10px;
+}
+
+.btn {
+  color: white;
+  background-color: #4884fb;
+  font-size: 1.2em;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #3461bb;
+}
+
+.signup_text {
+  text-align: center;
+}
+
+@media screen and (max-width: 786px) {
+  .sign_up {
+    margin-top: 5px;
+  }
+  .sign_up_img {
+    width: 90%;
+    height: 493px;
+    margin-top: 0px;
+    border-right: 0px;
+    align-self: center;
+  }
+
+  .sign_up h1 {
+    text-align: center;
+  }
+}

@@ -1,11 +1,12 @@
+import React from 'react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./NavigationBar.module.css";
-import Logo from "../Logo/Logo";
-import Button from "../form/button/Button";
+import styles from "../NavigationBar.module.css";
+import Logo from "../../Logo/Logo";
+import Button from "../../form/button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavigationBar = () => {
+const ConditionalHeader = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
@@ -19,17 +20,7 @@ const NavigationBar = () => {
           onClick={()=>setIsMobile(false)}>
             <li className={`${styles.nav_link}`}>
               <Link to="/" className="services">
-                Services
-              </Link>
-            </li>
-            <li className={`${styles.nav_link}`}>
-              <Link to="/" className="blog">
-                Blog
-              </Link>
-            </li>
-            <li className={`${styles.nav_link}`}>
-              <Link to="/" className="about">
-                About Us
+                Home
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
@@ -65,4 +56,7 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default ConditionalHeader;
+
+
+

@@ -5,6 +5,7 @@ const Button=({type, variant="primary", onClick, children, ...rest})=>{
         if(variant==="primary") return btnStyles.btnPrimary;
         else if(variant==="primary-outline") return btnStyles.btnOutlinePrimary;
     }
+ 
     return(
         <button type={type} className={`${btnStyles.btn} ${handleVariant()}`} {...rest} onClick={onClick}>{children}</button>
     );
