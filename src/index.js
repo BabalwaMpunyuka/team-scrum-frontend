@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
-import Popper from 'popper.js';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
