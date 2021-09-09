@@ -6,7 +6,7 @@ import "./App.module.css";
 
 //Components
 import Layout from "./components/layout/Layout";
-import LoggedInLayout from "./components/layout/LoggedInLayout"; //Serves as protected and logged layout
+// import LoggedInLayout from "./components/layout/LoggedInLayout"; //Serves as protected and logged layout
 
 //Pages
 import Home from "./pages/Home";
