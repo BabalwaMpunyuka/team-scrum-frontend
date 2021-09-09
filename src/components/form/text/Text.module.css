@@ -1,0 +1,10 @@
+/* Using module.css enable unique class names to be generated when compiling the css */
+.error{
+    position: absolute;
+    color: red;
+    font-size: 0.5em;
+}
+
+.signup-text{
+    text-align: center;
+}
