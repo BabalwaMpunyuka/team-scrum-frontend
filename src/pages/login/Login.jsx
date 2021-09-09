@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -9,6 +9,7 @@ import ConditionalHeader from "../../components/Navigation/login-signup-nav/Cond
 import Footer from "../../components/footer/Footer";
 
 export const Login = () => {
+    const [isChecked,setIsChecked] = useState(true);
   const validate = Yup.object().shape({
     email: Yup.string()
       .email(" Please enter a valid email address ")
@@ -79,9 +80,11 @@ export const Login = () => {
                     <div className={`d-flex align-items-center justify-content-center ${LoginStyles.checkbox}`}>
                       <input
                         type="checkbox"
+                        className={LoginStyles.remember_me}
                         id="remember-me"
                         name="remember-me"
-                        checked
+                        checked={isChecked?"checked":""}
+                        onClick={()=>{setIsChecked(!isChecked)}}
                       />
                       <label for="remember-me"> Remember me next time</label>
                     </div>

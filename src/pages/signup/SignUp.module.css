@@ -50,9 +50,13 @@
 }
 
 @media screen and (max-width: 786px) {
+  .sign_up {
+    margin-top: 5px;
+  }
   .sign_up_img {
     width: 90%;
     height: 493px;
+    margin-top: 0px;
     border-right: 0px;
     align-self: center;
   }
