@@ -6,12 +6,12 @@ import "./App.module.css";
 
 //Components
 import Layout from "./components/layout/Layout";
-// import LoggedInLayout from "./components/layout/LoggedInLayout"; //Serves as protected and logged layout
 
 //Pages
 import Home from "./pages/Home";
 import SignUp from "./pages/signup/SignUp";
 import Login from "./pages/login/Login";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 library.add(fab, fas);
 
@@ -21,9 +21,8 @@ function App() {
       <Switch>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
-        <Layout>
-          <Route exact path="/" component={Home} />
-        </Layout>
+        <Route exact path="/"><Layout><Home /></Layout></Route>
+        <Route exact path="/dashboard"><Dashboard /></Route>
       </Switch>
     </Router>
   );

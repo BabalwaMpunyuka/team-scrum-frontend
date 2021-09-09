@@ -1,4 +1,4 @@
-import Logo from '../components/Navigation/Logo';
+import Logo from '../../components/Logo/Logo';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import sideStyles from './SideNav.module.css';
@@ -6,7 +6,7 @@ import dashboard from '../../images/dashboard.png';
 
 const SideNav = () => {
 
-    clickHandler = (e) => {
+    const clickHandler = (e) => {
         e.target.style.backgroundColor = "background: #4884FB; border-radius: 5px;";
     }
 

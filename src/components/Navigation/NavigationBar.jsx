@@ -13,7 +13,7 @@ const NavigationBar = () => {
       <div className="container">
         <nav className={`${styles.navbar}`}>
           <div className={`${styles.logo}`}>
-            <Logo />
+          <Link to="/" className="support"><Logo /></Link>
           </div>
           <ul className={isMobile?`${styles.nav_links_mobile}`:`${styles.nav_links}`}
           onClick={()=>setIsMobile(false)}>
