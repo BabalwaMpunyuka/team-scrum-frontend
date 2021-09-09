@@ -24,7 +24,7 @@ const ConditionalHeader = () => {
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/" className="blog">
+              <Link to="/" className="support">
                 Support
               </Link>
             </li>
