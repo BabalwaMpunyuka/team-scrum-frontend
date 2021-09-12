@@ -44,9 +44,19 @@ const AppState = (props) => {
     setTimeout(() => clearMessage(message.id), prop_message.timeout | 10000);
   };
 
-  const setDarkMode = () => {};
+  const setDarkMode = () => {
+    dispatch({
+      type: SET_DARK_MODE,
+      payload:{}
+  })
+  };
 
-  const clearDarkMode = () => {};
+  const clearDarkMode = () => {
+    dispatch({
+      type: CLEAR_DARK_MODE,
+      payload:{}
+  })
+  };
 
   const login = (user) => {
       dispatch({

@@ -13,6 +13,7 @@ export default function GlobalLayout({children}){
             const user = JSON.parse(localStorage.getItem("user"));
             login(user);
         }
+        // eslint-disable-next-line
     }, [])
     console.log(isAuth);
     return(

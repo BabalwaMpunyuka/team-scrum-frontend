@@ -1,5 +1,3 @@
-import useContextGetter from "../../hooks/useContextGetter";
-
 import styles from "./Layout.module.css";
 
 import LoggedInNavigation from "../Navigation/LoggedInNavigation";
@@ -7,7 +5,6 @@ import Footer from "../footer/Footer";
 import SideNavigation from "../Navigation/sidenav/SideNavigation";
 
 export default function LoggedInLayout({ children }) {
-  const { isAuth } = useContextGetter();
   return (
     <div>
       <LoggedInNavigation />
