@@ -4,8 +4,12 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.module.css";
 
+//App state
+import AppState from "./store/AppState";
+
 //Components
-import Layout from "./components/layout/Layout";
+import GlobalLayout from "./components/layout/GlobalLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 //Pages
 import Home from "./pages/Home";
@@ -18,12 +22,26 @@ library.add(fab, fas);
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/"><Layout><Home /></Layout></Route>
-        <Route exact path="/dashboard"><Dashboard /></Route>
-      </Switch>
+      <AppState>
+        <Switch>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <GlobalLayout>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <ProtectedRoute>
+            <Route exact path="/dashboard">
+              <Dashboard />
+            </Route>
+            </ProtectedRoute>
+          </GlobalLayout>
+        </Switch>
+      </AppState>
     </Router>
   );
 }

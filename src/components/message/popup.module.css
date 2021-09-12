@@ -1,0 +1,29 @@
+.popup {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  max-width: 400px;
+  max-height: auto;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
+.popupWrapper {
+  position: absolute;
+  right: 2px;
+  width: 50%;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 0;
+}
