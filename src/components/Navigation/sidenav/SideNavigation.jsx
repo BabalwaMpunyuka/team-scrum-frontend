@@ -6,12 +6,14 @@ import { SidebarItems } from "./SidebarItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useContextGetter from "../../../hooks/useContextGetter";
 
-//ion:toggle-outline
-// la:toggle-off
-
 const SideNavigation = () => {
-    const {logout}=useContextGetter();
+  const {logout}=useContextGetter();
   const [isMobile, setIsMobile] = useState(false);
+  const [isActive, setIsActive] = useState("1");
+
+  const handleActive=(menu)=>{
+    setIsActive(menu);
+  }
   return (
     <>
       <div className={styles.top} onClick={() => setIsMobile(!isMobile)}>
@@ -29,12 +31,12 @@ const SideNavigation = () => {
       </div>
       <div  className={isMobile?`${styles.side_nav}`:`${styles.side_nav} ${styles.side_nav_hide}`}  onClick={() => setIsMobile(false)}>
         <nav className={styles.nav_menu}>
-          <ul className={styles.nav_menu_items} onClick="">
+          <ul className={styles.nav_menu_items} >
             {SidebarItems.map((item, index) => {
               return (
                 <li
                   key={index}
-                  className={`${styles.nav_menu_item} ${item.cName}`}
+                  className={`${styles.nav_menu_item} ${isActive===item.id?styles.active_item:""}`} onClick={()=>{handleActive(item.id)}}
                 >
                   <Link to={item.path}>
                     <span className={styles.icon}>{item.icon} </span>

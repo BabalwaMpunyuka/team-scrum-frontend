@@ -1,9 +1,9 @@
 .side_nav {
-  position: relative;
+  position: absolute;
   width: 277px;
   min-height: 100vh;
   left: 0px;
-  top: 0px;
+  top: 130px;
 
   background: #f6f8fd;
   z-index: 2;
@@ -91,7 +91,18 @@
   height: 45px;
   left: 0px;
   cursor: pointer;
+  padding: 10px;
   border-radius: 5px;
+}
+
+.active_item{
+  background: #4884FB;
+  color:#fff;
+  
+}
+
+.active_item a{
+  color:#fff;
 }
 
 .nav_menu_item .icon {
@@ -116,15 +127,16 @@
 
 @media screen and (max-width: 780px) {
   .top {
+    position: relative;
     height: 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #f6f8fd;
-    color: #4884fb;
+    color: inherit;
     font-weight: 500;
     padding: 20px;
-    z-index: 2;
+    z-index: 3;
+    top: -80px;
   }
 
   .top .menu_bars {

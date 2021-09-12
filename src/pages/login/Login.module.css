@@ -1,39 +1,49 @@
-.checkbox{
-    margin-top: 0px;
+.checkbox {
+  margin-top: 0px;
 }
 
-.checkbox input{
-    -webkit-appearance: none;
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-    margin-top: -7px;
-    margin-right: 2px;
-	padding: 8px;
-	display: inline-block;
-	position: relative;
+.checkbox input {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  margin-top: -7px;
+  margin-right: 2px;
+  padding: 8px;
+  display: inline-block;
+  position: relative;
 }
 
-.checkbox input:checked{
-    background: #4884fb;
+.checkbox input:checked {
+  background: #4884fb;
 }
 
 .checkbox input:checked:after {
-	content: '\2714';
-	font-size: 12px;
-	position: absolute;
-	top: 0px;
-	left: 3px;
-	color: #fff;
+  content: "\2714";
+  font-size: 12px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #fff;
 }
 
-.checkbox label{
-    text-align: center;
-    font-weight: 500;
+.checkbox label {
+  text-align: center;
+  font-weight: 500;
 }
 
-.have_an_acc{
-    text-align: center;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-bottom: 0px;
+.have_an_acc {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.forgotPassword {
+    display: block;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #8a0000;
 }

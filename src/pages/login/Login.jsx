@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -115,7 +115,7 @@ export const Login = () => {
                     </button>
 
                     <p className={LoginStyles.have_an_acc}>
-                      <a href="#signup"> I do not have an account</a>{" "}
+                      <Link to="signup"> I do not have an account</Link>
                     </p>
                     <div className={`d-flex align-items-center justify-content-center ${LoginStyles.checkbox}`}>
                       <input
@@ -128,6 +128,7 @@ export const Login = () => {
                       />
                       <label for="remember-me"> Remember me next time</label>
                     </div>
+                    <Link className={LoginStyles.forgotPassword}>Forgot Password? Click Here</Link>
                   </Form>
                 </div>
               )}
