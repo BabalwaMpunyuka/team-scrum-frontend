@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { SidebarItems } from "./SidebarItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useContextGetter from "../../../hooks/useContextGetter";
 
 //ion:toggle-outline
 // la:toggle-off
 
 const SideNavigation = () => {
+    const {logout}=useContextGetter();
   const [isMobile, setIsMobile] = useState(false);
   return (
     <>
@@ -51,7 +53,7 @@ const SideNavigation = () => {
             <span>Support 24/7</span>
           </div>
           <ul className={`${styles.nav_menu_items} ${styles.logout}`}>
-            <li>
+            <li className={`${styles.nav_menu_item}`} onClick={()=>{logout()}}>
               <Icon icon="ic:baseline-logout" className={styles.icon} />{" "}
               <span className={styles.text}>Logout</span>
             </li>

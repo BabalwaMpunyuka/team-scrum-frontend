@@ -82,12 +82,15 @@
   margin: 15px 0px;
 }
 
+.nav_menu_item  a{
+    text-decoration: none;
+}
 .nav_menu_item {
   position: relative;
   width: 214px;
   height: 45px;
   left: 0px;
-
+  cursor: pointer;
   border-radius: 5px;
 }
 
@@ -131,6 +134,4 @@
   .side_nav_hide {
     display: none;
   }
-
-  
 }
