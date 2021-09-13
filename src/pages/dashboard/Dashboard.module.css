@@ -60,3 +60,10 @@
     color: #A3AED0;
     
 }
+
+@media screen and (max-width:780px) {
+  .dashboard_wrapper .cardGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
