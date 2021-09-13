@@ -11,22 +11,24 @@
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  flex-basis: 1;
+  flex-grow: 1;
+  justify-content: flex-start;
   align-items: center;
-  height: 90px;
+  height: 130px;
   background-color: #fbfbfb;
   color: #000;
 }
-.logo {
-  font-size: 30px;
-}
+
 .nav_links {
   display: flex;
-  justify-content: flex-end;
+  position: relative;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   list-style: none;
   width: 75%;
+  left: 100px;
 }
 
 .nav_link {
@@ -46,7 +48,41 @@
   display: none;
 }
 
-@media screen and (max-width: 780px) {
+.avater_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.avater_wrapper .avater {
+  border-radius: 100%;
+}
+
+.avater_wrapper .avater_text {
+  margin-left: 10px;
+}
+
+.avater_wrapper .avater_text span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+
+  letter-spacing: -0.02em;
+}
+
+.avater_wrapper .avater_text h6 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 20px;
+
+  letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 680px) {
   .logo {
     display: flex;
     position: absolute;

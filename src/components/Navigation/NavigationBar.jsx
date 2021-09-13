@@ -13,28 +13,28 @@ const NavigationBar = () => {
       <div className="container">
         <nav className={`${styles.navbar}`}>
           <div className={`${styles.logo}`}>
-          <Link to="/" className="support"><Logo /></Link>
+          <Link to="/"><Logo /></Link>
           </div>
           <ul className={isMobile?`${styles.nav_links_mobile}`:`${styles.nav_links}`}
           onClick={()=>setIsMobile(false)}>
+             <li className={`${styles.nav_link}`}>
+              <Link to="/">
+                Home
+              </Link>
+            </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/" className="services">
+              <Link to="/portfolio" className="services">
                 Services
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/" className="blog">
+              <Link to="/blog" className="blog">
                 Blog
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
-              <Link to="/" className="about">
-                About Us
-              </Link>
-            </li>
-            <li className={`${styles.nav_link}`}>
-              <Link to="/" className="support">
-                Support
+              <Link to="/portfolio" className="about">
+                Portfolio
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>

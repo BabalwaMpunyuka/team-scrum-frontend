@@ -1,24 +1,24 @@
-import { Toast } from "react-bootstrap";
 import { useState } from "react";
+import styles from "./popup.module.css";
 
 function PopUp({ content, title = "", type, dismissible = true }) {
   const [show, setShow] = useState(true);
   const toggleShow = () => setShow(!show);
   const getBackground = () => {
-    if (type === "success") return "#DFF2BF";
-    else if (type === "danger") return "#FFD2D2";
-    else if (type === "info") return "#BDE5F8";
+    if (type === "success") return "#00A860";
+    else if (type === "danger") return "#F32013";
+    else if (type === "info") return "#3461BB";
     else {
-      return "#f5f5f5";
+      return "#e8e8e8";
     }
   };
 
   const getColor = () => {
-    if (type === "success") return "#4F8A10";
-    else if (type === "danger") return "#D8000C";
-    else if (type === "info") return "#00529B";
+    if (type === "success") return "#fff";
+    else if (type === "danger") return "#fFfFfF";
+    else if (type === "info") return "#fff";
     else {
-      return "#666";
+      return "#3a3a3a";
     }
   };
 
@@ -32,15 +32,9 @@ function PopUp({ content, title = "", type, dismissible = true }) {
   };
 
   return (
-    <Toast
-      show={show}
+    <div
+      className={`${styles.popup} ${show? styles.show: styles.hide}`}
       style={{
-        marginBottom: "10px",
-        display: "block",
-        width: "auto",
-        maxWidth: "400px",
-        fontSize: "10pt",
-        fontWeight: "400",
         color: getColor(),
         background: getBackground(),
       }}
@@ -57,8 +51,8 @@ function PopUp({ content, title = "", type, dismissible = true }) {
           )}
         </div>
       )}
-      <Toast.Body>{content}</Toast.Body>
-    </Toast>
+      {content}
+    </div>
   );
 }
 
