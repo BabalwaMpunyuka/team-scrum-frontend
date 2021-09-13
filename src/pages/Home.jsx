@@ -5,6 +5,7 @@ import SecuritySection from "../components/home/security/Security";
 import TipsSection from "../components/home/tips-section/TipsSection";
 import BlogSection from "../components/home/blogs-section/BlogSection";
 import StartInvesting from "../components/home/startInvesting/StartInvesting";
+import Icons from "../components/icons/Icons";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <BlogSection />
       <StartInvesting />
       <Contact />
+      <Icons />
     </div>
   );
 };

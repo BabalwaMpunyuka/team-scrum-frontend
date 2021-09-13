@@ -25,6 +25,7 @@
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 20px;
+  margin-bottom: 30px;
 }
 
 .expertise_grid_item {
@@ -62,8 +63,9 @@
 }
 
 .expertise_grid_item p {
+  margin-top: 5px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 16px;
   text-align: center;
   letter-spacing: 0.045em;

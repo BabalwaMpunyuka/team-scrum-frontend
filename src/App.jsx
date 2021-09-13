@@ -4,27 +4,60 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.module.css";
 
+//App state
+import AppState from "./store/AppState";
+
 //Components
-import Layout from "./components/layout/Layout";
-// import LoggedInLayout from "./components/layout/LoggedInLayout"; //Serves as protected and logged layout
+import GlobalLayout from "./components/layout/GlobalLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 //Pages
 import Home from "./pages/Home";
 import SignUp from "./pages/signup/SignUp";
 import Login from "./pages/login/Login";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Portfolio from "./pages/portfolio/Portfolio";
+import FinancialModelling from "./pages/portfolio/FinancialModelling";
+import FinancialAppraisals from "./pages/portfolio/FinancialAppraisals";
+import FinancialDiagnostics from "./pages/portfolio/FinancialDiagnostics";
 
 library.add(fab, fas);
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Layout>
-          <Route exact path="/" component={Home} />
-        </Layout>
-      </Switch>
+      <AppState>
+        <Switch>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <GlobalLayout>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/portfolio">
+              <Portfolio />
+            </Route>
+            <Route exact path="/portfolio/financial-appraisals">
+              <FinancialAppraisals />
+            </Route>
+            <Route exact path="/portfolio/financial-diagnostic">
+              <FinancialDiagnostics />
+            </Route>
+            <Route exact path="/portfolio/financial-modelling">
+              <FinancialModelling />
+            </Route>
+            <ProtectedRoute>
+              <Route exact path="/dashboard">
+                <Dashboard />
+              </Route>
+            </ProtectedRoute>
+          </GlobalLayout>
+        </Switch>
+      </AppState>
     </Router>
   );
 }
