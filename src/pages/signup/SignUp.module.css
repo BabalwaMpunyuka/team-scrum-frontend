@@ -1,6 +1,5 @@
 /* Using module.css enable unique class names to be generated when compiling the css */
 .error {
-  position: absolute;
   color: red;
   font-size: 0.5em;
 }
@@ -28,6 +27,7 @@
   border: 1px solid grey;
   border-radius: 30px;
   font-family: inherit;
+  outline: none;
 }
 
 .form_group:nth-child(1) {

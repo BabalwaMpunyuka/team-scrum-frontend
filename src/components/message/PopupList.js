@@ -1,16 +1,12 @@
 import PopUp from "./popUp";
+import styles from "./popup.module.css";
 
 const PopupList = ({ popups }) => {
   return (
     <div
       aria-live="polite"
       aria-atomic="true"
-      style={{
-        position: "fixed",
-        right: "1em",
-        top: "1em",
-        zIndex: "5000",
-      }}
+      className={styles.popupWrapper}
     >
       {popups.map((popup, index) => (
         <PopUp

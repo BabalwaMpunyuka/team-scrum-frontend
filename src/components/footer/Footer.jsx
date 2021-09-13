@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../Logo/Logo";
+import LightLogo from "../Logo/LightLogo";
 import "./Footer.css";
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-objects d-flex justify-content-between mt-4">
           <div className="col">
             <div className="footer-logo">
-              <Logo />
+              <LightLogo />
             </div>
           </div>
           <div className="col footer-links">

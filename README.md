@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Group 6 - Impact Investment, Appraisal, Analytics Algorithms 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the main project for Group 6 during the women techsters 2021 fellopship.
+
+### Group members
+
 
 ## Available Scripts
 
