@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./AreaExpertise.module.css";
 
 import arrow_slant from "../../../images/icons/arrow_slant_icon.svg";
@@ -15,10 +16,22 @@ function AreaExpertise() {
       <div className={`container ${styles.expertise_grid_container}`}>
         <div className={styles.expertise_grid_item}>
           <div className={styles.grid_item_icon}>
-            <img src={stroke} alt="stroke icon" className={styles.stroke}/>
-            <img src={arrow_slant} alt="stroke icon" className={styles.arrow_slant}/>
-            <img src={dash_icon} alt="stroke icon" className={styles.dash_icon}/>
-            <img src={line_graph} alt="stroke icon" className={styles.line_graph}/>
+            <img src={stroke} alt="stroke icon" className={styles.stroke} />
+            <img
+              src={arrow_slant}
+              alt="stroke icon"
+              className={styles.arrow_slant}
+            />
+            <img
+              src={dash_icon}
+              alt="stroke icon"
+              className={styles.dash_icon}
+            />
+            <img
+              src={line_graph}
+              alt="stroke icon"
+              className={styles.line_graph}
+            />
           </div>
           <h2>Financial Appraisals</h2>
           <p>
@@ -27,15 +40,21 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
-          <Button type="button" variant="primary">
-            Learn More
-        </Button>
+          <Link to={`/portfolio/financial-appraisals`}>
+            <Button type="button" variant="primary">
+              Learn More
+            </Button>
+          </Link>
         </div>
 
         <div className={styles.expertise_grid_item}>
           <div className={styles.grid_item_icon}>
-            <img src={cartesan} alt="Cartesan" className={styles.cartesan}/>
-            <img src={line_graph} alt="Line graph" className={styles.line_graph_two}/>
+            <img src={cartesan} alt="Cartesan" className={styles.cartesan} />
+            <img
+              src={line_graph}
+              alt="Line graph"
+              className={styles.line_graph_two}
+            />
           </div>
           <h2>Financial Diagnostics</h2>
           <p>
@@ -44,14 +63,20 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
-          <Button type="button" variant="primary">
-            Learn More
-        </Button>
+          <Link to={`/portfolio/financial-diagnostic`}>
+            <Button type="button" variant="primary">
+              Learn More
+            </Button>
+          </Link>
         </div>
 
         <div className={styles.expertise_grid_item}>
           <div className={styles.grid_item_icon}>
-          <img src={bar_chart} alt="Line graph" className={styles.bar_chart}/>
+            <img
+              src={bar_chart}
+              alt="Line graph"
+              className={styles.bar_chart}
+            />
           </div>
           <h2>Financial Modelling and evaluation</h2>
           <p>
@@ -60,9 +85,11 @@ function AreaExpertise() {
             placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
             aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
           </p>
-          <Button type="button" variant="primary">
-            Learn More
-        </Button>
+          <Link to={`/portfolio/financial-modelling`}>
+            <Button type="button" variant="primary">
+              Learn More
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

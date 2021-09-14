@@ -9,6 +9,12 @@
   background: #ffffff;
 }
 
+.BlogSection a,
+.BlogSection a:hover {
+  text-decoration: none;
+  color: #3d3d3d;
+}
+
 .BlogSection .row {
   width: 100%;
   display: flex;
