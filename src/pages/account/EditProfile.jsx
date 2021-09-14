@@ -1,4 +1,4 @@
-import Head from '../dashboard/Head';
+import NavigationBar from '../../components/Navigation/NavigationBar';
 import SideNav from "../dashboard/SideNav";
 import Footer from '../../components/footer/Footer';
 import user from '../../images/user.png';
@@ -26,7 +26,7 @@ const EditProfile = () => {
 
     return (
         <div className='container-fluid'>
-            <Head />
+            <NavigationBar />
             <SideNav />
             <div className={`${account.account_wrapper}`}>
                 <img src={user} alt="User" className={`img-responsive ${accountStyles.user_image}`}/>
