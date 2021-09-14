@@ -15,7 +15,6 @@ export default function GlobalLayout({children}){
         }
         // eslint-disable-next-line
     }, [])
-    console.log(isAuth);
     return(
         <div>
          <PopupList popups={messages}/>

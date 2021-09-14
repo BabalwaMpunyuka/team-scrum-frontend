@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { useHistory, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -16,7 +16,6 @@ import { formatErrors } from "../../utils/error.utils";
 
 export const Login = () => {
   const { messages, propagateMessage,login } = useContextGetter();
-  const history=useHistory();
   const [isChecked,setIsChecked] = useState(true);
   const validate = Yup.object().shape({
     email: Yup.string()
@@ -38,8 +37,6 @@ export const Login = () => {
           type: "success",
           timeout: 5000,
         });
-        history.replace("/dashboard");
-        resetForm({});
       }
 
     } catch (e) {
@@ -81,7 +78,7 @@ export const Login = () => {
               {({ handleSubmit, isSubmitting }) => (
                 <div className={`container ${SignUpStyles.sign_up}`}>
                   <h1 className="my-4"> Log In </h1>
-                  <Form>
+                  <Form onSubmit={handleSubmit}>
                     <div className={`${SignUpStyles.form_group}`}>
                       <TextField
                         label="Email"

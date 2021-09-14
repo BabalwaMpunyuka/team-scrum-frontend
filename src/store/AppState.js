@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { useHistory } from "react-router-dom";
 import AppContext from "./appContext";
 import appReducer from "./appReducer";
 import {
@@ -20,6 +21,7 @@ const initialState = {
 
 const AppState = (props) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
+  let history = useHistory();
 
   const addMessage = (message) => {
     dispatch({
@@ -62,13 +64,15 @@ const AppState = (props) => {
       dispatch({
           type: LOGIN,
           payload:user
-      })
+      });
+      history.replace("/dashboard");
   };
 
   const logout = () => {
       dispatch({
           type:LOGOUT
-      })
+      });
+      history.replace("/");
   };
 
   const setIsAuth = (isAuth) => {
