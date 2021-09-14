@@ -61,9 +61,10 @@
 
 .imgContent {
   width: 50%;
+  max-width:  662px;
   height: 376px;
   margin-top: 20px;
-  margin-left: -160px;
+  margin-left: -200px;
   z-index: 2;
   background: url("../../../images/portfolio-hero.png");
 }
