@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Button from "../form/button/Button";
 
@@ -11,9 +12,9 @@ const Header = () => {
           nullam gravida at massa, id nisl porttitor. Non risus in dictum
           tiaenean.
         </p>
-        <Button type="button" variant="primary">
+        <Link to="/login"><Button type="button" variant="primary">
             Get Started
-        </Button>
+        </Button></Link>
       </div>
       <div className={`${styles.header_image}`}></div>
     </div>
