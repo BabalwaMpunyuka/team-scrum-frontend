@@ -18,14 +18,14 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Blog from "./pages/blog/Blog";
-import ScrollToTop from "./components/ScrollToTop";
+// import ScrollToTop from "./components/ScrollToTop";
 
 library.add(fab, fas);
 
 function App() {
   return (
     <Router>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <AppState>
         <Switch>
           <Route exact path="/signup">
