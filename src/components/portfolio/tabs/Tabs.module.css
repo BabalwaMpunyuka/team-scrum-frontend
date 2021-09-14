@@ -1,3 +1,15 @@
+.link {
+  display: inline-block;
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+.link:hover{
+  color: #3d3d3d;
+  text-decoration: none;
+  border: 2px solid #4884fb;
+}
+
 .tab {
   padding: 10px;
   width: 80%;
@@ -6,16 +18,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
-.active{
+
+.active {
   border: 2px solid #4884fb;
 }
 
 .tab .icon_wrapper {
   background: #4884fb;
-  height: 50%;
-  width: 15%;
-  border-radius: 50%;
+  height: 50px;
+  width: 60px;
+  border-radius: 100%;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -30,7 +44,7 @@
 }
 
 .tab .text_wrapper {
-  width: 85%;
+  width: auto;
   margin-left: 3px;
   display: inline-block;
   align-items: center;

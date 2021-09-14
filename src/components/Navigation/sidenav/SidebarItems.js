@@ -20,12 +20,6 @@ export const SidebarItems = [
       id: '3'
     },
     {
-      title: 'Business Listings',
-      path: '/',
-      icon: <Icon  icon="mdi:briefcase-variant-outline"/>,
-      id: '4'
-    },
-    {
       title: 'Settings',
       path: '/',
       icon: <Icon icon="ci:settings" />,

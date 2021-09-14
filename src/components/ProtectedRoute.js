@@ -1,11 +1,11 @@
 import { Route,Redirect } from "react-router-dom";
 
- function ProtectedRoute ({ children, path }) {
+ function ProtectedRoute ({ children, ...rest }) {
   const isLoggedIn = localStorage.getItem("isAuth");
 
   return (
-     <> {isLoggedIn?<Route path={path}>{children}</Route>:<Redirect to="/"/>}
-   </>
+     <div> {isLoggedIn?<Route {...rest}>{children}</Route>:<Redirect to="/"/>}
+   </div>
   );
 }
 

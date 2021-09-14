@@ -17,9 +17,6 @@ import SignUp from "./pages/signup/SignUp";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Portfolio from "./pages/portfolio/Portfolio";
-import FinancialModelling from "./pages/portfolio/FinancialModelling";
-import FinancialAppraisals from "./pages/portfolio/FinancialAppraisals";
-import FinancialDiagnostics from "./pages/portfolio/FinancialDiagnostics";
 
 library.add(fab, fas);
 
@@ -34,27 +31,19 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
+          
           <GlobalLayout>
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/portfolio">
+            <Route path="/portfolio">
               <Portfolio />
             </Route>
-            <Route exact path="/portfolio/financial-appraisals">
-              <FinancialAppraisals />
-            </Route>
-            <Route exact path="/portfolio/financial-diagnostic">
-              <FinancialDiagnostics />
-            </Route>
-            <Route exact path="/portfolio/financial-modelling">
-              <FinancialModelling />
-            </Route>
-            <ProtectedRoute>
-              <Route exact path="/dashboard">
+            
+            <ProtectedRoute  exact path="/dashboard">
                 <Dashboard />
-              </Route>
             </ProtectedRoute>
+
           </GlobalLayout>
         </Switch>
       </AppState>

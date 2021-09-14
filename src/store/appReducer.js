@@ -15,22 +15,19 @@ const appReducer = (state, action) => {
       return {
         ...state,
         isAuth: false,
-        user:{}
+        user: {},
       };
 
     case LOGIN:
-      localStorage.setItem(
-        'user',
-        JSON.stringify(action.payload),
-      );
-      localStorage.setItem('isAuth', true);
+      localStorage.setItem("user", JSON.stringify(action.payload));
+      localStorage.setItem("isAuth", true);
       return {
         ...state,
         isAuth: true,
-        user: action.payload
+        user: action.payload,
       };
 
-      case SET_IS_AUTH:
+    case SET_IS_AUTH:
       return {
         ...state,
         isAuth: action.payload,
