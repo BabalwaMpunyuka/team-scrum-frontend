@@ -10,7 +10,7 @@ export default function Tabs({url}) {
   };
   return (
     <div className="container">
-      <div className="row">
+      <div className="row py-4">
         {TabItems.map((item, index) => {
           return (
             <div key={index} className={`${styles.tab} col-md-4`}>

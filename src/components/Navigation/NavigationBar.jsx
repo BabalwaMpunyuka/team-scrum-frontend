@@ -36,16 +36,6 @@ const NavigationBar = () => {
             >
               <Link to="/">Home</Link>
             </li>
-            <li  className={`${styles.nav_link} ${
-                active === "Services" ? styles.active : ""
-              }`}
-              onClick={() => {
-                handleActive("Services");
-              }}>
-              <Link to="/portfolio/financial-appraisals" className="services">
-                Services
-              </Link>
-            </li>
             <li className={`${styles.nav_link} ${
                 active === "Blog" ? styles.active : ""
               }`}

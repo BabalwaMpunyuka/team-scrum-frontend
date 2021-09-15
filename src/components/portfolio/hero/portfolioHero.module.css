@@ -1,27 +1,47 @@
 .hero_wrapper {
   width: 100%;
-  height: 455px;
-  top: 128px;
-
+  min-height: 455px;
   background: #4884fb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
 
+.img_wrapper{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 50%;
+  height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 1;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.img_wrapper img{
+  position: absolute;
+  object-fit: contain;
+  top:55px;
+  width: 80%;
+  height: 400px;
 }
 
 .content {
   position: relative;
-  width: 50%;
+  margin-left: 5%;
   height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: space-around;
   justify-content: center;
   padding: 10px 30px 10px;
   letter-spacing: 0.005em;
   color: #ffffff;
+  background-color: #4884fb;
 }
 
 .hr {
@@ -29,57 +49,39 @@
   width: 9px;
   height: 291px;
   left: 0px;
-  top: 100px;
-
-  background: #292156;
+  top: 0px;
+  background: #fff;
 }
 
 .content h1 {
   width: 454px;
-  height: 80px;
+  min-height: 80px;
   font-weight: 600;
   font-size: 36px;
   line-height: 40px;
 }
 .content p {
   width: 376px;
-  height: 67px;
+  min-height: 67px;
   font-size: 18px;
   line-height: 25px;
 }
 
-.whiteBackdrop {
-  overflow-x: hidden;
-  position: absolute;
-  width: 60%;
-  height: 900px;
-  right: 0px;
-  top: 85px;
-  background: #ffffff;
-  border-radius: 50%;
-}
+@media screen and (max-width:990px) {
+  .img_wrapper{
+    left: 60%;
+    width: 40%;
+  }
 
-.imgContent {
-  width: 50%;
-  max-width:  662px;
-  height: 376px;
-  margin-top: 20px;
-  margin-left: -200px;
-  z-index: 2;
-  background: url("../../../images/portfolio-hero.png");
 }
 
 @media screen and (max-width:780px) {
-  .whiteBackdrop{
-    display: none;
-  }
-
-  .imgContent{
+  .img_wrapper{
     display: none;
   }
 
   .content{
-    width: 90%;
+    width: 100%;
   }
 
   .content h1 {
