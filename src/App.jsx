@@ -18,6 +18,11 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Blog from "./pages/blog/Blog";
+import Account from "./pages/account/Account";
+import EditProfile from "./pages/account/EditProfile";
+import Settings from "./pages/Settings/Settings";
+import Report from "./pages/report/Report";
+import Support from "./pages/support/Support";
 // import ScrollToTop from "./components/ScrollToTop";
 
 library.add(fab, fas);
@@ -34,7 +39,7 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          
+
           <GlobalLayout>
             <Route exact path="/">
               <Home />
@@ -46,9 +51,29 @@ function App() {
             <Route path="/blog">
               <Blog />
             </Route>
-            
-            <ProtectedRoute  exact path="/dashboard">
-                <Dashboard />
+
+            <Route path="/support">
+              <Support />
+            </Route>
+
+            <ProtectedRoute exact path="/account">
+              <Account />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact path="/account/edit">
+              <EditProfile />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact path="/settings">
+              <Settings />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact path="/reports">
+              <Report />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact path="/dashboard">
+              <Dashboard />
             </ProtectedRoute>
 
           </GlobalLayout>
