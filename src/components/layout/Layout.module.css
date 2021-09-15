@@ -10,7 +10,8 @@
 }
 
 .loggedlayout_wrapper .content {
-  width: 75%;
+  overflow: hidden !important;
+  width: 100%;
 }
 
 @media screen and (max-width: 780px) {

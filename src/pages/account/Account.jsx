@@ -1,31 +1,33 @@
-import NavigationBar from '../../components/Navigation/NavigationBar';
-import SideNav from "../dashboard/SideNav";
-import Footer from '../../components/footer/Footer';
-import user from '../../images/user.png';
-import accountStyles from './Account.module.css';
+import userImg from "../../images/user.png";
+import accountStyles from "./Account.module.css";
 import { Link } from "react-router-dom";
+import useContextGetter from "../../hooks/useContextGetter";
 
 const Account = () => {
-    return (
-        <div className='container-fluid'>
-            <NavigationBar />
-            <SideNav />
-            <div className={`${accountStyles.account_wrapper}`}>
-                <img src={user} alt="User" className={`img-responsive ${accountStyles.user_image}`}/>
-                <h2 className={`${accountStyles.h2}`}>Florentyna William</h2>
-                <h3 className={`${accountStyles.h3}`}>Email address:</h3>
-                <p className={`${accountStyles.p}`}>florentyna.william@example.com</p>
-                <h3 className={`${accountStyles.h3}`}>Phone number:</h3>
-                <p className={`${accountStyles.p}`}>+23397968048304</p>
-                <button className="btn btn-md btn-primary">
-                    <Link to="/edit_profile" className="edit">
-                    Edit profile
-                    </Link>
-                </button>
-            </div>
-            <Footer />
-        </div>
-    )
-}
+  const { user } = useContextGetter();
+  return (
+      <div className={`${accountStyles.account_wrapper}`}>
+        <img
+          src={userImg}
+          alt="User"
+          className={`${accountStyles.user_image}`}
+        />
+        <h2>
+          {user.firstName} {user.lastName}
+        </h2>
+        <h3>Email address</h3>
+        <p>{user.email}</p>
+        {user.phoneNumber && (
+          <>
+            <h3>Phone number</h3>
+            <p>{user.phoneNumber}</p>
+          </>
+        )}
+        <Link to="/account/edit">
+          <button className="btn btn-md btn-primary">Edit Profile</button>
+        </Link>
+      </div>
+  );
+};
 
 export default Account;
