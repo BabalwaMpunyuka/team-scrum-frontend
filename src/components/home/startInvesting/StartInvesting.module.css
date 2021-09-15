@@ -3,15 +3,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  flex-grow: 1;
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
-  min-height: 353px;
   background: url("../../../images/start_investing_bg.png");
   background-position: center;
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
 }
