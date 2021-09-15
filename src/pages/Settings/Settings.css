@@ -1,0 +1,57 @@
+.settings{
+
+    margin: 20px;
+    /* background-color: whitesmoke; */
+    font-family: sans-serif;
+}
+
+.settings-header{
+    padding: 20px;
+    padding-left: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.alert-header, .announcements-header{
+    color: #005CC8;
+    font-size: 18px;
+    margin-left: 10%;
+}
+
+.privacy-settings .learn{
+    margin-left: 14px;
+}
+
+.settings label{
+    margin-left: 10px;
+}
+
+.settings .button {
+    margin:20px 30%;
+    padding: 15px 40px;
+    border-radius:30px;
+    font-weight: 800;
+    background-color: #fff;
+    outline: none;
+}
+.settings .button:hover {
+    color: white;
+    background-color: #3461BB;
+    border: none;
+
+}
+
+@media (max-width: 360px){
+    .alert-header, .announcements-header{
+        margin-left: 0;
+    }
+    .privacy-settings .learn{
+        margin-left: 7px;
+    }
+    
+    .settings .button {
+        margin:15px 35px;
+    }
+}
+
+ 

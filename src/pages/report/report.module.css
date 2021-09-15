@@ -1,0 +1,55 @@
+.report_wrapper {
+  background-color: rgb(250, 239, 239);
+  width: 100%;
+  margin: 0px;
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+.report_wrapper h1 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 21px;
+  color: #a7a7a7;
+}
+
+.report_wrapper .section_report, .report_wrapper .report_history {
+  width: 100%;
+  margin-left: 10px;
+  height: auto;
+  min-height: 140px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.section_report span {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+.report_history h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.report_history span {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+#date_posted {
+  font-size: 14px;
+}
+
+#icon_file {
+  display: inline-block;
+  border: 2px solid #4884fb;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  color: #4884fb;
+  font-size: 18px;
+}

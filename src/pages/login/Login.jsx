@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Link } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -17,6 +17,7 @@ import { formatErrors } from "../../utils/error.utils";
 export const Login = () => {
   const { messages, propagateMessage,login } = useContextGetter();
   const [isChecked,setIsChecked] = useState(true);
+  const history=useHistory();
   const validate = Yup.object().shape({
     email: Yup.string()
       .email(" Please enter a valid email address ")
@@ -38,7 +39,7 @@ export const Login = () => {
           timeout: 5000,
         });
       }
-
+      history.replace("/dashboard");
     } catch (e) {
       propagateMessage({
         content: formatErrors(e),
@@ -123,9 +124,9 @@ export const Login = () => {
                         checked={isChecked?"checked":""}
                         onClick={()=>{setIsChecked(!isChecked)}}
                       />
-                      <label for="remember-me"> Remember me next time</label>
+                      <label htmlFor="remember-me"> Remember me next time</label>
                     </div>
-                    <Link className={LoginStyles.forgotPassword}>Forgot Password? Click Here</Link>
+                    <Link to="/forgot-password" className={LoginStyles.forgotPassword}>Forgot Password? Click Here</Link>
                   </Form>
                 </div>
               )}

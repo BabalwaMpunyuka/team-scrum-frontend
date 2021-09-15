@@ -21,7 +21,7 @@ export const SidebarItems = [
     },
     {
       title: 'Settings',
-      path: '/',
+      path: '/settings',
       icon: <Icon icon="ci:settings" />,
       id: '5'
     },
