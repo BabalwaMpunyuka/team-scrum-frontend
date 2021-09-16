@@ -23,6 +23,8 @@ import EditProfile from "./pages/account/EditProfile";
 import Settings from "./pages/Settings/Settings";
 import Report from "./pages/report/Report";
 import Support from "./pages/support/Support";
+import ForgotPassword from "./pages/signup/ForgotPassword";
+import ChangePassword from "./pages/signup/ChangePassword";
 // import ScrollToTop from "./components/ScrollToTop";
 
 library.add(fab, fas);
@@ -40,42 +42,50 @@ function App() {
             <Login />
           </Route>
 
+          <Route exact path="/auth/forgot-password">
+            <ForgotPassword />
+          </Route>
+
           <GlobalLayout>
             <Route exact path="/">
               <Home />
             </Route>
+
             <Route path="/portfolio">
               <Portfolio />
+            </Route>
+
+            <Route exact path="/support">
+              <Support />
             </Route>
 
             <Route path="/blog">
               <Blog />
             </Route>
 
-            <Route path="/support">
-              <Support />
-            </Route>
-
-            <ProtectedRoute exact path="/account">
+            <ProtectedRoute exact routePath="/account">
               <Account />
             </ProtectedRoute>
 
-            <ProtectedRoute exact path="/account/edit">
+            <ProtectedRoute exact routePath="/account/edit">
               <EditProfile />
             </ProtectedRoute>
 
-            <ProtectedRoute exact path="/settings">
+            <Route exact path="/acount/change-password">
+              <ChangePassword />
+            </Route>
+
+            <ProtectedRoute exact routePath="/settings">
               <Settings />
             </ProtectedRoute>
 
-            <ProtectedRoute exact path="/reports">
+            <ProtectedRoute exact routePath="/reports">
               <Report />
             </ProtectedRoute>
 
-            <ProtectedRoute exact path="/dashboard">
+            <ProtectedRoute exact routePath="/dashboard">
               <Dashboard />
             </ProtectedRoute>
-
           </GlobalLayout>
         </Switch>
       </AppState>

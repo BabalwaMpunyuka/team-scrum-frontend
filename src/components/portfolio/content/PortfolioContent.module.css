@@ -10,5 +10,5 @@
 
 .visualization .img_wrapper {
     margin-top: 10px;
-    min-height: 600px;
+    min-height: auto;
 }

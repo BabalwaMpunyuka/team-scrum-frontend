@@ -125,6 +125,29 @@
   bottom: -250px;
 }
 
+@media screen and (max-width: 990px) {
+  .top {
+    position: relative;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: inherit;
+    font-weight: 500;
+    padding: 20px;
+    z-index: 3;
+    top: -80px;
+  }
+
+  .top .menu_bars {
+    font-size: 2rem;
+  }
+
+  .side_nav_hide {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .top {
     position: relative;

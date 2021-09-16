@@ -11,7 +11,22 @@
 
 .loggedlayout_wrapper .content {
   overflow: hidden !important;
-  width: 100%;
+  width: 75%;
+}
+
+@media screen and (max-width: 990px) {
+  .loggedlayout_wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .loggedlayout_wrapper .side {
+    width: 100%;
+  }
+  
+  .loggedlayout_wrapper .content {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 780px) {

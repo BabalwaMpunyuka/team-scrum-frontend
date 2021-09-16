@@ -32,14 +32,18 @@
 }
 
 .have_an_acc {
+  padding-top: 10px;
   text-align: center;
-  font-weight: 500;
   margin-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 3px;
 }
 
-.forgotPassword {
-    display: block;
+.have_an_acc a{
+  font-weight: 500;
+}
+
+#forgotPassword {
+  display: block;
   text-align: center;
   width: 100%;
   font-weight: 400;

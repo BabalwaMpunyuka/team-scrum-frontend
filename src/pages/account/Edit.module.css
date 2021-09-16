@@ -21,3 +21,33 @@
   padding: 15px;
   outline: none;
 }
+
+@media screen and (max-width:990px){
+  .input_wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+  }
+
+  .input_wrapper .field {
+    margin-top: 10px;
+  }
+
+}
+
+@media screen and (max-width:780px) {
+  .input_wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+  }
+
+  .input_wrapper .field {
+    margin-top: 10px;
+    width: 100%;
+  }
+}

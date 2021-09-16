@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {Link, useHistory } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik, Form } from "formik";
@@ -6,7 +5,7 @@ import * as Yup from "yup";
 import useContextGetter from "../../hooks/useContextGetter";
 import { TextField } from "../../components/form/text/TextField";
 import SignUpStyles from "../signup/SignUp.module.css";
-import  LoginStyles from"./Login.module.css";
+import  LoginStyles from"../login/Login.module.css";
 import ConditionalHeader from "../../components/Navigation/login-signup-nav/ConditionalHeader";
 import Footer from "../../components/footer/Footer";
 import { Spinner } from "react-bootstrap";
@@ -14,9 +13,8 @@ import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
 
-export const Login = () => {
+export const ForgotPassword = () => {
   const { messages, propagateMessage,login } = useContextGetter();
-  const [isChecked,setIsChecked] = useState(true);
   const history=useHistory();
   const validate = Yup.object().shape({
     email: Yup.string()
@@ -27,10 +25,7 @@ export const Login = () => {
       .required("Please provide a strong password"),
   });
 
-  const handleRememberMe=()=>{
-
-  }
-  const handleLogin = async (values, { setSubmitting }) => {
+  const handleForgotPassword = async (values, { setSubmitting }) => {
     try {
       const res = await API.post(`/api/v1/Authentication/login`, values);
       if (res.data.success) {
@@ -77,11 +72,12 @@ export const Login = () => {
                 password: "",
               }}
               validationSchema={validate}
-              onSubmit={handleLogin}
+              onSubmit={handleForgotPassword}
             >
               {({ handleSubmit, isSubmitting }) => (
                 <div className={`container ${SignUpStyles.sign_up}`}>
-                  <h1 className="my-4"> Log In </h1>
+                  <h1 className="my-4"> Forgot Password? </h1>
+                  <p>Enter email address linked to your account to reset password</p>
                   <Form onSubmit={handleSubmit}>
                     <div className={`${SignUpStyles.form_group}`}>
                       <TextField
@@ -92,46 +88,22 @@ export const Login = () => {
                         className={`${SignUpStyles.form_input}`}
                       />
                     </div>
-
-                    <div className={`${SignUpStyles.form_group}`}>
-                      <TextField
-                        label="Password"
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        className={`${SignUpStyles.form_input}`}
-                      />
-                    </div>
-
                     <button
                       className={`${SignUpStyles.btn} btn-block mt-4 ${SignUpStyles.form_input}`}
                       type="submit"
                       disabled={isSubmitting}
                     >
                       {!isSubmitting ? (
-                        "Login"
+                        "Submit"
                       ) : (
                         <Spinner animation="border" variant="light" />
                       )}
                     </button>
 
                     <p className={LoginStyles.have_an_acc}>
-                      <Link to="/signup"> I do not have an account</Link>
+                      <Link to="/signup"> Don’t have an account? sign up</Link>
                     </p>
-                    <div className={`d-flex align-items-center justify-content-center ${LoginStyles.checkbox}`}>
-                      <input
-                        type="checkbox"
-                        className={LoginStyles.remember_me}
-                        id="remember-me"
-                        name="remember-me"
-                        onChange={handleRememberMe}
-                        checked={isChecked?"checked":""}
-                        onClick={()=>{setIsChecked(!isChecked)}}
-                      />
-                      <label htmlFor="remember-me"> Remember me next time</label>
-                    </div>
-                    <Link to="/auth/forgot-password" id={LoginStyles.forgotPassword}>Forgot Password? Click Here</Link>
-                  </Form>
+                    </Form>
                 </div>
               )}
             </Formik>
@@ -144,4 +116,4 @@ export const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

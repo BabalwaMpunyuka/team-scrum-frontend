@@ -1,25 +1,29 @@
-import { useContext, useEffect } from 'react';
-import AppContext from '../../store/appContext';
+import { useContext, useEffect } from "react";
+import AppContext from "../../store/appContext";
 
-import Layout from './Layout';
-import LoggedInLayout from './LoggedInLayout';
-import PopupList from '../message/PopupList';
+import Layout from "./Layout";
+import LoggedInLayout from "./LoggedInLayout";
+import PopupList from "../message/PopupList";
+export default function GlobalLayout({ children }) {
+  const { messages, isAuth, login } = useContext(AppContext);
+  const isLoggedIn = localStorage.getItem("isAuth");
+  const user = JSON.parse(localStorage.getItem("user"));
 
-export default function GlobalLayout({children}){
-    const {messages, isAuth,login}=useContext(AppContext);
-    useEffect(() => {
-        const isLoggedIn = localStorage.getItem("isAuth");
-        if(!isAuth && isLoggedIn){
-            const user = JSON.parse(localStorage.getItem("user"));
-            login(user);
-        }
-        // eslint-disable-next-line
-    }, [])
-    return(
-        <div>
-         <PopupList popups={messages}/>
-        {!isAuth ? <Layout>{children}</Layout>
-        :<LoggedInLayout>{children}</LoggedInLayout>}
-        </div>
-    );
+  useEffect(() => {
+    if (!isAuth && isLoggedIn) {
+      login(user);
+    }
+    // eslint-disable-next-line
+  }, []);
+  
+  return (
+    <div>
+      <PopupList popups={messages} />
+      {!isAuth ? (
+        <Layout>{children}</Layout>
+     ) : (
+        <LoggedInLayout>{children}</LoggedInLayout>
+      )}
+    </div>
+  );
 }

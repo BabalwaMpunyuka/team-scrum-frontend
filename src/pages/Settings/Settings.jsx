@@ -12,15 +12,15 @@ export const Settings = () => {
                 <form action="" className=" row d-flex justify-content-around">
                     <div className="email">
                     <input type="checkbox" id="email" name="email" value="email" className="input" />
-                    <label for="email"> e-mail </label>
+                    <label htmlFor="email"> e-mail </label>
                     </div>
                     <div className="push-notification">
                     <input type="checkbox" id="push-notification" name="push-notification" value="push-notification" />
-                    <label for="push-notification"> Push notification</label>
+                    <label htmlFor="push-notification"> Push notification</label>
                     </div>
                     <div className="sms">
                     <input type="checkbox" id="sms" name="sms" value="sms" />
-                    <label for="sms"> SMS </label>
+                    <label htmlFor="sms"> SMS </label>
                     </div>
                 </form>
                 </div>
@@ -29,15 +29,15 @@ export const Settings = () => {
                 <form action="" className="row d-flex justify-content-around">
                     <div className="email">
                     <input type="checkbox" id="email" name="email" value="email" />
-                    <label for="email"> e-mail </label>
+                    <label htmlFor="email"> e-mail </label>
                     </div>
                     <div className="push-notification">
                     <input type="checkbox" id="push-notification" name="push-notification" value="push-notification" />
-                    <label for="push-notification"> Push notification</label>
+                    <label htmlFor="push-notification"> Push notification</label>
                     </div>
                     <div className="sms">
                     <input type="checkbox" id="sms" name="sms" value="sms" />
-                    <label for="sms"> SMS </label>
+                    <label htmlFor="sms"> SMS </label>
                     </div>
                 </form>
                 </div>
@@ -49,7 +49,7 @@ export const Settings = () => {
             <h2 className="settings-header">Disable Settings</h2>
             <div className="disable-settings">
                     <input type="checkbox" id="dark-mode" name="dark-mode" value="dark-mode" />
-                    <label for="dark-mode"> Enable Dark Mode</label>
+                    <label htmlFor="dark-mode"> Enable Dark Mode</label>
             </div>
             </div>
             <hr />
@@ -57,7 +57,7 @@ export const Settings = () => {
             <h2 className="settings-header">Disable Settings</h2>
             <div className="privacy-settings">
                     <input type="checkbox" id="privacy-use" name="privacy-use" value="privacy-setting" />
-                    <label for="privacy-use"><p> Allow the use of my personal data for financial assessments in accordance with the private policy </p> </label>
+                    <label htmlFor="privacy-use"><p> Allow the use of my personal data for financial assessments in accordance with the private policy </p> </label>
 
                     <p className="learn">Learn about our <span> <a href="www.google.com"> private policy</a></span></p>
             </div>

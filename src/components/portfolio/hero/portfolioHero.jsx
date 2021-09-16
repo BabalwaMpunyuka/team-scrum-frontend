@@ -13,7 +13,9 @@ const PortfolioHero = () => {
         </p>
       </div>
       <div className={styles.img_wrapper}>
+        <div className={styles.img_container}>
         <img src={portfolioImg} alt="portfolio" />
+        </div>
       </div>
     </div>
   );
