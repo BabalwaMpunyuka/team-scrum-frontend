@@ -9,8 +9,8 @@ const Header = () => {
         <h1>Strategic Financial Decisions Simplified</h1>
         <p>
           ITIAA is bridging the gapby providing our userswith
-          Investmentappraisal and Analysisservices to makeinformed
-          investmentsdecisions.
+          Investment appraisal and Analysis services to make informed
+          investments decisions.
         </p>
         <Link to="/login">
           <Button type="button" variant="primary">
