@@ -17,7 +17,7 @@ export default function BlogSection() {
             <Card className="" width="310.51px" height="407px">
               <img src={news_image} alt="news" />
               <p className="my-3 mx-2 text-center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                What is Financial appraisal?
               </p>
             </Card>
           </Link>
@@ -27,17 +27,17 @@ export default function BlogSection() {
             <Card className="" width="310.51px" height="407px">
               <img src={percent_image} alt="percent" />
               <p className="my-3 mx-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Financial analytics and diagnostics: what you should know
               </p>
             </Card>
           </Link>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
-          <Link to="/vblog/3">
+          <Link to="/blog/3">
             <Card className="" width="310.51px" height="407px">
               <img src={calculator_image} alt="calculator" />
               <p className="my-3 mx-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Financial modeling defined for a layman
               </p>
             </Card>
           </Link>

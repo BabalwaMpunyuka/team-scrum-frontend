@@ -26,6 +26,8 @@
 
 .contact-form .btn {
   background-color: #4884fb;
+  color:#fff;
+  width: 200px;
 }
 
 .contact-form .btn:hover {

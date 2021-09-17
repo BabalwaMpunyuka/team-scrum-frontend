@@ -2,24 +2,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const TabItems = [
     {
-        title: 'Financial Appraisals',
+        title: 'Financial & investment appraisal',
         path: 'financial-appraisals',
         icon: <FontAwesomeIcon icon={["fas", "chart-area"]} />,
-        description: 'Lorem ipsum dolor sit amet, consectetur a aliquam',
+        description: 'Equity analysis and appraisal using python programming, excel, power BI',
         id: '1'
       },
     {
-      title: 'Financial Diagnostics',
+      title: 'Financial analytics and diagnostics',
       path: 'financial-diagnostic',
       icon: <FontAwesomeIcon icon={["fas", "chart-line"]} />,
-      description: 'Lorem ipsum dolor sit amet, consectetur a aliquam',
+      description: 'Financial analytics and diagnostics using Excel, ptyhon, power BI',
       id: '2'
     },
     {
-      title: 'Financial Modelling',
+      title: 'Financial modelling and evaluation',
       path: 'financial-modelling',
       icon: <FontAwesomeIcon icon={["fas", "chart-bar"]} />,
-      description: 'Lorem ipsum dolor sit amet, consectetur a aliquam',
+      description: 'FInancial modelling and evaluation in Excel, ptyhon, power BI',
       id: '3'
     }
   ];

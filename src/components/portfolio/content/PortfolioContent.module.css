@@ -1,6 +1,15 @@
 .visualization {
   margin-top: 10px;
-  padding: 0px 10px;
+  padding: 0px 10px; 
+}
+
+.visualization embed{
+  width: 100%;
+  min-height: 70vh;
+}
+
+.visualization .desc{
+  padding: 10px 10px;
 }
 
 .visualization .desc p {
@@ -12,3 +21,5 @@
     margin-top: 10px;
     min-height: auto;
 }
+
+

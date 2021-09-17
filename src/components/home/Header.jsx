@@ -6,15 +6,17 @@ const Header = () => {
   return (
     <div className={`${styles.header}`}>
       <div className={`${styles.header_content}`}>
-        <h1>Investment made easy</h1>
+        <h1>Strategic Financial Decisions Simplified</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing
-          nullam gravida at massa, id nisl porttitor. Non risus in dictum
-          tiaenean.
+          ITIAA is bridging the gapby providing our userswith
+          Investmentappraisal and Analysisservices to makeinformed
+          investmentsdecisions.
         </p>
-        <Link to="/login"><Button type="button" variant="primary">
+        <Link to="/login">
+          <Button type="button" variant="primary">
             Get Started
-        </Button></Link>
+          </Button>
+        </Link>
       </div>
       <div className={`${styles.header_image}`}></div>
     </div>

@@ -35,7 +35,7 @@
 }
 
 .topic_image img {
-  object-fit: cover;
+  object-fit: 100%;
   width: 100%;
   height: 394px;
 }
@@ -57,7 +57,7 @@
 .featured_text_wrapper p {
   text-align: justify;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 28px;
   letter-spacing: 0.005em;
 }
 

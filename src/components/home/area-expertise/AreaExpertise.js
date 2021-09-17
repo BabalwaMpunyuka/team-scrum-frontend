@@ -12,7 +12,7 @@ import Button from "../../../components/form/button/Button";
 function AreaExpertise() {
   return (
     <div className={`${styles.expertise_wrapper}`}>
-      <h1>Area of Expertise</h1>
+      <h1>Services</h1>
       <div className={`container ${styles.expertise_grid_container}`}>
         <div className={styles.expertise_grid_item}>
           <div className={styles.grid_item_icon}>
@@ -33,12 +33,12 @@ function AreaExpertise() {
               className={styles.line_graph}
             />
           </div>
-          <h2>Financial Appraisals</h2>
+          <h2>Financial & Investment appraisal</h2>
           <p>
-            Turpis lorem hendrerit metus vestibulum nisl. Id turpis massa urna
-            cursus porta aliquam. Vulputate lacus, ut pellentesque sociis eu
-            placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
-            aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
+            Financial appraisal involves the use of discounted cash flow
+            techniques and other approaches used to assess a business problem in
+            financial terms, such as ratio analysis, profitability index, or
+            risk analysis. Compare economic appraisal. Investment appraisal involves analysis done to consider the profitability of an investment.
           </p>
           <Link to={`/portfolio/financial-appraisals`}>
             <Button type="button" variant="primary">
@@ -56,12 +56,13 @@ function AreaExpertise() {
               className={styles.line_graph_two}
             />
           </div>
-          <h2>Financial Diagnostics</h2>
+          <h2>Financial analytics and diagnostics</h2>
           <p>
-            Turpis lorem hendrerit metus vestibulum nisl. Id turpis massa urna
-            cursus porta aliquam. Vulputate lacus, ut pellentesque sociis eu
-            placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
-            aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
+            Financial analysis is the process of evaluating businesses,
+            projects, budgets, and other finance-related transactions to
+            determine their performance and suitability. Typically, financial
+            analysis is used to analyze whether an entity is stable, solvent,
+            liquid, or profitable enough to warrant a monetary investment.
           </p>
           <Link to={`/portfolio/financial-diagnostic`}>
             <Button type="button" variant="primary">
@@ -78,12 +79,13 @@ function AreaExpertise() {
               className={styles.bar_chart}
             />
           </div>
-          <h2>Financial Modelling and evaluation</h2>
+          <h2>Financial modelling and evaluation</h2>
           <p>
-            Turpis lorem hendrerit metus vestibulum nisl. Id turpis massa urna
-            cursus porta aliquam. Vulputate lacus, ut pellentesque sociis eu
-            placerat integer. Mattis ut hac aliquam porttitor mauris. Ultrices
-            aenean hendrerit rutrum condimentum vitae sagittis, cras. Nunc
+            Financial modeling is a representation in numbers of a company's
+            operations in the past, present, and the forecasted future. Such
+            models are intended to be used as decision-making tools. In
+            Financial analysis they are used to explain or anticipate the impact
+            of events on a company's stock, from internal factors.
           </p>
           <Link to={`/portfolio/financial-modelling`}>
             <Button type="button" variant="primary">

@@ -55,12 +55,10 @@ const Footer = () => {
           </div>
         </div>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus
-          impedit consequatur ullam eaque! A repellendus porro optio eos impedit
-          assumenda, saepe fuga sapiente deleniti id corrupti quae dolores natus
-          veritatis omnis facilis velit doloremque voluptate sed. Et corrupti
-          suscipit optio, aperiam harum magni, quos quisquam, blanditiis itaque
-          quibusdam tempora tenetur!
+          Have you ever needed to make an investment decision but did not know
+          where to look. Have you been curious about the true financial health
+          of a business venture or fund. Look no further; the multivariate stop
+          to financial choices and capital budgeting decisions is here
         </p>
       </div>
     </div>

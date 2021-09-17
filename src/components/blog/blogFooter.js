@@ -12,24 +12,24 @@ const BlogFooter = () => {
         <div className={`${blogStyles.news_margin}`}>
           <Link to="/blog/1">
             <img src={calculator_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} `}>
+            What is Financial appraisal?
             </p>
           </Link>
         </div>
         <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
+          <Link to="/blog/2">
             <img src={percent_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} text-center`}>
+            Financial analytics and diagnostics: what you should know
             </p>
           </Link>
         </div>
         <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
+          <Link to="/blog/3">
             <img src={percent_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} text-center`}>
+            Financial modeling defined for a layman
             </p>
           </Link>
         </div>
@@ -38,54 +38,29 @@ const BlogFooter = () => {
         <div className={`${blogStyles.news_margin}`}>
           <Link to="/blog/1">
             <img src={news_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} text-center`}>
+            What is Financial appraisal?
             </p>
           </Link>
         </div>
         <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
+          <Link to="/blog/2">
             <img src={calculator_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} text-center`}>
+            Financial analytics and diagnostics: what you should know
             </p>
           </Link>
         </div>
         <div className={` ${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
+          <Link to="/blog/3">
             <img src={percent_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
+            <p className={`${blogStyles.para} text-center`}>
+            Financial modeling defined for a layman
             </p>
           </Link>
         </div>
       </div>
-      <div className={`${blogStyles.blog_grid}`}>
-        <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
-            <img src={news_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
-            </p>
-          </Link>
-        </div>
-        <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
-            <img src={calculator_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
-            </p>
-          </Link>
-        </div>
-        <div className={`${blogStyles.news_margin}`}>
-          <Link to="/blog/1">
-            <img src={percent_image} alt="Blog news" />
-            <p className={`${blogStyles.para}`}>
-              Lorem ipsum it's past midnight, don't stay up too late
-            </p>
-          </Link>
-        </div>
-      </div>
+      
     </div>
   );
 };

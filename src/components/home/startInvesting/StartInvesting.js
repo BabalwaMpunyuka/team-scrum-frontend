@@ -9,6 +9,7 @@ export default function StartInvesting() {
     <div className={`container ${styles.StartInvesting}`}>
       <h1>Start investing with any of these platforms</h1>
       <div className={`row ${styles.row}`}>
+        
          <div className="col-lg-4 col-md-6 col-sm-12">
         
           <img src={windows_image} alt="news" />
