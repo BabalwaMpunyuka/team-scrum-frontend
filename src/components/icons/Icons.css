@@ -22,19 +22,24 @@
 .awesome{
     margin-right: 10px;
     padding: 12px;
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
+    min-width: 25%;
+    min-height: 25%;
     border-radius: 50%;
     color: white;
     background-color: #4884FB;
 }
 
-.call{
-    width: 17%;
-    height: 17%;
-    color: red;
-
+.call .awesome{
+    width: 40%;
+    height: 40%;
 }
+/* background-color: red !important; */
+
+/* .icons .follow, .icons .email, .icons .call {
+    max-width: fit-content;
+} */
 
 
 .media-icons{
@@ -46,14 +51,14 @@
     margin-left: 30px;
     margin-top: 20px;
     padding: 8px;
-    font-size: 24px;
+    font-size: 40px;
     border-radius: 50%;
     color: #4884FB;
     background-color: rgb(218, 232, 251);
 }
 
 .media-icons .media-icon:nth-child(1){
-    margin-left: -30px;
+    margin-left: -15px;
 }
 
 
@@ -70,8 +75,15 @@
     .media-icons{
         margin-bottom: 10%;
     }
-
+    .media-icons .media-icon{
+        font-size: 40px;
+    }
+    
     .media-icons .media-icon:nth-child(1){
         margin-left: 50px;
+    }
+    .call .awesome{
+        width: 15%;
+        height: 15%;
     }
 }

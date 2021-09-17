@@ -8,8 +8,7 @@ const PortfolioHero = () => {
         <div className={styles.hr}></div>
         <h1>About Our Investments Consulting Company</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing
-          nullam gravida at massa, id nisl porttitor..
+          We are fintech entrepreneurs and Consultants combining finance and technology to offer solutions to a multivariate stream of users needing to make smart, informed and data driven financial decisions through our three tier service pack:financial & investment appraisal, financial analytics and diagnostics, financial modelling and evaluation
         </p>
       </div>
       <div className={styles.img_wrapper}>
