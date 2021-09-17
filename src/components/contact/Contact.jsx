@@ -1,12 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
+// import '../Styles/Contact.css';
 import './Contact.css';
-// import Icons from '../icons/Icons';
 
 const Contact = () => {
-    const {handleSubmit} = useForm();
     
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,7 +12,8 @@ const Contact = () => {
     const [description, setDescription] = useState('');
     
     const SendEmail =(e) => {
-
+        e.preventDefault();
+        
         emailjs.sendForm(
             'service_ftm6ivd', 
             'template_k64m696',
@@ -35,9 +34,9 @@ const Contact = () => {
     }
 
     return (
-        <form className="contact-form" onSubmit={handleSubmit(SendEmail)}> 
+        <form className="contact-form" onSubmit={SendEmail}> 
             <div className="container">
-                <h1 className="text-center mb-4">Contact us</h1>
+                <h1 className="text-uppercase text-center mb-4">contact us</h1>
             <div className="mb-3">
                 <input className="form-control" 
                 type="text" name="name" 

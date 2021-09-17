@@ -56,7 +56,7 @@ export const Login = () => {
     }
   };
   return (
-    <div>
+    <div className="Login">
       <ConditionalHeader />
       <PopupList popups={messages} />
       <div className="container">
@@ -67,7 +67,7 @@ export const Login = () => {
               src={LoginImg}
               alt="Sign Up"
               className={`img-fluid ${SignUpStyles.sign_up_img}`}
-            />
+            />            
           </div>
 
           <div className="col-md-5">
