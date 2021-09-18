@@ -57,6 +57,9 @@ jobs:
         # name: node-app
         name: frontend-artifact
         
+    - name: ‘Extract artifact’
+      run: tar -xvf frontend.tar 
+        
 
     - name: 'Deploy to Azure Web App'
       id: deploy-to-webapp
