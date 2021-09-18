@@ -8,7 +8,7 @@ const Header = () => {
       <div className={`${styles.header_content}`}>
         <h1>Strategic Financial Decisions Simplified</h1>
         <p>
-          ITIAA is bridging the gapby providing our userswith
+          ITIAA is bridging the gapby providing our users with
           Investment appraisal and Analysis services to make informed
           investments decisions.
         </p>

@@ -21,7 +21,7 @@ const Dashboard = () => {
             <FontAwesomeIcon icon={["fas", "chart-area"]} className={dashStyles.icon} />
           </div>
           <h2>Financial Appraisals</h2>
-          <p className={dashStyles.text}>lorem ipsum take away</p>
+          <p className={dashStyles.text}>View portfolio on financial appraisals</p>
         </Card></Link>
         <Link
                 to={`/portfolio/financial-diagnostic`}
@@ -36,7 +36,7 @@ const Dashboard = () => {
             />
           </div>
           <h2>Financial Modelling</h2>
-          <p className={dashStyles.text}>lorem ipsum take away</p>
+          <p className={dashStyles.text}>View Microsoft an Apple financial modelling</p>
         </Card></Link>
         <Link
                 to={`/portfolio/financial-modelling`}
@@ -52,7 +52,7 @@ const Dashboard = () => {
             />
           </div>
           <h2>Financial Diagnostics</h2>
-          <p className={dashStyles.text}>lorem ipsum take away</p>
+          <p className={dashStyles.text}>View protfolio on financial diagnostics</p>
         </Card></Link>
         <Card className={dashStyles.service_card}>
           <div className={dashStyles.icon_wrapper}>
