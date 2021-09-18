@@ -27,11 +27,21 @@ jobs:
         #npm run build --if-present
         npm build 
         
-    - name: Upload artifact for deployment job
+    - name: 'Tar files'
+      run: tar -cvf frontend.tar .
+
+    - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
-        name: node-app
-        path: .
+        name: frontend-artifact
+        path: frontend.tar
+    
+        
+   # - name: Upload artifact for deployment job
+    #  uses: actions/upload-artifact@v2
+     # with:
+      #  name: node-app
+        #path: .
 
   deploy:
     runs-on: ubuntu-latest
