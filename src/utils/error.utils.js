@@ -7,10 +7,10 @@ export const formatErrors = (error) => {
 
       if(error.response.status===401) return "Unathorized";
 
-      return "Unable to send request!!. Ensure you have strong internet connection and try again." 
+      return "Unable to send request!!. Try again later." 
     }catch(err){
       console.log(err);
-      return "Unable to send request!!. Ensure you have strong internet connection.";
+      return "Unable to send request!!.";
     }
     
   };

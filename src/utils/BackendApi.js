@@ -1,7 +1,9 @@
 import axios from "axios";
+
+//http://Itiaacon.azurewebsites.net
 //http://localhost:5000
 const API = axios.create({
-  baseURL: "http://Itiaacon.azurewebsites.net",
+  baseURL: "https://itiaacon.azurewebsites.net",
   headers: {
       "Accept":"*/*",
     "content-type": "application/json"
