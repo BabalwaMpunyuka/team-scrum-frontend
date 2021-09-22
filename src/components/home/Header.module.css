@@ -76,11 +76,11 @@
   }
 
   .header_image {
-    margin-top: 10px;
+    display: none;
+    /* margin-top: 10px;
     width: 100%;
     left: -20px;
     order: 2;
-    align-self: center;
+    align-self: center; */
   }
-
 }

@@ -17,7 +17,9 @@
   background-color: #fbfbfb;
   color: #000;
 }
-
+.logo {
+  font-size: 30px;
+}
 .nav_links {
   display: flex;
   justify-content: flex-end;
@@ -33,11 +35,6 @@
   padding: 10px 20px;
   margin: 0 10px;
   cursor: pointer;
-  transition: all 300ms ease;
-}
-
-.active {
-  border-left: 2px solid #4884fb;
 }
 
 .nav_link a {
@@ -53,7 +50,7 @@
   .logo {
     display: flex;
     position: absolute;
-    top: 15px;
+    top: 5px;
     left: 35px;
   }
 
@@ -65,7 +62,7 @@
     display: block;
     position: absolute;
     list-style: none;
-    background-color: #f5f5f5;
+    background: #4884FB;
     left: 0;
     top: 90px;
     transition: all 0.5s ease;
@@ -74,9 +71,9 @@
   }
 
   .nav_link {
-    color: #636363;
+    color: #F9FAFA;
     text-align: center;
-    background-color: #f5f5f5;
+    background: #4884FB;
     padding: 12px;
     width: 100%;
     transition: all 0.5s ease;
@@ -85,9 +82,9 @@
   .mobile_menu_icon {
     display: block;
     position: absolute;
-    font-size: 45px;
-    color: #636363;
-    background: #fbfbfb;
+    font-size: 35px;
+    color: #0C023E;
+    background: #F9FAFA;
     border: none;
     outline: none;
     top: 15px;
