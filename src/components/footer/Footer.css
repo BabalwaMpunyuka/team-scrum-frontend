@@ -4,7 +4,7 @@
     background-color: #0c023e;    
     padding-bottom: 20px;
 }
-
+ 
 
 .footer-logo{
     width: 70%;
@@ -31,32 +31,30 @@
     margin-left: 30px;
 }
 
+.mobile-view   {
+    display: none;
+}
+
 @media screen and (max-width:680px) {
     .footer-objects{
         display: flex;
         flex-direction: column;
+        line-height: 0.1;
     }
     
     .footer-logo{
-        margin-left: 100px;
-    }
-
-    .footer-links{
-        display: flex;
-        flex-direction: row;
-        white-space: nowrap;
-    }
-    
-    .one{
-        margin-left: 50px;
+        margin-bottom: 50px;
+        margin-left: -20px;
     }
 
     .footer p{
         margin-left: 0;
     }
 
-    .help{
-        margin-left: 30px;
+    .mobile-view{
+        display: flex;
+        flex-direction: column;
+        /* width: 30%; */
     }
 
 }

@@ -126,7 +126,8 @@
   bottom: 77.77%;
 }
 
-@media screen and (max-width: 785px) {
+
+@media screen and (max-width: 990px) {
   .expertise_wrapper {
     margin: 20px auto;
   }
@@ -137,4 +138,5 @@
   .expertise_wrapper h1 {
     margin-top: 20px;
   }
+  
 }

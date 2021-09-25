@@ -3,6 +3,8 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 // import '../Styles/Contact.css';
 import './Contact.css';
+// import Button from '../../components/form/button/Button'
+import Button from '../form/button/Button';
 
 const Contact = () => {
     
@@ -13,7 +15,6 @@ const Contact = () => {
     
     const SendEmail =(e) => {
         e.preventDefault();
-        
         emailjs.sendForm(
             'service_ftm6ivd', 
             'template_k64m696',
@@ -64,7 +65,7 @@ const Contact = () => {
                 onChange={(e) => setCompany(e.target.value)}
                  />
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
                 <textarea className="form-control" 
                 name="description"
                  cols="30" rows="10"
@@ -74,9 +75,14 @@ const Contact = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
-           <button type="submit" className="btn btn-lg btn-block text-capitalize">submit</button>
-            </div>
-        </form>
+           {/* <button type="submit" className="btn btnPrimary">submit</button> */}
+           <div className="text-center">
+                <Button type="button" variant="primary">
+                    submit
+                </Button>
+           </div>
+        </div>
+     </form>
 
         
     )

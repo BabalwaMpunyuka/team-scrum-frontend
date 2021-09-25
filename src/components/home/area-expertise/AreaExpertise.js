@@ -55,12 +55,12 @@ function AreaExpertise() {
           </div>
           <h2 className="capitalize">Financial Analytics & Diagnostics</h2>
           <p>
-            Financial analysis is the process of evaluating businesses, projects, budgets, and other finance-related transactions to determine their performance and suitability. Typically, financial analysis is used to analyze whether an entity is stable, solvent, liquid, or profitable enough to warrant a monetary investment.</p>
-          <p> If conducted internally, financial analysis can help managers make future business decisions or review historical trends for past successes. </p>
-          <p> If conducted externally, financial analysis can help investors choose the best possible investment opportunities. </p>
+            Financial analysis is the process of evaluating businesses, projects, budgets, and other finance-related transactions to determine their performance and suitability. Typically, financial analysis is used to analyze whether an entity is stable, solvent, liquid, or profitable enough to warrant a monetary investment.
+            If conducted externally, financial analysis can help investors choose the best possible investment opportunities. </p>
+          {/* <p className="show-mobile"> If conducted internally, financial analysis can help managers make future business decisions or review historical trends for past successes. </p> */}
 
-           {/* <p>Financial analytics involves providing differing perspectives on the financial data of a given business, giving insights that can facilitate strategic decisions and actions that improve the overall performance of the business. Related to business intelligence and enterprise performance management, finance analytics impacts virtually all aspects of a business, playing a critical role in calculating profit, answering questions about a business, and enabling future business forecasting. </p> */}
-          
+           {/* <p className="show-mobile">Financial analytics involves providing differing perspectives on the financial data of a given business, giving insights that can facilitate strategic decisions and actions that improve the overall performance of the business. Related to business intelligence and enterprise performance management, finance analytics impacts virtually all aspects of a business, playing a critical role in calculating profit, answering questions about a business, and enabling future business forecasting. </p>
+           */}
           <Link to={`/portfolio/financial-diagnostic`}>
             <Button type="button" variant="primary">
               Learn More
@@ -78,8 +78,9 @@ function AreaExpertise() {
           </div>
           <h2 className="capitalize">Financial Modelling and Evaluation</h2>
           <p>
-            Financial modeling is a representation in numbers of a company's operations in the past, present, and the forecasted future. Such models are intended to be used as decision-making tools. In Financial analysis they are used to explain or anticipate the impact of events on a company's stock, from internal factors, such as a change of strategy or business model to external factors such as a change in economic policy or regulation. Financial models are used to estimate the valuation of a business or to compare businesses to their peers in the industry. They also are used in strategic planning to test various scenarios, calculate the cost of new projects, decide on budgets, and allocate corporate resources.
-          </p>
+            Financial modeling is a representation in numbers of a company's operations in the past, present, and the forecasted future. Such models are intended to be used as decision-making tools. In Financial analysis they are used to explain or anticipate the impact of events on a company's stock, from internal factors, such as a change of strategy or business model to external factors such as a change in economic policy or regulation. </p>
+            {/* <p className="show-mobile">Financial models are used to estimate the valuation of a business or to compare businesses to their peers in the industry. They also are used in strategic planning to test various scenarios, calculate the cost of new projects, decide on budgets, and allocate corporate resources.
+          </p> */}
           <Link to={`/portfolio/financial-modelling`}>
             <Button type="button" variant="primary">
               Learn More

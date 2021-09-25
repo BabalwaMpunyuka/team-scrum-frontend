@@ -49,6 +49,12 @@
   display: none;
 }
 
+@media screen and (max-width: 990px) {
+ .nav_links{
+  margin-left: 30%;
+ }
+}
+
 @media screen and (max-width: 780px) {
   .logo {
     display: flex;
