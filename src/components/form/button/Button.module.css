@@ -1,7 +1,7 @@
 .btn {
   min-width: 100px;
-  /* width: auto;
-  height: 41px; */
+  width: auto;
+  height: 41px;
   border: none;
   outline: none;
 
@@ -15,23 +15,18 @@
   letter-spacing: 0.005em;
   color: inherit;
   transition: all 300ms ease-in-out;
-  padding: 15px 20px;
+  padding: 5px 10px;
 }
 
 .btnPrimary{
-  color: #4884fb;
-  border: 1px solid #4884fb;
-  width: fit-content;
-  height: fit-content;
+  background: #4884fb;
+  color: #fff;
 }
 
 .btnPrimary:hover{
   background-color: #3461bb;
-  color: #fff;
-  font-size: 1.5em;
 }
 
 .btnOutlinePrimary {
   border: 1px solid #4884fb;
 }
-
