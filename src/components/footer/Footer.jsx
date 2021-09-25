@@ -1,6 +1,7 @@
 import React from "react";
 import LightLogo from "../Logo/LightLogo";
 import "./Footer.css";
+import Icons from '../icons/Icons'
 
 const Footer = () => {
   return (
@@ -12,7 +13,6 @@ const Footer = () => {
               <LightLogo />
             </div>
           </div>
-          <div className="col footer-links">
             <div className="footer-links-group">
               <a href="www.google.com" className="text-capitalize one">
                 {" "}
@@ -22,11 +22,9 @@ const Footer = () => {
             <div className="footer-links-group">
               <a href="www.google.com" className="text-capitalize mt-4">
                 {" "}
-                Policy
+                Privacy Policy
               </a>
             </div>
-          </div>
-          <div className="col footer-links">
             <div className="footer-links-group">
               <a href="www.google.com" className="text-capitalize one">
                 {" "}
@@ -39,8 +37,6 @@ const Footer = () => {
                 contact us
               </a>
             </div>
-          </div>
-          <div className="col footer-links">
             <div className="footer-links-group">
               <a href="www.google.com" className="text-uppercase one">
                 faqs
@@ -52,7 +48,9 @@ const Footer = () => {
                 help
               </a>
             </div>
-          </div>
+        </div>
+        <div className="mobile-view">
+          <Icons />
         </div>
         <p>
           Have you ever needed to make an investment decision but did not know
