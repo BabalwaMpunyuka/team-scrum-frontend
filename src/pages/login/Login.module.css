@@ -51,3 +51,15 @@
   letter-spacing: -0.02em;
   color: #8a0000;
 }
+
+
+@media screen and (max-width:700px){
+    #mobile_view{
+        display:none;
+    }
+
+    .Login TextField{
+      margin-top: 40px !important;
+      border: 2px solid firebrick;
+    }
+}

@@ -18,7 +18,11 @@
 
 .footer-links-group{
     margin: 20px 0px;
-    padding: 20px;
+    padding: 7px;
+}
+
+.footer a{
+    white-space: nowrap;
 }
 
 .footer a, .footer p{
@@ -27,8 +31,9 @@
 }
 
 .footer p{
-    margin-top: -3%;
+    margin-top: 5%;
     margin-left: 30px;
+    width: 100%;
 }
 
 .mobile-view   {
@@ -48,6 +53,7 @@
     }
 
     .footer p{
+        margin-top: -5%;
         margin-left: 0;
     }
 

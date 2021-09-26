@@ -24,8 +24,8 @@
     padding: 12px;
     width: 20%;
     height: 20%;
-    min-width: 25%;
-    min-height: 25%;
+    min-width: 15%;
+    min-height: 15%;
     border-radius: 50%;
     color: white;
     background-color: #4884FB;
@@ -35,11 +35,6 @@
     width: 40%;
     height: 40%;
 }
-/* background-color: red !important; */
-
-/* .icons .follow, .icons .email, .icons .call {
-    max-width: fit-content;
-} */
 
 
 .media-icons{
@@ -71,17 +66,28 @@
     
     .icons p{
         text-align: center;
+        color: white;
+    }
+
+    .icons h3{
+        color: white;
     }
     
     .media-icons{
         margin-bottom: 10%;
     }
+
     .media-icons .media-icon{
-        font-size: 40px;
+        font-size: 3em;
     }
     
     .media-icons .media-icon:nth-child(1){
         margin-left: 50px;
+    }
+
+    .awesome {
+        width: 6%;
+        height: auto;
     }
     .call .awesome{
         width: 15%;

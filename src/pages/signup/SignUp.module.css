@@ -53,19 +53,32 @@
   background-color: #3461bb;
 }
 
-.signup_text {
+.signup_text,.signup_text_two {
   text-align: center;
+  font-weight: 600 !important;
 }
 
 @media screen and (max-width: 786px) {
   .sign_up {
-    margin-top: 5px;
+    margin-top: 40px;
   }
   .sign_up_img {
     display: none;
   }
 
   .sign_up h1 {
-    text-align: center;
+    text-align: left;
+    margin-bottom: 30px !important;
+  }
+  .form_input{
+    margin-top: 10px;
+  }
+
+  #mobile_view{
+    display: none;
+  }
+
+  .signup_text_two{
+    margin-top: 15%;
   }
 }

@@ -139,7 +139,9 @@ export const Login = () => {
           <div className="col-md-1"></div>
         </div>
       </div>
-      <Footer />
+      <div id={LoginStyles.mobile_view}>
+        <Footer />        
+      </div>
     </div>
   );
 };

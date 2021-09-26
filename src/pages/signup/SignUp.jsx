@@ -159,6 +159,12 @@ export const SignUp = () => {
                       <a href="www.google.com"> Policies </a>
                     </span>{" "}
                   </p>
+                  <p className={styles.signup_text_two}>
+                    Have an account? {" "}
+                    <span>
+                      <a href="www.google.com"> Login </a> {" "}
+                    </span>
+                  </p>
                 </div>
               )}
             </Formik>
@@ -166,7 +172,9 @@ export const SignUp = () => {
           <div className="col-md-1"></div>
         </div>
       </div>
-      <Footer />
+      <div id={styles.mobile_view}>
+      <Footer />        
+      </div>
     </div>
   );
 };
