@@ -5,14 +5,14 @@
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  min-height: 50vh;
+  min-height: 70vh;
   background: #ffffff;
 }
 
 .BlogSection a,
 .BlogSection a:hover {
   text-decoration: none;
-  color: #3d3d3d;
+  color: #000;
 }
 
 .BlogSection .row {

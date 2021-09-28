@@ -74,7 +74,7 @@ const Contact = () => {
             </div>
            {/* <button type="submit" className="btn btnPrimary">submit</button> */}
            <div className="text-center">
-                <Button type="button" variant="primary">
+                <Button type="button" variant="primary-outline">
                     submit
                 </Button>
            </div>

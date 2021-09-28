@@ -35,7 +35,7 @@
     display: none;
 }
 
-@media screen and (max-width:680px) {
+@media screen and (max-width:786px) {
     .footer-objects{
         display: flex;
         flex-direction: column;

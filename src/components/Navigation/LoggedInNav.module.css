@@ -82,7 +82,7 @@
   letter-spacing: -0.02em;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 786px) {
   .logo {
     display: flex;
     position: absolute;

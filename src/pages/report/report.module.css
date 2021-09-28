@@ -54,14 +54,14 @@
   font-size: 18px;
 }
 
-@media screen and (max-width:990px) {
+@media screen and  (min-width: 786px) and (max-width: 990px) {
   .report_wrapper{
     margin: auto;
   }
 
 }
 
-@media screen and (max-width:780px) {
+@media screen and (max-width:786px) {
   .report_wrapper{
     margin: auto;
   }

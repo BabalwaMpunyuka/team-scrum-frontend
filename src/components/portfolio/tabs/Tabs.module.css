@@ -1,11 +1,11 @@
 .link {
   display: inline-block;
-  color: #3d3d3d;
+  color: #000;
   text-decoration: none;
 }
 
 .link:hover{
-  color: #3d3d3d;
+  color: #000;
   text-decoration: none;
   border: 2px solid #4884fb;
 }

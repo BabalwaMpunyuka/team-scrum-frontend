@@ -14,19 +14,20 @@
   color: #fff;
 }
 .StartInvesting .row {
-  margin-top: 20px; 
-  width: 100%; 
+  margin-top: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around !important;
 }
 
-.StartInvesting .row div{
-    display: flex;
-    align-items: center;
-    justify-content: space-around !important;
-    padding: 20px;
-  }
+.StartInvesting .row div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
 .StartInvesting h1 {
   display: block;
@@ -36,8 +37,12 @@
 
 .StartInvesting img {
   position: relative;
-  width: 170.92px;
-  height: 91px;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}
 
-  border-radius: 12px;
+.StartInvesting span {
+  font-weight: 500;
+  font-size: 24px;
 }

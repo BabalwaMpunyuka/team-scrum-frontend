@@ -1,17 +1,18 @@
 .navbar_wrapper {
   display: flex;
   position: relative;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: #fbfbfb;
-  color: white;
+  width: 100%;
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.12);
   z-index: 1;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   height: 90px;
   background-color: #fbfbfb;
@@ -28,7 +29,7 @@
 }
 
 .nav_link {
-  color: #636363;
+  color: #000;
   font-size: 16px;
   padding: 10px 20px;
   margin: 0 10px;
@@ -41,21 +42,32 @@
 }
 
 .nav_link a {
-  color: #636363;
+  color: #000;
   text-decoration: none;
 }
+.nav_links_mobile{
+  transition: all 300ms ease;
+}
 
-.mobile_menu_icon {
+.mobile_menu_icon,.mobile_icon {
   display: none;
 }
 
-@media screen and (max-width: 990px) {
- .nav_links{
-  margin-left: 30%;
- }
+@media screen and (min-width: 786px) and (max-width: 990px) {
+  .nav_links {
+    margin-left: 10px;
+  }
+  .nav_link {
+    color: #000;
+    font-size: 16px;
+    padding: 8px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 300ms ease;
+  }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 786px) {
   .logo {
     display: flex;
     position: absolute;
@@ -68,35 +80,71 @@
   }
 
   .nav_links_mobile {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
     position: absolute;
     list-style: none;
-    background-color: #f5f5f5;
-    left: 0;
+    height: 100%;
+    background-color: #4884fb;
+    right: 0;
     top: 90px;
     transition: all 0.5s ease;
-    width: 100%;
-    padding-bottom: 10px;
+    width: 40%;
+    padding:0px 0px 0px 0px;
+    margin: 0px;
+    z-index: 1000;
   }
 
   .nav_link {
-    color: #636363;
+    display: block;
+    font-weight: 400;
+    color: #fff;
     text-align: center;
-    background-color: #f5f5f5;
-    padding: 12px;
+    background-color: #4884fb;
+    padding: 18px 10px;
+    margin: 0 0px;
     width: 100%;
     transition: all 0.5s ease;
+  }
+  
+  .nav_link a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .menu_close {
+    display: block;
+    height: 60px;
+    position: relative;
+    color: #fff;
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+    margin: auto 10px;
+  }
+  .mobile_icon {
+    display: block;
+    position: absolute;
+    font-size: 28px;
+    color: #fff;
+    border: none;
+    outline: none;
+    top: 15px;
+    right: 30px;
+    margin: auto 10px;
   }
 
   .mobile_menu_icon {
     display: block;
     position: absolute;
-    font-size: 45px;
-    color: #636363;
-    background: #fbfbfb;
+    font-size: 40px;
+    color: #4884fb;
     border: none;
     outline: none;
     top: 15px;
-    right: 15px;
+    right: 30px;
+    margin: auto 10px;
   }
 }

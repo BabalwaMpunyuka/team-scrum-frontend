@@ -45,7 +45,7 @@ export default function BlogSection() {
       </div>
       <div className="d-block mt-4 pt-3">
         <Link to="/blog">
-          <Button type="button" variant="primary">
+          <Button type="button" variant="primary-outline">
             More News
           </Button>
         </Link>
