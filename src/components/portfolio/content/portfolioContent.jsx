@@ -17,12 +17,12 @@ const PortfolioContent = ({ service }) => {
       ) : service.items.length ? (
         service.items.map((visual) => {
           return (
-            <div key={visual.id} className={`row ${styles.visualization}`}>
+            <div key={visual.id} className={`${styles.visualization}`}>
               <div className={`${visual.descClass} ${styles.desc}`}>
                 {visual.title && <h2 className="mt-3">{visual.title}</h2>}
                 {visual.description && <p className="">{visual.description}</p>}
               </div>
-              <div className={`${visual.imgClass} ${styles.img_wrapper}`}>
+              <div className={`${styles.img_wrapper}`}>
                 <img
                   className="img-responsive img-fluid"
                   src={process.env.PUBLIC_URL + visual.src}
