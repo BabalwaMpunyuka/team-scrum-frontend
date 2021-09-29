@@ -1,0 +1,29 @@
+.wrapper {
+  margin-top: 20px;
+  display: absolute;
+  left: 20%;
+  padding: 20px;
+  display: block;
+  height: 40px;
+  width: 100%;
+}
+
+.left_icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
+  border: none;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.005em;
+  color: #0c023e;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: none;
+}

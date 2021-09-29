@@ -14,7 +14,7 @@ const SecuritySection = () => {
           our servers.
         </p>
         <Link to="/signup">
-          <Button type="button" variant="primary">
+          <Button type="button" variant="primary-outline">
             Join us
           </Button>
         </Link>

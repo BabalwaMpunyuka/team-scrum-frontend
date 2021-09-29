@@ -1,25 +1,19 @@
 import SignUpImg from "../../images/sign-up-img.PNG";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import useContextGetter from "../../hooks/useContextGetter";
 import { TextField } from "../../components/form/text/TextField";
 import styles from "./SignUp.module.css";
-import ConditionalHeader from "../../components/Navigation/login-signup-nav/ConditionalHeader";
-import Footer from "../../components/footer/Footer";
 import { Spinner } from "react-bootstrap";
 import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
+import BackToHome from "../../components/Navigation/backToHome/backToHome";
 
 export const SignUp = () => {
   const { messages, propagateMessage } = useContextGetter();
   const validate = Yup.object().shape({
-    firstName: Yup.string()
-      .max(15, "Must be 15 characers or less")
-      .required("First name is required"),
-    lastName: Yup.string()
-      .max(20, "Must be 20 characers or less")
-      .required(" Last name is required"),
+
     email: Yup.string()
       .email(" Please enter a valid email address ")
       .required("Email is required"),
@@ -43,7 +37,6 @@ export const SignUp = () => {
         });
         resetForm({});
       }
-
     } catch (e) {
       propagateMessage({
         content: formatErrors(e),
@@ -59,12 +52,11 @@ export const SignUp = () => {
 
   return (
     <div>
-      <ConditionalHeader />
       <PopupList popups={messages} />
-      <div className="container">
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-md-1"></div>
-          <div className="col-md-5">
+      <BackToHome />
+      <div className={`container ${styles.sign_up_wrapper}`}>
+        <div className="row">
+          <div className="col-md-6">
             <img
               src={SignUpImg}
               alt="Sign Up"
@@ -72,7 +64,8 @@ export const SignUp = () => {
             />
           </div>
 
-          <div className="col-md-5">
+          <div className={`col-md-6 ${styles.sign_up_form_wrapper}`}>
+            <h1> Sign Up </h1>
             <Formik
               initialValues={{
                 firstName: "",
@@ -85,60 +78,39 @@ export const SignUp = () => {
               onSubmit={handleSignup}
             >
               {({ handleSubmit, isSubmitting }) => (
-                <div className={`container ${styles.sign_up}`}>
-                  <h1 className="my-2"> Sign Up </h1>
-                  <Form onSubmit={handleSubmit}>
-                    <div className={`${styles.form_group}`}>
-                      <TextField
-                        label="First Name"
-                        name="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        className={`${styles.form_input}`}
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <TextField
-                        label="Last Name"
-                        name="lastName"
-                        type="text"
-                        placeholder="Last Name"
-                        className={`${styles.form_input}`}
-                      />
-                    </div>
-
-                    <div className="form-group">
+                <div >
+                  <form onSubmit={handleSubmit} className={`${styles.sign_up_form}`}>
                       <TextField
                         label="Email"
                         name="email"
                         type="email"
                         placeholder="Email"
-                        className={`${styles.form_input}`}
+                        className={`${styles.form_input_wrapper}`}
+                        inputClassName={styles.form_input}
+                        fontAwesomeIcon={["fas","envelope"]}
                       />
-                    </div>
-
-                    <div className="form-group">
                       <TextField
                         label="Password"
                         name="password"
                         type="password"
                         placeholder="Password"
-                        className={`${styles.form_input}`}
+                        className={`${styles.form_input_wrapper}`}
+                        inputClassName={styles.form_input}
+                        fontAwesomeIcon={["fas","eye"]}
                       />
-                    </div>
-
-                    <div className="form-group">
+                    
                       <TextField
                         label="Confirm password"
                         name="confirmPassword"
                         type="Password"
                         placeholder="Confirm Password"
-                        className={`${styles.form_input}`}
+                        className={`${styles.form_input_wrapper}`}
+                        inputClassName={styles.form_input}
+                        fontAwesomeIcon={["fas","eye"]}
                       />
-                    </div>
+                    
                     <button
-                      className={`${styles.btn} btn-block mt-4 ${styles.form_input}`}
+                      className={`${styles.btn} ${styles.form_input_btn}`}
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -148,8 +120,7 @@ export const SignUp = () => {
                         <Spinner animation="border" variant="light" />
                       )}
                     </button>
-                  </Form>
-
+                  </form>
                   <p className={styles.signup_text}>
                     By signing up you agree to ITIAA <br />{" "}
                     <span>
@@ -160,20 +131,16 @@ export const SignUp = () => {
                     </span>{" "}
                   </p>
                   <p className={styles.signup_text_two}>
-                    Have an account? {" "}
+                    Have an account?{" "}
                     <span>
-                      <a href="www.google.com"> Login </a> {" "}
+                      <a href="www.google.com"> Login </a>{" "}
                     </span>
                   </p>
                 </div>
               )}
             </Formik>
           </div>
-          <div className="col-md-1"></div>
         </div>
-      </div>
-      <div id={styles.mobile_view}>
-      <Footer />        
       </div>
     </div>
   );
