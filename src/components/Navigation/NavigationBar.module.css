@@ -18,7 +18,9 @@
   background-color: #fbfbfb;
   color: #000;
 }
-
+.logo {
+  font-size: 30px;
+}
 .nav_links {
   display: flex;
   justify-content: flex-end;
@@ -39,6 +41,7 @@
 
 .active {
   border-left: 2px solid #4884fb;
+
 }
 
 .nav_link a {
@@ -72,7 +75,7 @@
   .logo {
     display: flex;
     position: absolute;
-    top: 15px;
+    top: 5px;
     left: 35px;
   }
 
@@ -92,6 +95,7 @@
     height: 100%;
     background-color: #4884fb;
     right: 0;
+
     top: 90px;
     transition: right 200ms ease;
     width: 40%;
@@ -102,6 +106,7 @@
   }
 
   .nav_link {
+
     display: block;
     font-weight: 400;
     color: #fff;
@@ -122,6 +127,7 @@
     position: relative;
     color: #fff;
     text-align: right;
+
     width: 100%;
     padding: 10px;
     margin: auto 10px;
@@ -141,8 +147,10 @@
   .mobile_menu_icon {
     display: block;
     position: absolute;
+
     font-size: 40px;
     color: #4884fb;
+
     border: none;
     outline: none;
     top: 15px;

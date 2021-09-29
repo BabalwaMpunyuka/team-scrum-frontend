@@ -88,9 +88,17 @@
     text-align: left;
   }
 
+
   .header_content h1 {
     font-size: 2em;
     font-weight: 600;
   }
-
+  .header_image {
+    display: none;
+    /* margin-top: 10px;
+    width: 100%;
+    left: -20px;
+    order: 2;
+    align-self: center; */
+    }
 }
