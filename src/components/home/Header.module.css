@@ -87,16 +87,10 @@
     padding: 10px 15px;
     text-align: left;
   }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
   .header_content h1 {
     font-size: 2em;
     font-weight: 600;
   }
->>>>>>> a8bc43bd95d0c05b5bec55a572398fab3ffaf870
   .header_image {
     display: none;
     /* margin-top: 10px;
@@ -104,14 +98,9 @@
     left: -20px;
     order: 2;
     align-self: center; */
-<<<<<<< HEAD
-=======
+  }
   .header_content h1 {
     font-size: 2em;
     font-weight: 600;
->>>>>>> develop
   }
-=======
-    }
->>>>>>> a8bc43bd95d0c05b5bec55a572398fab3ffaf870
 }

@@ -10,6 +10,7 @@ import AppState from "./store/AppState";
 //Components
 import GlobalLayout from "./components/layout/GlobalLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminSideNav from './components/Navigation/adminNav/AdminSideNav'
 
 //Pages
 import Home from "./pages/Home";
@@ -35,6 +36,9 @@ function App() {
       {/* <ScrollToTop /> */}
       <AppState>
         <Switch>
+          <Route exact path="/admin">
+            <AdminSideNav />
+          </Route>
           <Route exact path="/signup">
             <SignUp />
           </Route>
