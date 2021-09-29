@@ -24,13 +24,13 @@ const NavigationBar = () => {
             className={
               isMobile ? `${styles.nav_links_mobile} ${styles.nav_links}` : `${styles.nav_links}`
             }
-            onClick={() => setIsMobile(!isMobile)}
           >
             {isMobile && <li className={styles.nav_link}>
               <div className={styles.menu_close}>
                 <FontAwesomeIcon
                   icon={["fas", "times"]}
                   className={styles.mobile_icon}
+                  onClick={() => setIsMobile(!isMobile)}
                 />
               </div>
             </li>}
