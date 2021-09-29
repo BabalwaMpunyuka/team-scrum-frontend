@@ -12,6 +12,7 @@ import { Spinner } from "react-bootstrap";
 import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
+import Styles from './ForgotPassword.Module.css'
 
 export const ForgotPassword = () => {
   const { messages, propagateMessage,login } = useContextGetter();
@@ -55,6 +56,7 @@ export const ForgotPassword = () => {
       <ConditionalHeader />
       <PopupList popups={messages} />
       <div className="container">
+        <div className={Styles.forgot_password}>
         <div className="row d-flex align-items-center justify-content-center">
           <div className="col-md-1"></div>
           <div className="col-md-5">
@@ -111,7 +113,10 @@ export const ForgotPassword = () => {
           <div className="col-md-1"></div>
         </div>
       </div>
+      <div id={Styles.mobile_view}>
       <Footer />
+      </div>
+      </div>
     </div>
   );
 };

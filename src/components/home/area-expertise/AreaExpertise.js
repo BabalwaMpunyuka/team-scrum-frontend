@@ -12,7 +12,7 @@ import Button from "../../../components/form/button/Button";
 function AreaExpertise() {
   return (
     <div className={`${styles.expertise_wrapper}`}>
-      <h1>Services</h1>
+      <h1>Our Area of expertise</h1>
       <div className={`container ${styles.expertise_grid_container}`}>
         <div className={styles.expertise_grid_item}>
           <div className={styles.grid_item_icon}>
@@ -41,7 +41,7 @@ function AreaExpertise() {
             risk analysis. Compare economic appraisal. Investment appraisal involves analysis done to consider the profitability of an investment.
           </p>
           <Link to={`/portfolio/financial-appraisals`}>
-            <Button type="button" variant="primary">
+            <Button type="button" variant="primary-outline">
               Learn More
             </Button>
           </Link>
@@ -65,7 +65,7 @@ function AreaExpertise() {
             liquid, or profitable enough to warrant a monetary investment.
           </p>
           <Link to={`/portfolio/financial-diagnostic`}>
-            <Button type="button" variant="primary">
+            <Button type="button" variant="primary-outline">
               Learn More
             </Button>
           </Link>
@@ -88,7 +88,7 @@ function AreaExpertise() {
             of events on a company's stock, from internal factors.
           </p>
           <Link to={`/portfolio/financial-modelling`}>
-            <Button type="button" variant="primary">
+            <Button type="button" variant="primary-outline">
               Learn More
             </Button>
           </Link>

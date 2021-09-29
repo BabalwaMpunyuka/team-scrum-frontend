@@ -1,18 +1,17 @@
 import {useState} from "react";
 import {Link, useHistory } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import useContextGetter from "../../hooks/useContextGetter";
 import { TextField } from "../../components/form/text/TextField";
 import SignUpStyles from "../signup/SignUp.module.css";
 import  LoginStyles from"./Login.module.css";
-import ConditionalHeader from "../../components/Navigation/login-signup-nav/ConditionalHeader";
-import Footer from "../../components/footer/Footer";
 import { Spinner } from "react-bootstrap";
 import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
+import BackToHome from "../../components/Navigation/backToHome/backToHome";
 
 export const Login = () => {
   const { messages, propagateMessage,login } = useContextGetter();
@@ -56,21 +55,21 @@ export const Login = () => {
     }
   };
   return (
-    <div>
-      <ConditionalHeader />
+    <div className="Login">
       <PopupList popups={messages} />
-      <div className="container">
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-md-1"></div>
-          <div className="col-md-5">
-            <img
+      <BackToHome />
+      <div className={`container ${SignUpStyles.sign_up_wrapper}`}>
+        <div className="row">
+          <div className="col-md-6">
+          <img
               src={LoginImg}
               alt="Sign Up"
               className={`img-fluid ${SignUpStyles.sign_up_img}`}
-            />
+            />    
           </div>
 
-          <div className="col-md-5">
+          <div className={`col-md-6 ${SignUpStyles.sign_up_form_wrapper}`}>
+            <h1> Login </h1>
             <Formik
               initialValues={{
                 email: "",
@@ -80,31 +79,31 @@ export const Login = () => {
               onSubmit={handleLogin}
             >
               {({ handleSubmit, isSubmitting }) => (
-                <div className={`container ${SignUpStyles.sign_up}`}>
-                  <h1 className="my-4"> Log In </h1>
-                  <Form onSubmit={handleSubmit}>
-                    <div className={`${SignUpStyles.form_group}`}>
+                <div >
+                <form onSubmit={handleSubmit} className={`${SignUpStyles.sign_up_form}`}>
+                   
                       <TextField
                         label="Email"
                         name="email"
                         type="email"
-                        placeholder="Email Address"
-                        className={`${SignUpStyles.form_input}`}
+                        placeholder="Email"
+                        className={`${SignUpStyles.form_input_wrapper}`}
+                        inputClassName={SignUpStyles.form_input}
+                        fontAwesomeIcon={["fas","envelope"]}
                       />
-                    </div>
-
-                    <div className={`${SignUpStyles.form_group}`}>
                       <TextField
                         label="Password"
                         name="password"
                         type="password"
                         placeholder="Password"
-                        className={`${SignUpStyles.form_input}`}
+                        className={`${SignUpStyles.form_input_wrapper}`}
+                        inputClassName={SignUpStyles.form_input}
+                        fontAwesomeIcon={["fas","eye"]}
                       />
-                    </div>
+                   
 
                     <button
-                      className={`${SignUpStyles.btn} btn-block mt-4 ${SignUpStyles.form_input}`}
+                      className={`${SignUpStyles.btn} ${SignUpStyles.form_input_btn}`}
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -131,7 +130,7 @@ export const Login = () => {
                       <label htmlFor="remember-me"> Remember me next time</label>
                     </div>
                     <Link to="/auth/forgot-password" id={LoginStyles.forgotPassword}>Forgot Password? Click Here</Link>
-                  </Form>
+                  </form>
                 </div>
               )}
             </Formik>
@@ -139,7 +138,6 @@ export const Login = () => {
           <div className="col-md-1"></div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

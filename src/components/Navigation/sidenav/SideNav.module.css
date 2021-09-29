@@ -125,7 +125,7 @@
   bottom: -250px;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (min-width: 786px) and (max-width: 990px) {
   .top {
     position: relative;
     height: 40px;
@@ -148,7 +148,7 @@
   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 786px) {
   .top {
     position: relative;
     height: 40px;

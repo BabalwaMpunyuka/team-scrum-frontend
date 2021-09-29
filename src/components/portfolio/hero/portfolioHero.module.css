@@ -75,7 +75,7 @@
   line-height: 24px;
 }
 
-@media screen and (max-width:990px) {
+@media screen and (min-width: 786px) and (max-width: 990px) {
  
   .img_wrapper{
     display: none;
@@ -90,7 +90,7 @@
 
 }
 
-@media screen and (max-width:780px) {
+@media screen and (max-width:786px) {
   .img_wrapper{
     display: none;
   }

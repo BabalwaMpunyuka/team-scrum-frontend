@@ -22,7 +22,7 @@
   outline: none;
 }
 
-@media screen and (max-width:990px){
+@media screen and (min-width: 786px) and (max-width: 990px){
   .input_wrapper{
     display: flex;
     align-items: center;

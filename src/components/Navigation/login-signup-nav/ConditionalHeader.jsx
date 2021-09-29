@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../NavigationBar.module.css";
@@ -14,10 +14,28 @@ const ConditionalHeader = () => {
       <div className="container">
         <nav className={`${styles.navbar}`}>
           <div className={`${styles.logo}`}>
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
-          <ul className={isMobile?`${styles.nav_links_mobile}`:`${styles.nav_links}`}
-          onClick={()=>setIsMobile(false)}>
+          <ul
+            className={
+              isMobile
+                ? `${styles.nav_links_mobile} ${styles.nav_links}`
+                : `${styles.nav_links}`
+            }
+            onClick={() => setIsMobile(false)}
+          >
+            {isMobile && (
+              <li className={styles.nav_link}>
+                <div className={styles.menu_close}>
+                  <FontAwesomeIcon
+                    icon={["fas", "times"]}
+                    className={styles.mobile_icon}
+                  />
+                </div>
+              </li>
+            )}
             <li className={`${styles.nav_link}`}>
               <Link to="/" className="services">
                 Home
@@ -30,26 +48,24 @@ const ConditionalHeader = () => {
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/login" className="login">
-                <Button type="button" variant="primary-outline">
+                <Button type="button" variant={isMobile? "white-outline" : "primary-outline"}>
                   Login
                 </Button>
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/signup" className="signup">
-                <Button type="button" variant="primary">
+                <Button type="button" variant={isMobile? "btn-white" : "primary"}>
                   Signup
                 </Button>
               </Link>
             </li>
           </ul>
-          <button className={`${styles.mobile_menu_icon}`} onClick={()=>setIsMobile(!isMobile)}>
-            {isMobile ? (
-                <FontAwesomeIcon icon={["fas", "times"]} className={`${styles.transparent}`}/>
-            ) : (
-                <FontAwesomeIcon icon={["fas", "bars"]} className={`${styles.transparent}`}/>
-            )}
-          </button>
+          <FontAwesomeIcon
+            icon={["fas", "align-right"]}
+            className={`${styles.mobile_menu_icon}`}
+            onClick={() => setIsMobile(!isMobile)}
+          />
         </nav>
       </div>
     </div>
@@ -57,6 +73,3 @@ const ConditionalHeader = () => {
 };
 
 export default ConditionalHeader;
-
-
-

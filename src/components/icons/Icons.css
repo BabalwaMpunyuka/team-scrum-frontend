@@ -22,18 +22,18 @@
 .awesome{
     margin-right: 10px;
     padding: 12px;
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
+    min-width: 15%;
+    min-height: 15%;
     border-radius: 50%;
     color: white;
     background-color: #4884FB;
 }
 
-.call{
-    width: 17%;
-    height: 17%;
-    color: red;
-
+.call .awesome{
+    width: 40%;
+    height: 40%;
 }
 
 
@@ -46,32 +46,51 @@
     margin-left: 30px;
     margin-top: 20px;
     padding: 8px;
-    font-size: 24px;
+    font-size: 40px;
     border-radius: 50%;
     color: #4884FB;
     background-color: rgb(218, 232, 251);
 }
 
 .media-icons .media-icon:nth-child(1){
-    margin-left: -30px;
+    margin-left: -15px;
 }
 
-
-@media screen and (max-width:450px) {
+    
+@media screen and (max-width:786px) {
     .icons{
+        display: flex;
         flex-direction: column;
         padding-bottom: 5%;
     }
     
     .icons p{
         text-align: center;
+        color: white;
+    }
+
+    .icons h3{
+        color: white;
     }
     
     .media-icons{
         margin-bottom: 10%;
     }
 
+    .media-icons .media-icon{
+        font-size: 3em;
+    }
+    
     .media-icons .media-icon:nth-child(1){
         margin-left: 50px;
+    }
+
+    .awesome {
+        width: 6%;
+        height: auto;
+    }
+    .call .awesome{
+        width: 15%;
+        height: 15%;
     }
 }

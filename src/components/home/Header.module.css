@@ -1,11 +1,10 @@
 .header {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50vh;
+  height: 100%;
   width: 100%;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .header .header_content {
@@ -19,20 +18,20 @@
   left: 70px;
   top: 40px;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .header_content h1 {
+  font-size: 3.2em;
   line-height: 1;
+  font-weight: 600;
   letter-spacing: 0.04em;
 }
 
 .header_content p {
-  width: 100%;
-  max-width: 444px;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
   line-height: 34px;
   letter-spacing: 0.005em;
   margin-top: 10px;
@@ -41,8 +40,8 @@
 .header_image {
   position: relative;
   width: 50%;
-  max-width: 712px;
-  height: 450px;
+  max-width: 716px;
+  height: 576px;
   right: 10px;
   top: 40px;
 
@@ -51,30 +50,45 @@
   background-repeat: no-repeat;
 }
 
-@media screen and (max-width:990px){
+@media screen and (min-width: 786px) and (max-width: 990px){
+
   .header .header_content {
-    left: 20px;
+    top: 10px;
+    width: 60%;
+  }
+
+  .header_image {
+    width: 40%;
+    max-width: 416px;
+    background-size: 90%;
+    background-position: center;
+    height: 476px;
+  }
+
+  .header_content h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
+  .header_content p {
+    font-size: 18px;
   }
 }
 
-@media screen and (max-width: 780px) {
-  .header {
-    flex-direction: column;
+@media screen and (max-width: 786px) {
+  .header_image {
+    display: none;
   }
 
   .header .header_content {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 80%;
     left: 0px;
-    top: 40px;
+    top: 20px;
     padding: 10px 15px;
-    text-align: center;
-    margin: 0 auto;
-    order: 1;
+    text-align: left;
   }
 
+<<<<<<< HEAD
   .header_image {
     display: none;
     /* margin-top: 10px;
@@ -82,5 +96,10 @@
     left: -20px;
     order: 2;
     align-self: center; */
+=======
+  .header_content h1 {
+    font-size: 2em;
+    font-weight: 600;
+>>>>>>> develop
   }
 }

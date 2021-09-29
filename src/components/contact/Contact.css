@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 70vh;
-  width: 70%;
+  width: 50%;
   margin: 10px auto;
   padding: 15px;
 }
@@ -19,12 +19,16 @@
 }
 
 .form-control {
-  background-color: rgb(218, 232, 251);
+  background-color: rgb(215, 227, 243);
   outline: none;
   border: none;
 }
 
-.contact-form .btn {
+.contact-form Button{
+  margin:  auto;
+}
+
+/* .contact-form .btn {
   background-color: #4884fb;
   color:#fff;
   width: 200px;
@@ -32,7 +36,7 @@
 
 .contact-form .btn:hover {
   background-color: #3461bb;
-}
+} */
 
 @media screen and (max-width: 800px) {
   .contact-form{

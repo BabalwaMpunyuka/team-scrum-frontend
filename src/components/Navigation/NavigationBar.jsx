@@ -22,10 +22,19 @@ const NavigationBar = () => {
           </div>
           <ul
             className={
-              isMobile ? `${styles.nav_links_mobile}` : `${styles.nav_links}`
+              isMobile ? `${styles.nav_links_mobile} ${styles.nav_links}` : `${styles.nav_links}`
             }
-            onClick={() => setIsMobile(false)}
           >
+            {isMobile && <li className={styles.nav_link}>
+              <div className={styles.menu_close}>
+                <FontAwesomeIcon
+                  icon={["fas", "times"]}
+                  className={styles.mobile_icon}
+                  onClick={() => setIsMobile(!isMobile)}
+                />
+              </div>
+            </li>}
+
             <li
               className={`${styles.nav_link} ${
                 active === "Home" ? styles.active : ""
@@ -36,57 +45,50 @@ const NavigationBar = () => {
             >
               <Link to="/">Home</Link>
             </li>
-            <li className={`${styles.nav_link} ${
+            <li
+              className={`${styles.nav_link} ${
                 active === "Blog" ? styles.active : ""
               }`}
               onClick={() => {
                 handleActive("Blog");
-              }}>
+              }}
+            >
               <Link to="/blog" className="blog">
                 Blog
               </Link>
             </li>
-            <li className={`${styles.nav_link} ${
+            <li
+              className={`${styles.nav_link} ${
                 active === "Portfolio" ? styles.active : ""
               }`}
               onClick={() => {
                 handleActive("Portfolio");
-              }}>
+              }}
+            >
               <Link to="/portfolio/financial-appraisals" className="about">
                 Portfolio
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/login" className="login">
-                <Button type="button" variant="primary-outline">
+                <Button type="button" variant={isMobile? "white-outline" : "primary-outline"}>
                   Login
                 </Button>
               </Link>
             </li>
             <li className={`${styles.nav_link}`}>
               <Link to="/signup" className="signup">
-                <Button type="button" variant="primary">
+                <Button type="button" variant={isMobile? "btn-white" : "primary"}>
                   Signup
                 </Button>
               </Link>
             </li>
           </ul>
-          <button
+          <FontAwesomeIcon
+            icon={["fas", "align-right"]}
             className={`${styles.mobile_menu_icon}`}
             onClick={() => setIsMobile(!isMobile)}
-          >
-            {isMobile ? (
-              <FontAwesomeIcon
-                icon={["fas", "times"]}
-                className={`${styles.transparent}`}
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={["fas", "bars"]}
-                className={`${styles.transparent}`}
-              />
-            )}
-          </button>
+          />
         </nav>
       </div>
     </div>

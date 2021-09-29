@@ -1,21 +1,22 @@
 .btn {
   min-width: 100px;
   width: auto;
-  height: 41px;
+  height: 50px;
   border: none;
   outline: none;
 
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
-  font-size: inherit;
+  font-size: 16px;
   background: transparent;
 
   text-align: center;
   letter-spacing: 0.005em;
   color: inherit;
   transition: all 300ms ease-in-out;
-  padding: 5px 10px;
+  padding: 5px 20px;
+  border-radius: 5px;
 }
 
 .btnPrimary{
@@ -24,9 +25,35 @@
 }
 
 .btnPrimary:hover{
-  background-color: #3461bb;
+  background-color: #3461BB;
 }
 
 .btnOutlinePrimary {
   border: 1px solid #4884fb;
+}
+
+.btnOutlinePrimary:hover{
+  background-color: #3461BB;
+  color: #fff;
+}
+
+.btnWhite{
+  background: #fff;
+  color: #4884fb;
+}
+
+.btnWhite:hover{
+  border: 1px solid white;
+  background-color: inherit;
+  color: inherit;
+}
+
+
+.btnOutlineWhite {
+  border: 1px solid white;
+}
+
+.btnOutlineWhite:hover{
+  background-color: #3461BB;
+  color: #fff;
 }
