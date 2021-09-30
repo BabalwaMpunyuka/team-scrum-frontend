@@ -1,5 +1,6 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Link, useHistory } from "react-router-dom";
+import useQuery from "../../hooks/useQuery";
 import LoginImg from "../../images/Login-img.PNG";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -12,11 +13,22 @@ import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
 import BackToHome from "../../components/Navigation/backToHome/backToHome";
+import EmailVerificationSuccessAlert from "../../components/message/alert/EmailVerificationSucessAlert";
 
+const initial_state={
+  showEmailVerificationAlert: false,
+  emailVerificationAlertMessage: `Login to get started with ITIAA Consults`,
+  emailVerificationAlertErrorMessage:`To verify your email, click the button below`
+  
+}
 export const Login = () => {
   const { messages, propagateMessage,login } = useContextGetter();
+  const [state,setState] = useState(initial_state);
   const [isChecked,setIsChecked] = useState(true);
+  const [showPassword,setShowPassword] = useState(false);
   const history=useHistory();
+  let query = useQuery();
+
   const validate = Yup.object().shape({
     email: Yup.string()
       .email(" Please enter a valid email address ")
@@ -26,9 +38,50 @@ export const Login = () => {
       .required("Please provide a strong password"),
   });
 
+  const setStateValue=(field,value)=>{
+    setState(prevState=>({
+      ...prevState,
+      [field]:value
+    }))
+}
+useEffect(()=>{
+  if(query.get("valid")){
+    setStateValue("showEmailVerificationAlert",true);
+  }
+  // eslint-disable-next-line
+},[])
   const handleRememberMe=()=>{
 
   }
+
+  const resendEmailVerificationLink=async()=>{
+    try {
+      if(!query.get("email")){
+        // setStateValue("showEmailVerificationAlert",false);
+        return propagateMessage({
+          content: "Unable to send verification link, please contact support",
+          title: "Error",
+          type: "danger",
+          timeout: 5000,
+        });
+      }
+      const res = await API.post(`/api/v1/Authentication/emailVerification?email=${query.get("email")}`);
+      if (res.data.success) {
+        setStateValue("emailVerificationAlertErrorMessage",`A new verification link was sent to your email ${query.get("email")}. 
+        Check your email and click on the link to get started`)
+      }
+    } catch (e) {
+      propagateMessage({
+        content: formatErrors(e),
+        title: "Error",
+        type: "danger",
+        timeout: 5000,
+      });
+    } finally {
+      window.scrollTo(0, 0);
+    }
+  }
+
   const handleLogin = async (values, { setSubmitting }) => {
     try {
       const res = await API.post(`/api/v1/Authentication/login`, values);
@@ -38,7 +91,7 @@ export const Login = () => {
           content: "Login successful",
           title: "You are logged in",
           type: "success",
-          timeout: 5000,
+          timeout: 3000,
         });
       }
       history.replace("/dashboard");
@@ -47,7 +100,7 @@ export const Login = () => {
         content: formatErrors(e),
         title: "Error",
         type: "danger",
-        timeout: 5000,
+        timeout: 3000,
       });
     } finally {
       window.scrollTo(0, 0);
@@ -59,6 +112,12 @@ export const Login = () => {
       <PopupList popups={messages} />
       <BackToHome />
       <div className={`container ${SignUpStyles.sign_up_wrapper}`}>
+        {state.showEmailVerificationAlert && <EmailVerificationSuccessAlert
+        resendEmailVerificationLink={resendEmailVerificationLink}
+        message={query.get("valid")==="true"?state.emailVerificationAlertMessage:state.emailVerificationAlertErrorMessage}
+        success={query.get("valid")==="true"?true:false}
+        close={()=>{setStateValue("showEmailVerificationAlert",false)}}
+        />}
         <div className="row">
           <div className="col-md-6">
           <img
@@ -94,13 +153,13 @@ export const Login = () => {
                       <TextField
                         label="Password"
                         name="password"
-                        type="password"
+                        type={showPassword?"text":"password"}
                         placeholder="Password"
                         className={`${SignUpStyles.form_input_wrapper}`}
                         inputClassName={SignUpStyles.form_input}
-                        fontAwesomeIcon={["fas","eye"]}
+                        fontAwesomeIcon={["fas",showPassword?"eye-slash":"eye"]}
+                        iconClick={()=>{setShowPassword(!showPassword)}}
                       />
-                   
 
                     <button
                       className={`${SignUpStyles.btn} ${SignUpStyles.form_input_btn}`}

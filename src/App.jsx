@@ -1,3 +1,4 @@
+// import * as dotenv from 'dotenv';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +28,8 @@ import ForgotPassword from "./pages/signup/ForgotPassword";
 import ChangePassword from "./pages/signup/ChangePassword";
 // import ScrollToTop from "./components/ScrollToTop";
 
+// dotenv.config();
+
 library.add(fab, fas);
 
 function App() {
@@ -44,6 +47,10 @@ function App() {
 
           <Route exact path="/auth/forgot-password">
             <ForgotPassword />
+          </Route>
+
+          <Route exact path="/account/changePassword">
+              <ChangePassword />
           </Route>
 
           <GlobalLayout>
@@ -70,10 +77,6 @@ function App() {
             <ProtectedRoute exact routePath="/account/edit">
               <EditProfile />
             </ProtectedRoute>
-
-            <Route exact path="/acount/change-password">
-              <ChangePassword />
-            </Route>
 
             <ProtectedRoute exact routePath="/settings">
               <Settings />
