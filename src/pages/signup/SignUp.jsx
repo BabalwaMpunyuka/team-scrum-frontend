@@ -209,7 +209,7 @@ export const SignUp = () => {
                   <p className={styles.signup_text_two}>
                     Have an account?{" "}
                     <span>
-                      <Link href="/login"> Login </Link>{" "}
+                      <Link to="/login"> Login </Link>
                     </span>
                   </p>
                 </div>
