@@ -5,6 +5,8 @@ import { Icon } from "@iconify/react";
 import { SidebarItems } from "./SidebarItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useContextGetter from "../../../hooks/useContextGetter";
+import Logo from "../../Logo/Logo";
+import signupStyles from "../../../pages/signup/SignUp.module.css";
 
 const SideNavigation = () => {
   const {logout}=useContextGetter();
@@ -15,21 +17,19 @@ const SideNavigation = () => {
     setIsActive(menu);
   }
   return (
-    <>
-      <div className={styles.top} onClick={() => setIsMobile(!isMobile)}>
-        {isMobile ? (
+  <div  className={isMobile?`${styles.side_nav}`:`${styles.side_nav} ${styles.side_nav_hide}`}  onClick={() => setIsMobile(false)}>
+      {isMobile ? (
           <FontAwesomeIcon
-            icon={["fas", "times"]}
-            className={styles.menu_bars}
-          />
+          icon={["fas", "chevron-right"]}
+          className={styles.menu_bars}
+          onClick={() => setIsMobile(!isMobile)}
+        />
         ) : (
-          <FontAwesomeIcon
-            icon={["fas", "bars"]}
-            className={styles.menu_bars}
-          />
+         
+          <div className={`${signupStyles.logo}`}>
+          <Link to="/dashboard"><Logo /></Link>
+        </div>
         )}
-      </div>
-      <div  className={isMobile?`${styles.side_nav}`:`${styles.side_nav} ${styles.side_nav_hide}`}  onClick={() => setIsMobile(false)}>
         <nav className={styles.nav_menu}>
           <ul className={styles.nav_menu_items} >
             {SidebarItems.map((item, index) => {
@@ -45,25 +45,20 @@ const SideNavigation = () => {
                 </li>
               );
             })}
-          </ul>
-
-          {/* <div className={styles.theme_wrapper}>
-            <Icon icon="carbon:light-filled" className={styles.theme_toggle} />
-          </div> */}
-          <Link to="/support"><div className={styles.support}>
-            <Icon icon="whh:headphonesalt" className={styles.support_icon} />
-            <span>Support 24/7</span>
-          </div>
-          </Link>
-          <ul className={`${styles.nav_menu_items} ${styles.logout}`}>
-            <li className={`${styles.nav_menu_item}`} onClick={()=>{logout()}}>
+             <li className={`${styles.nav_menu_item}`} onClick={()=>{logout()}}>
               <Icon icon="ic:baseline-logout" className={styles.icon} />{" "}
               <span className={styles.text}>Logout</span>
             </li>
           </ul>
+
+         
+          {/* <Link to="/support"><div className={styles.support}>
+            <Icon icon="whh:headphonesalt" className={styles.support_icon} />
+            <span>Support 24/7</span>
+          </div>
+          </Link> */}
         </nav>
       </div>
-    </>
   );
 };
 
