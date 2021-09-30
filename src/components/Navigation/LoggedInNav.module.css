@@ -1,11 +1,11 @@
 .navbar_wrapper {
   display: flex;
   position: relative;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background: #fbfbfb;
-  color: white;
+  background: #E5E5E5;
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.12);
+  border-bottom: 0.2px solid #0C023E;
   z-index: 1;
 }
 
@@ -13,11 +13,12 @@
   display: flex;
   flex-basis: 1;
   flex-grow: 1;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  height: 130px;
-  background-color: #fbfbfb;
+  height: 80px;
+  background-color: #E5E5E5;
   color: #000;
+  padding: 20px;
 }
 
 .nav_links {
@@ -27,12 +28,10 @@
   align-items: center;
   align-content: center;
   list-style: none;
-  width: 75%;
-  left: 100px;
 }
 
 .nav_link {
-  color: #636363;
+  color: #000;
   font-size: 16px;
   padding: 10px 20px;
   margin: 0 10px;
@@ -58,6 +57,8 @@
 
 .avater_wrapper .avater {
   border-radius: 100%;
+  width: 40px;
+  height: 40px;
 }
 
 .avater_wrapper .avater_text {

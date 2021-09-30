@@ -3,15 +3,16 @@
   align-items: center;
   justify-content: space-around;
   min-height: 100vh;
+  background: #E5E5E5;
 }
 
 .loggedlayout_wrapper .side {
-  width: 25%;
+  width: 20%;
 }
 
 .loggedlayout_wrapper .content {
   overflow: hidden !important;
-  width: 75%;
+  width: 80%;
 }
 
 @media screen and (min-width: 786px) and (max-width: 990px) {
