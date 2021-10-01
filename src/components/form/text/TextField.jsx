@@ -13,7 +13,7 @@ export const TextField = ({label,className,inputClassName,placeholder,fontAwesom
             autoComplete="off"
             placeholder={placeholder}
             />
-            <FontAwesomeIcon icon={fontAwesomeIcon} className={styles.icon} onClick={iconClick}/>
+            {fontAwesomeIcon && <FontAwesomeIcon icon={fontAwesomeIcon} className={styles.icon} onClick={iconClick}/>}
         </div><span className={styles.error}><ErrorMessage name={field.name}/></span></>
     )
 }
