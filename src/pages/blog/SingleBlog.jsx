@@ -3,9 +3,7 @@ import blogStyles from "./Blog.module.css";
 import { useParams } from "react-router-dom";
 import BlogFooter from "../../components/blog/blogFooter";
 import { blogItems } from "./blogItems";
-
-//images
-// import percent_image from "../../images/blog/percent_image.png";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const initialState = {
   id: "1",
@@ -46,6 +44,7 @@ const SingleBlog = () => {
 
   return (
     <div className={`container ${blogStyles.blog}`}>
+      <ScrollToTop />
       <h1 className={blogStyles.heading}>{state.title}</h1>
       <div className={`${blogStyles.featured_blog} row`}>
         <div className={`col-md-5 ${blogStyles.topic_image} img-fluid`}>
