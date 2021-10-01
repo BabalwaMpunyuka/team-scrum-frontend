@@ -8,63 +8,56 @@ export const serviceItems = [
     items: [
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_1.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_1_wvaorn.png",
         description: ``,
         id: "1",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_2.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_2_swd2oq.png",
         description: ``,
         id: "2",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_3.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_3_gcvsqq.png",
         description: ``,
         id: "3",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_4.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_4_qzlwet.png",
         description: ``,
         id: "4",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_5.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_5_dgcnxx.png",
         description: ``,
         id: "5",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_6.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059261/portfolio/financial_appraisal_6_lmd94y.png",
         description: ``,
         id: "6",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_7.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_appraisal_7_lkzh1v.png",
         description: ``,
         id: "7",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_appraisal_9.png",
-        description: ``,
-        id: "p",
-        
-      },
-      {
-        title: "",
-        src: "/images/portfolio/financial_appraisal_10.png",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_appraisal_10_uzuyyo.png",
         description: ``,
         id: "10",
         
@@ -83,14 +76,14 @@ export const serviceItems = [
     items: [
       {
         title: "",
-        src: "/images/portfolio/financial_diagnostics_apple.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_diagnostics_apple_uolcjk.png",
         description: ``,
         id: "1",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_diagnostics_microsoft.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_diagnostics_microsoft_vs3usg.png",
         description: ``,
         id: "2",
         
@@ -113,42 +106,42 @@ export const serviceItems = [
     items: [
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_1.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_1_ogw2kb.png",
         description: ``,
         id: "1",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_2.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_2_mngamz.png",
         description: ``,
         id: "2",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_3.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_3_mywsnl.png",
         description: ``,
         id: "3",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_4.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_4_xeojmq.png",
         description: ``,
         id: "4",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_5.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_5_c2lyio.png",
         description: ``,
         id: "5",
         
       },
       {
         title: "",
-        src: "/images/portfolio/financial_modelling_6.PNG",
+        src: "https://res.cloudinary.com/dextmuewu/image/upload/v1633059262/portfolio/financial_modelling_6_eucnaq.png",
         description: ``,
         id: "6"
       },
