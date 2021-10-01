@@ -10,7 +10,6 @@ import AppState from "./store/AppState";
 //Components
 import GlobalLayout from "./components/layout/GlobalLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminSideNav from './components/Navigation/adminNav/AdminSideNav'
 
 //Pages
 import Home from "./pages/Home";
@@ -26,6 +25,7 @@ import Report from "./pages/report/Report";
 import Support from "./pages/support/Support";
 import ForgotPassword from "./pages/signup/ForgotPassword";
 import ChangePassword from "./pages/signup/ChangePassword";
+import Admin from "./pages/admin/Admin";
 // import ScrollToTop from "./components/ScrollToTop";
 
 library.add(fab, fas);
@@ -37,7 +37,7 @@ function App() {
       <AppState>
         <Switch>
           <Route exact path="/admin">
-            <AdminSideNav />
+            <Admin />
           </Route>
           <Route exact path="/signup">
             <SignUp />
