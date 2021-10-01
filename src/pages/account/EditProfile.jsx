@@ -2,7 +2,7 @@ import userImage from "../../images/user.png";
 import useContextGetter from "../../hooks/useContextGetter";
 import accountStyles from "./Account.module.css";
 import editStyles from "./Edit.module.css";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import { TextField } from "../../components/form/text/TextField";
 import * as Yup from "yup";
 import { Spinner } from "react-bootstrap";
@@ -16,6 +16,13 @@ const EditProfile = () => {
     phoneNumber: user.phoneNumber,
     firstName: user.firstName,
     lastName: user.lastName,
+    otherNames: user.otherNames,
+    gender: user.gender,
+    dateOfBirth: user.dateOfBirth,
+    address: user.address,
+    city: user.city,
+    stateOfResidence: user.stateOfResidence,
+    countryOfResidence: user.countryOfResidence
   };
   const validate = Yup.object().shape({
     email: Yup.string()
@@ -33,7 +40,8 @@ const EditProfile = () => {
     try {
       const res = await API.patch(`/api/v1/User/profile`, values);
       if (res.data.success) {
-        login(res.data.data);
+        console.log(values);
+        login({...user,...values});
         propagateMessage({
           content: "Profile updated",
           title: "Success",
@@ -70,7 +78,7 @@ const EditProfile = () => {
         {({ handleSubmit, isSubmitting, handleChange, values }) => (
           <Form className="w-100 px-4" onSubmit={handleSubmit}>
             <div className="row">
-              <div className={`col-md-6 ${editStyles.input_wrapper}`}>
+              <div className={`col-md-6`}>
                 <label>First name</label>
                 <TextField
                   label="First Name"
@@ -79,10 +87,24 @@ const EditProfile = () => {
                   placeholder="First Name"
                   onChange={handleChange}
                   value={values.firstName}
-                  className={editStyles.field}
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
                 />
               </div>
-              <div className={`col-md-6 ${editStyles.input_wrapper}`}>
+              <div className={`col-md-6`}>
+                <label>Other names</label>
+                <TextField
+                  label="Other Names"
+                  name="otherNames"
+                  type="text"
+                  placeholder="Other Names"
+                  onChange={handleChange}
+                  value={values.otherNames}
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                />
+              </div>
+              <div className={`col-md-6`}>
                 <label>Last name</label>
                 <TextField
                   label="Last Name"
@@ -91,12 +113,23 @@ const EditProfile = () => {
                   onChange={handleChange}
                   value={values.lastName}
                   placeholder="Last Name"
-                  className={editStyles.field}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className={`col-md-6 ${editStyles.input_wrapper}`}>
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                /></div>
+                <div className={`col-md-6`}>
+                  <label>Gender</label>
+                  <Field
+                    as="select"
+                    name="gender"
+                    onChange={handleChange}
+                    value={values.gender}
+                    className={`${editStyles.select_field}`}
+                  >
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                  </Field>
+                </div>
+                <div className={`col-md-6`}>
                 <label>Email address</label>
                 <TextField
                   label="Email Address"
@@ -105,10 +138,12 @@ const EditProfile = () => {
                   onChange={handleChange}
                   value={values.email}
                   placeholder="william@yahoo.com"
-                  className={editStyles.field}
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
                 />
               </div>
-              <div className={`col-md-6 ${editStyles.input_wrapper}`}>
+
+              <div className={`col-md-6`}>
                 <label>Phone number</label>
                 <TextField
                   label="Phone Number"
@@ -117,12 +152,77 @@ const EditProfile = () => {
                   onChange={handleChange}
                   value={values.phoneNumber}
                   placeholder="+2331234567890"
-                  className={editStyles.field}
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                />
+              </div>
+              <div className={`col-md-6`}>
+                <label>Date of Birth</label>
+                <TextField
+                  label="dd/mm/yyyy"
+                  name="dateOfBirth"
+                  type="date"
+                  onChange={handleChange}
+                  value={values.dateOfBirth}
+                  placeholder="dateOfBirth"
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                />
+              </div>
+              <div className={`col-md-6`}>
+                  <label>Address</label>
+                  <Field
+                    as="textarea"
+                    name="address"
+                    onChange={handleChange}
+                    value={values.address}
+                    className={`${editStyles.select_field}`}
+                  >
+                  </Field>
+              </div>
+              <div className={`col-md-6`}>
+                <label>City</label>
+                <TextField
+                  label="city"
+                  name="city"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.city}
+                  placeholder="city"
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                />
+              </div>
+              <div className={`col-md-6`}>
+                <label>State of residence</label>
+                <TextField
+                  label="state of residence"
+                  name="stateOfResidence"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.stateOfResidence}
+                  placeholder="state of residence"
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
+                />
+              </div>
+              <div className={`col-md-12`}>
+                <label>Country of Residence</label>
+                <TextField
+                  label="country"
+                  name="countryOfResidence"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.countryOfResidence}
+                  placeholder="country of residence"
+                  className={editStyles.wrapper}
+                  inputClassName={editStyles.field}
                 />
               </div>
             </div>
-            <div className="d-flex w-100 align-items-center justify-content-center mt-3">
-              <button type="submit" className="btn btn-lg btn-primary">
+           
+            <div className="d-flex w-100 align-items-center justify-content-center my-4">
+              <button type="submit" className="btn btn-lg btn-outline-primary">
                 {!isSubmitting ? (
                   "Update Profile"
                 ) : (
