@@ -30,7 +30,7 @@ jobs:
     - name: Purge artifacts
       uses: kolpav/purge-artifacts-action@v1
        with:
-          expire-in: 0 # Setting this to 0 will delete all artifacts
+          expire-in: 0
     
     - name: 'Tar files'
       run: tar -cvf frontend.tar .
