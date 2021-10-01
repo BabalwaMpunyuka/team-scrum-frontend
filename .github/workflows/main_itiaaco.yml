@@ -27,6 +27,9 @@ jobs:
         #npm run build --if-present
         npm build 
         
+    - name: Purge artifacts
+      uses: kolpav/purge-artifacts-action@v1
+    
     - name: 'Tar files'
       run: tar -cvf frontend.tar .
 
