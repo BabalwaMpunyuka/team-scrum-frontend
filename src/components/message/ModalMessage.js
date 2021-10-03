@@ -1,8 +1,5 @@
 import { Modal } from "react-bootstrap";
-import Button from "../button";
-
-// A simple show and hide state in the parent component can show or hide this modal.
-// onClick={props.onHide}
+import Button from "../form/button/Button";
 
 function ModalMessage({ title, dismissible = true, onHide, children, show, rest }) {
   return (
@@ -12,11 +9,9 @@ function ModalMessage({ title, dismissible = true, onHide, children, show, rest 
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
           <Button
-            btnClass={"btn btn-secondary"}
             type={"button"}
-            value="X"
             onClick={onHide}
-          />
+          >X</Button>
         </Modal.Header>
       ) : (
         <Modal.Header>

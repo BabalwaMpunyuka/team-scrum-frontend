@@ -30,7 +30,7 @@
 .hero .row_1 {
   position: relative;
   margin-left: 10px;
-  width: 250px;
+  min-width: 250px;
   height: 163px;
   display: flex;
   flex-direction: column;

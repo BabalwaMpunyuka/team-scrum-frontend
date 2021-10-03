@@ -1,7 +1,9 @@
 .AppLogo {
+  position: absolute;
+  left: 0;
     object-fit: contain;
     width: 100px;
-    height: 70px;
+    height: 80px;
   }  
 
   .LightLogo {

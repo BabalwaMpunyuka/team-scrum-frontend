@@ -64,11 +64,8 @@ const EditProfile = () => {
   };
   return (
     <div className={`container-fluid ${accountStyles.account_wrapper}`}>
-      <img
-        src={userImage}
-        alt="User"
-        className={`${accountStyles.user_image}`}
-      />
+       <div className={accountStyles.hero}>
+          <img src={userImage} alt="User" className={accountStyles.user_image} /></div>
       <Formik
         initialValues={initialUserValues}
         enableReinitialize={true}
