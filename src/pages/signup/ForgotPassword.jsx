@@ -1,44 +1,35 @@
-import {Link, useHistory } from "react-router-dom";
+import { useState } from "react";
+import {Link } from "react-router-dom";
 import LoginImg from "../../images/Login-img.PNG";
-import { Formik, Form } from "formik";
+import { Formik} from "formik";
 import * as Yup from "yup";
 import useContextGetter from "../../hooks/useContextGetter";
 import { TextField } from "../../components/form/text/TextField";
 import SignUpStyles from "../signup/SignUp.module.css";
 import  LoginStyles from"../login/Login.module.css";
-import ConditionalHeader from "../../components/Navigation/login-signup-nav/ConditionalHeader";
-import Footer from "../../components/footer/Footer";
+import BackToHome from "../../components/Navigation/backToHome/backToHome";
 import { Spinner } from "react-bootstrap";
 import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
 import Styles from './ForgotPassword.Module.css'
+import ResetEmailSentAlert from "../../components/message/alert/ResetEmailSentAlert";
 
 export const ForgotPassword = () => {
-  const { messages, propagateMessage,login } = useContextGetter();
-  const history=useHistory();
+  const { messages, propagateMessage } = useContextGetter();
+  const [showResetEmail, setShowResetEmail]=useState(false);
   const validate = Yup.object().shape({
     email: Yup.string()
       .email(" Please enter a valid email address ")
-      .required("Email is required"),
-    password: Yup.string()
-      .min(8, "Password must be at least 8 characters")
-      .required("Please provide a strong password"),
+      .required("Email is required")
   });
 
   const handleForgotPassword = async (values, { setSubmitting }) => {
     try {
-      const res = await API.post(`/api/v1/Authentication/login`, values);
+      const res = await API.get(`/api/v1/Authentication/forgotPassword?email=${values.email}`);
       if (res.data.success) {
-        login(res.data.data);
-        propagateMessage({
-          content: "Login successful",
-          title: "You are logged in",
-          type: "success",
-          timeout: 5000,
-        });
+        return setShowResetEmail(true);
       }
-      history.replace("/dashboard");
     } catch (e) {
       propagateMessage({
         content: formatErrors(e),
@@ -53,13 +44,13 @@ export const ForgotPassword = () => {
   };
   return (
     <div>
-      <ConditionalHeader />
       <PopupList popups={messages} />
-      <div className="container">
-        <div className={Styles.forgot_password}>
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-md-1"></div>
-          <div className="col-md-5">
+      <BackToHome />
+      <div className={`container ${SignUpStyles.sign_up_wrapper}`}>
+        <div className={SignUpStyles.forgot_password}>
+          {showResetEmail && <ResetEmailSentAlert close={()=>{setShowResetEmail(false)}}/>}
+        <div className="row">
+          <div className="col-md-6">
             <img
               src={LoginImg}
               alt="Sign Up"
@@ -67,7 +58,9 @@ export const ForgotPassword = () => {
             />
           </div>
 
-          <div className="col-md-5">
+          <div className={`col-md-6 ${SignUpStyles.sign_up_form_wrapper}`}>
+            <h1> Forgot Password? </h1>
+            <p className={Styles.forgot_password_p}>Enter email address linked to your account to reset password</p>
             <Formik
               initialValues={{
                 email: "",
@@ -77,21 +70,21 @@ export const ForgotPassword = () => {
               onSubmit={handleForgotPassword}
             >
               {({ handleSubmit, isSubmitting }) => (
-                <div className={`container ${SignUpStyles.sign_up}`}>
-                  <h1 className="my-4"> Forgot Password? </h1>
-                  <p>Enter email address linked to your account to reset password</p>
-                  <Form onSubmit={handleSubmit}>
-                    <div className={`${SignUpStyles.form_group}`}>
+                <div >
+                <form onSubmit={handleSubmit} className={`${SignUpStyles.sign_up_form}`}>
+                   
                       <TextField
                         label="Email"
                         name="email"
                         type="email"
-                        placeholder="Email Address"
-                        className={`${SignUpStyles.form_input}`}
+                        placeholder="email"
+                        className={`${SignUpStyles.form_input_wrapper}`}
+                        inputClassName={SignUpStyles.form_input}
+                        fontAwesomeIcon={["fas","envelope"]}
                       />
-                    </div>
+                    
                     <button
-                      className={`${SignUpStyles.btn} btn-block mt-4 ${SignUpStyles.form_input}`}
+                      className={`${SignUpStyles.btn} ${SignUpStyles.form_input_btn}`}
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -105,16 +98,12 @@ export const ForgotPassword = () => {
                     <p className={LoginStyles.have_an_acc}>
                       <Link to="/signup"> Don’t have an account? sign up</Link>
                     </p>
-                    </Form>
+                    </form>
                 </div>
               )}
             </Formik>
           </div>
-          <div className="col-md-1"></div>
         </div>
-      </div>
-      <div id={Styles.mobile_view}>
-      <Footer />
       </div>
       </div>
     </div>

@@ -3,9 +3,7 @@ import Card from "../../card/Card";
 import Button from "../../form/button/Button";
 import styles from "./BlogSection.module.css";
 
-import news_image from "../../../images/blog/news_image.png";
-import percent_image from "../../../images/blog/percent_image.png";
-import calculator_image from "../../../images/blog/calculator_image.png";
+import { news_image,calculator_image ,percent_image } from "../../../pages/blog/blogItems";
 
 export default function BlogSection() {
   return (

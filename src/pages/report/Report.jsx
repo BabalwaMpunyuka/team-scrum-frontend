@@ -1,13 +1,40 @@
 import { Icon } from "@iconify/react";
 import styles from "./report.module.css";
+import { useEffect, useState } from "react";
+// import useContextGetter from "../../hooks/useContextGetter";
+// import { Spinner } from "react-bootstrap";
+// import { formatErrors } from "../../utils/error.utils";
+import API from "../../utils/BackendApi";
+
+
+const initialstate={
+  businessRequestReports:[]
+}
 
 function Report() {
+  const [state,setState]=useState(initialstate);
+  const loadData = async () => {
+    try {
+      const res = await API.get(`/api/v1/BusinessRequest/my/business-requests`);
+      if (res.data.success) {
+        setState(prevState=>({
+          ...prevState,
+          businessRequests:res.data.data.$values
+        }))
+      }
+    } catch (e) { console.log(e.response)}
+  };
+
+  useEffect(() => {
+    loadData();
+    //eslint-disable-next-line
+  }, []);
   return (
     <div className={`container ${styles.report_wrapper}`}>
       <div className="mt-4 pt-4 px-3">
         <h1>Reports</h1>
       </div>
-      <div className={`mt-4 pt-4 px-3 ${styles.section_report}`}>
+      {state.businessRequests && <div className={`mt-4 pt-4 px-3 ${styles.section_report}`}>
         <div className="row mb-2">
           <div className="col-sm-2">
             <span>Name</span>
@@ -52,7 +79,7 @@ function Report() {
             <span></span>
           </div>
         </div>
-      </div>
+      </div>}
 
       <div className="w-100 mt-4">
         <p className="text-right px-2">
@@ -65,7 +92,7 @@ function Report() {
       </div>
       <div className={`w-100 mt-4 ${styles.report_history}`}>
         <h3>Report History</h3>
-        <div className="row my-2">
+        <div className={`row my-2 ${styles.report_row}`}>
           <div className="col-sm-3">
             <span>Financial Appraisal</span>
           </div>
@@ -86,8 +113,8 @@ function Report() {
             <span>2days ago 9:00am uct</span>
           </div>
         </div>
-        <hr />
-        <div className="row my-2">
+      
+        <div className={`row my-2 ${styles.report_row}`}>
           <div className="col-sm-3">
             <span>Financial Statement</span>
           </div>
@@ -108,8 +135,8 @@ function Report() {
             <span>2days ago 9:00am uct</span>
           </div>
         </div>
-        <hr />
-        <div className="row my-2">
+       
+        <div className={`row my-2 ${styles.report_row}`}>
           <div className="col-sm-3">
             <span>Financial statement</span>
           </div>

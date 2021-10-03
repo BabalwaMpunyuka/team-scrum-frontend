@@ -1,98 +1,39 @@
 .side_nav {
-  position: absolute;
-  width: 277px;
-  min-height: 100vh;
-  left: 0px;
-  top: 130px;
-
-  background: #f6f8fd;
-  z-index: 2;
-  color: #4884fb;
-  font-weight: 500;
-  padding: 20px;
-  transition: all 300ms ease;
-}
-
-.top {
-  display: none;
-}
-
-.side_nav .nav_menu {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto;
-  position: relative;
-  top: 0;
+  flex-direction: column;
 }
 
-.theme_wrapper {
-  position: absolute;
-  left: 45px;
-  top: 270px;
-  display: flex;
-  height: 31px;
-  width: 61px;
-
-  background: #d9d9d9;
-  border-radius: 15px;
+.logo{
+  width: 55.56px;
+  height: 81.9px;
+  margin: 10px auto;
 }
 
-.theme_toggle {
-  position: absolute;
-  right: 1px;
-  color: #fff;
-  font-size: 28px;
-  height: 100%;
-}
-
-.support {
-  position: absolute;
-  left: 0px;
-  top: 340px;
+.side_nav ul {
+  padding: 0px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-height: 80px;
-  width: 100%;
-}
-
-.support span {
-  position: absolute;
-  height: 28px;
-  left: 30px;
-  top: 20px;
-  font-size: 16px;
-
-  letter-spacing: -0.02em;
-}
-
-.support_icon {
-  position: absolute;
-  left: 29.31%;
-  right: 56.9%;
-  top: 0px;
-}
-
-.nav_menu_items {
+  align-content: center;
   list-style: none;
   width: 100%;
-  margin: 15px 0px;
+  height: 100%;
+  position: relative;
+  top: 30px;
 }
 
-.nav_menu_item  a{
-    text-decoration: none;
-}
-.nav_menu_item {
+.side_nav ul li{
   position: relative;
-  width: 214px;
-  height: 45px;
-  left: 0px;
-  cursor: pointer;
+  width: 100%;
   padding: 10px;
+  height: 50px;
+  cursor: pointer;
   border-radius: 5px;
+}
+
+.side_nav ul li a{
+  text-decoration: none;
 }
 
 .active_item{
@@ -105,28 +46,14 @@
   color:#fff;
 }
 
-.nav_menu_item .icon {
+.icon {
   height: 28px;
   font-size: 16px;
   line-height: 28px;
-}
-
-.nav_menu_item .text {
-  height: 28px;
-  margin-left: 18px;
-  font-size: 16px;
-  line-height: 28px;
-
-  letter-spacing: -0.02em;
-}
-
-.logout {
-  position: absolute;
-  bottom: -250px;
 }
 
 @media screen and (min-width: 786px) and (max-width: 990px) {
-  .top {
+  /* .top {
     position: relative;
     height: 40px;
     display: flex;
@@ -145,11 +72,11 @@
 
   .side_nav_hide {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 786px) {
-  .top {
+  /* .top {
     position: relative;
     height: 40px;
     display: flex;
@@ -168,5 +95,5 @@
 
   .side_nav_hide {
     display: none;
-  }
+  } */
 }

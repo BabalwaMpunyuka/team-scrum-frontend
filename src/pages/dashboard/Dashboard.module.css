@@ -4,79 +4,120 @@
   position: relative;
 }
 
-.link {
-  display: inline-block;
-  color: #000;
-  text-decoration: none;
+.dashboard_wrapper .hello {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #1b2559;
 }
 
-.link:hover{
-  color: #000;
+.hello span {
+  font-weight: 700;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  height: 40px;
+  background: #ef5da8;
+  width: 100%;
+  box-shadow: 0px 1px 8px rgba(0, 153, 255, 0.16);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.link:hover {
+  background-color: #3461bb;
+  color: #fff;
   text-decoration: none;
 }
 
 .dashboard_wrapper .cardGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   justify-content: center;
   align-items: center;
   align-content: stretch;
 }
 
-.dashboard_wrapper .cardGrid .service_card {
-  margin-top: 30px;  
+.cardGrid .service_card {
+  position: relative;
   width: 100%;
-  max-width: 396px;
-  height: 285px;
+  max-width: 320px;
+  height: 300px;
+  height: 100%;
+  padding-top: 10px;
 
   background: #ffffff;
-  box-shadow: 19px 20px 30px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.dashboard_wrapper  .cardGrid .service_card:hover{
-  background-color: #f1f1f1;
+.service_card h2 {
+  padding: 0px 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #0c023e;
 }
 
-.dashboard_wrapper  .cardGrid .service_card .icon_wrapper{
-  background: #ffffff;
-  height: 70px;
-  width: 70px;
-  border: 2px solid #4884FB;
-  border-radius: 100%;
-  padding: 20px;
+.service_card p {
+  text-align: center;
+  padding: 0px 15px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: #0c023e;
 }
+
 .dashboard_wrapper .icon {
-  font-size: 32px;
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 20px;
+  border: 1px solid #4884fb;
+  border-radius: 100%;
+  padding: 2px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
   font-weight: 500;
   color: #4884fb;
-}
-.dashboard_wrapper h2 {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.02em;
-    color: #1B2559;
+  text-align: center;
 }
 
 .dashboard_wrapper .text {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
 }
 
-@media screen and (max-width:786px) {
+.support_icon {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  right: 130px;
+  bottom: 33px;
+  border-radius: 100%;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
+  padding: 15px;
+  color: #0c023e;
+  background: #4884fb;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 786px) {
   .dashboard_wrapper .cardGrid {
     grid-template-columns: repeat(1, 1fr);
   }
-  
 }

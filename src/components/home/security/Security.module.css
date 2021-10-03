@@ -82,10 +82,11 @@
   .security_image {
     position: relative;
     margin-top: 10px;
-    width: 60%;
+    width: 90%;
     order: 1;
     align-self: center;
     left: 0px;
-    top: 40px;
+    top: 10px;
+    background-size: 100%;
   }
 }

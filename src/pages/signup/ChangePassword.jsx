@@ -1,42 +1,80 @@
-import {useHistory } from "react-router-dom";
-import LoginImg from "../../images/Login-img.PNG";
-import { Formik, Form } from "formik";
+import SignUpImg from "../../images/changePassword.png";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import useContextGetter from "../../hooks/useContextGetter";
+import { useState } from "react";
 import { TextField } from "../../components/form/text/TextField";
-import SignUpStyles from "../signup/SignUp.module.css";
-import ConditionalHeader from "../../components/Navigation/login-signup-nav/ConditionalHeader";
-import Footer from "../../components/footer/Footer";
+import styles from "./SignUp.module.css";
 import { Spinner } from "react-bootstrap";
 import PopupList from "../../components/message/PopupList";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
+import BackToHome from "../../components/Navigation/backToHome/backToHome";
+import {useHistory } from "react-router-dom";
+import useQuery from "../../hooks/useQuery";
+
+const initial_state={
+  showPassword:false,
+  showConfirmPassword:false,
+}
 
 export const ChangePassword = () => {
-  const { messages, propagateMessage,login } = useContextGetter();
+  const { messages, propagateMessage } = useContextGetter();
+  const [state,setState] = useState(initial_state);
+  let query = useQuery();
   const history=useHistory();
+
   const validate = Yup.object().shape({
-    email: Yup.string()
-      .email(" Please enter a valid email address ")
-      .required("Email is required"),
     password: Yup.string()
       .min(8, "Password must be at least 8 characters")
       .required("Please provide a strong password"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords do not match")
+      .required("Please confirm your password"),
   });
 
+  const setStateValue=(field,value)=>{
+      setState(prevState=>({
+        ...prevState,
+        [field]:value
+      }))
+  }
+  const showConfirmPassword=()=>{
+    setStateValue("showConfirmPassword",!state.showConfirmPassword);
+  }
+
+  const showPassword=()=>{
+    setStateValue("showPassword",!state.showPassword);
+  }
+
+ 
   const handleChangePassword = async (values, { setSubmitting }) => {
     try {
-      const res = await API.post(`/api/v1/Authentication/login`, values);
-      if (res.data.success) {
-        login(res.data.data);
-        propagateMessage({
-          content: "Login successful",
-          title: "You are logged in",
-          type: "success",
+      if(!query.get("userId") || !query.get("token")){
+        return propagateMessage({
+          content: "Unauthorized",
+          title: "Error",
+          type: "danger",
           timeout: 5000,
         });
       }
-      history.replace("/dashboard");
+
+      const data={
+        id: query.get("userId"),
+        password: values.password,
+        token: query.get("token")
+      }
+      const res = await API.put(`/api/v1/Authentication/resetPassword`, data);
+      
+      if (res.data.success) {
+        propagateMessage({
+          content: "Password changed successfully!",
+          title: "Password changed",
+          type: "success",
+          timeout: 5000,
+        });
+        setTimeout(()=>{history.replace("/login")},1000)
+      }
     } catch (e) {
       propagateMessage({
         content: formatErrors(e),
@@ -49,75 +87,79 @@ export const ChangePassword = () => {
       setSubmitting(false);
     }
   };
+
   return (
     <div>
-      <ConditionalHeader />
       <PopupList popups={messages} />
-      <div className="container">
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-md-1"></div>
-          <div className="col-md-5">
+      <BackToHome />
+      <div className={`container ${styles.sign_up_wrapper}`}>
+        
+        <div className="row">
+          <div className="col-md-6">
             <img
-              src={LoginImg}
-              alt="Sign Up"
-              className={`img-fluid ${SignUpStyles.sign_up_img}`}
+              src={SignUpImg}
+              alt="Change Password"
+              className={`img-fluid ${styles.sign_up_img}`}
             />
           </div>
 
-          <div className="col-md-5">
+          <div className={`col-md-6 ${styles.sign_up_form_wrapper}`}>
+            <h1> Change Password </h1>
             <Formik
               initialValues={{
+                firstName: "",
+                lastName: "",
                 email: "",
                 password: "",
+                confirmPassword: "",
               }}
               validationSchema={validate}
               onSubmit={handleChangePassword}
             >
               {({ handleSubmit, isSubmitting }) => (
-                <div className={`container ${SignUpStyles.sign_up}`}>
-                  <h1 className="my-4"> Reset Password </h1>
-                  <p>New password should be different from old password</p>
-                  <Form onSubmit={handleSubmit}>
-                    <div className={`${SignUpStyles.form_group}`}>
-                      <TextField
-                        label="Email"
-                        name="email"
-                        type="email"
-                        placeholder="Email Address"
-                        className={`${SignUpStyles.form_input}`}
-                      />
-                    </div>
-
-                    <div className={`${SignUpStyles.form_group}`}>
+                <div >
+                  <form onSubmit={handleSubmit} className={`${styles.sign_up_form}`}>
                       <TextField
                         label="Password"
                         name="password"
-                        type="password"
+                        type={state.showPassword?"text":"password"}
                         placeholder="Password"
-                        className={`${SignUpStyles.form_input}`}
+                        className={`${styles.form_input_wrapper}`}
+                        inputClassName={styles.form_input}
+                        fontAwesomeIcon={["fas",state.showPassword?"eye-slash":"eye"]}
+                        iconClick={showPassword}
                       />
-                    </div>
-
+                    
+                      <TextField
+                        label="Confirm password"
+                        name="confirmPassword"
+                        type={state.showConfirmPassword?"text":"password"}
+                        placeholder="Confirm Password"
+                        className={`${styles.form_input_wrapper}`}
+                        inputClassName={styles.form_input}
+                        fontAwesomeIcon={["fas",state.showConfirmPassword?"eye-slash":"eye"]}
+                        iconClick={showConfirmPassword}
+                      />
+                    
                     <button
-                      className={`${SignUpStyles.btn} btn-block mt-4 ${SignUpStyles.form_input}`}
+                      className={`${styles.btn} ${styles.form_input_btn}`}
                       type="submit"
                       disabled={isSubmitting}
                     >
                       {!isSubmitting ? (
-                        "Change Password"
+                        "Submit"
                       ) : (
                         <Spinner animation="border" variant="light" />
                       )}
                     </button>
-                  </Form>
+                  </form>
+                  
                 </div>
               )}
             </Formik>
           </div>
-          <div className="col-md-1"></div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

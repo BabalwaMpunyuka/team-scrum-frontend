@@ -9,6 +9,7 @@ on:
       - main
   workflow_dispatch:
 
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,8 +26,8 @@ jobs:
       run: |
         npm install
         #npm run build --if-present
-        npm build 
-        
+        npm build
+    
     - name: 'Tar files'
       run: tar -cvf frontend.tar .
 

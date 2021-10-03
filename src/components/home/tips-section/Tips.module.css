@@ -111,10 +111,12 @@
   .tips_image {
     position: relative;
     margin-top: 0px;
-    width: 60%;
+    width: 90%;
+    height: 312px;
     order: 1;
     align-self: center;
     left: 0px;
-    top: 20px;
+    top: 0px;
+    background-size: 100%;
   }
 }
