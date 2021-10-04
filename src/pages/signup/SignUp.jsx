@@ -134,7 +134,7 @@ export const SignUp = () => {
               onSubmit={handleSignup}
             >
               {({ handleSubmit, isSubmitting }) => (
-                <div >
+                <div>
                   <form onSubmit={handleSubmit} className={`${styles.sign_up_form}`}>
                   <TextField
                         label="First name"

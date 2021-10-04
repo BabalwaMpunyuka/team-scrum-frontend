@@ -70,7 +70,7 @@ const Account = () => {
             <button className="btn btn-md btn-outline-primary">
               Change Picture
             </button>
-            <Link to="/settings"><button className="btn btn-md btn-outline-primary">
+            <Link to="/settings"><button className="ml-2 btn btn-md btn-outline-primary">
               Change preferences
             </button></Link>
             </div>

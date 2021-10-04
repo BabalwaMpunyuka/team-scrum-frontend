@@ -6,6 +6,8 @@ import {
   SET_IS_AUTH,
   SET_DARK_MODE,
   CLEAR_DARK_MODE,
+  ADD_BUSINESS_REQUEST,
+  CLEAR_BUSINESS_REQUEST
 } from "./appActions";
 
 const appReducer = (state, action) => {
@@ -35,6 +37,7 @@ const appReducer = (state, action) => {
 
     case ADD_MESSAGE:
       return { ...state, messages: [...state.messages, action.payload] };
+
     case CLEAR_MESSAGE:
       return {
         ...state,
@@ -45,8 +48,19 @@ const appReducer = (state, action) => {
 
     case SET_DARK_MODE:
       return {};
+
     case CLEAR_DARK_MODE:
       return {};
+
+    case ADD_BUSINESS_REQUEST:
+      return { ...state, businessRequest: action.payload };
+
+    case CLEAR_BUSINESS_REQUEST:
+      return {
+        ...state,
+        businessRequest: {},
+      };
+
     default:
       return state;
   }

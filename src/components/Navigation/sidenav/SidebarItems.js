@@ -21,7 +21,7 @@ export const SidebarItems = [
     },
     {
       title: 'Plans & Payments',
-      path: '/',
+      path: '/payment/history',
       icon: <Icon icon="ci:settings" />,
       id: '5'
     },

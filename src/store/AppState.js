@@ -9,12 +9,15 @@ import {
   SET_DARK_MODE,
   CLEAR_DARK_MODE,
   SET_IS_AUTH,
+  ADD_BUSINESS_REQUEST,
+  CLEAR_BUSINESS_REQUEST
 } from "./appActions";
 
 const initialState = {
   isAuth: false,
   messages: [], // {id:1, content: "", title:"", type:"",timeout:5000}
   isDark: false,
+  businessRequest:{},
   user:{}
 };
 
@@ -77,6 +80,19 @@ const AppState = (props) => {
         payload:isAuth
     })
   };
+
+  const addBusinessRequest = (businessRequest) => {
+    dispatch({
+        type: ADD_BUSINESS_REQUEST,
+        payload:businessRequest
+    })
+  };
+
+  const clearBusinessRequest = () => {
+    dispatch({
+        type: CLEAR_BUSINESS_REQUEST,
+    })
+  };
   return (
     <AppContext.Provider
       value={{
@@ -89,6 +105,8 @@ const AppState = (props) => {
         setIsAuth,
         setDarkMode,
         clearDarkMode,
+        addBusinessRequest,
+        clearBusinessRequest
       }}
     >
       {props.children}

@@ -3,8 +3,6 @@ import dashStyles from "./Dashboard.module.css";
 import Card from "../../components/card/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useContextGetter from "../../hooks/useContextGetter";
-import diagnostics from "../../images/diagnostics.png";
-import comment from "../../images/comment.png";
 import { Icon } from "@iconify/react";
 
 const Dashboard = () => {
@@ -18,22 +16,19 @@ const Dashboard = () => {
       <div className={dashStyles.cardGrid}>
         <Card className={dashStyles.service_card}>
           <FontAwesomeIcon
-            icon={["fas", "chart-area"]}
+            icon={["fas", "map-marked"]}
             className={dashStyles.icon}
           />
-          <h2>Financial Appraisals</h2>
+          <h2>Business reports and history</h2>
           <p className={dashStyles.text}>
-            View portfolio on financial appraisals
+            View your business requests and report history
           </p>
-          <Link
-            to={`/portfolio/financial-appraisals`}
-            className={`${dashStyles.link}`}
-          >
+          <Link to={`/reports`} className={`${dashStyles.link}`}>
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </Link>
         </Card>
 
-        <Card className={dashStyles.service_card}>
+        {/* <Card className={dashStyles.service_card}>
           <FontAwesomeIcon
             icon={["fas", "chart-line"]}
             className={dashStyles.icon}
@@ -66,14 +61,13 @@ const Dashboard = () => {
           >
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </Link>
-        </Card>
+        </Card> */}
         <Card className={dashStyles.service_card}>
-          <img
-            src={diagnostics}
-            alt="Diagnostics"
-            className={`img-responsive ${dashStyles.icon} `}
+          <FontAwesomeIcon
+            icon={["fas", "dungeon"]}
+            className={dashStyles.icon}
           />
-          <h2>Pricing plan</h2>
+          <h2>Pricing plans and Payments</h2>
           <p className={dashStyles.text}>
             Subscribe to a pricing plan that best suites you
           </p>
@@ -85,17 +79,13 @@ const Dashboard = () => {
           </Link>
         </Card>
         <Card className={dashStyles.service_card}>
-          <img
-            src={comment}
-            alt="Comment"
-            className={`img-responsive ${dashStyles.icon} `}
+          <FontAwesomeIcon
+            icon={["fas", "chart-line"]}
+            className={dashStyles.icon}
           />
           <h2>Make Business Requests</h2>
           <p>Request business service and get feedback in 48hrs</p>
-          <Link
-            to={`/portfolio/financial-modelling`}
-            className={`${dashStyles.link}`}
-          >
+          <Link to={`/business-request/add`} className={`${dashStyles.link}`}>
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </Link>
         </Card>

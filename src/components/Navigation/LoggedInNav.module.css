@@ -26,6 +26,7 @@
   align-items: center;
   align-content: center;
   list-style: none;
+  margin: 0px;
 }
 
 .nav_link {
@@ -48,7 +49,6 @@
 .avater_wrapper {
   display: flex;
   flex-direction: row;
-  flex-basis: 1;
   justify-content: center;
   align-items: center;
 }
@@ -69,6 +69,25 @@
   line-height: 20px;
   color: #4884fb;
   letter-spacing: -0.02em;
+}
+
+.search_wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search{
+width: 415px;
+height: 40px;
+background: #f8fafc;
+border: 1px solid #e1edfa;
+color: #6f7482;
+outline: none;
+padding: 0px 5px;
+opacity: 1;
+border-radius: 5px;
 }
 
 @media screen and (max-width: 786px) {
