@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import useContextGetter from "../../hooks/useContextGetter";
 import API from "../../utils/BackendApi";
+import axios from "axios";
 import Button from "../../components/form/button/Button";
 import "./Payment.css";
 import Flutterwave from "../../images/flutterwave.PNG";
 import Paystack from "../../images/paystack.PNG";
-import MasterCard from "../../images/mastercard.PNG";
-import Visa from "../../images/visa.PNG";
-import AmericanExpress from "../../images/americanExpress.PNG";
+import { formatErrors } from "../../utils/error.utils";
+import { useHistory } from "react-router-dom";
+// import MasterCard from "../../images/mastercard.PNG";
+// import Visa from "../../images/visa.PNG";
+// import AmericanExpress from "../../images/americanExpress.PNG";
 import PaymentSubscription from "../../components/payment/PaymentSubscription";
 import useQuery from "../../hooks/useQuery";
 
@@ -17,9 +20,8 @@ const initialstate = {
   totalCost: 0,
   amountPaid: 0,
   discount: 0,
-  paymentMethod: "",
+  paymentMethod: "paystack",
   paymentStatus: "",
-  userId: "",
   paymentType: "",
   paymentId: "",
   subscribe: false,
@@ -30,6 +32,7 @@ const MakePayment = () => {
   const { propagateMessage, user } = useContextGetter();
   const query = useQuery();
   const request_code = query.get("request_code");
+  const history = useHistory();
 
   const setStateValue = (key, value) => {
     setState((prevState) => ({
@@ -45,8 +48,9 @@ const MakePayment = () => {
         setState((prevState) => ({
           ...prevState,
           businessRequest: res.data.data,
-          userId: user ? user.id : "",
-          paymentType: res.data.data ? res.data.data.requestType : "",
+          paymentType: res.data.data
+            ? res.data.data.requestType
+            : "Subscription",
         }));
       }
     } catch (e) {
@@ -82,14 +86,99 @@ const MakePayment = () => {
   let pageLoaded = false;
 
   useEffect(() => {
-    if (request_code && !state.requestType) {
+    if (request_code && state.requestType !== "Subscription") {
       loadData();
     }
     setTotalCost();
     setTotalDiscount();
     // eslint-disable-next-line
     return (pageLoaded = true);
-  }, [pageLoaded, state.requestType]);
+  }, [pageLoaded,state.businessRequest]);
+
+  const paystackPayment = async () => {
+    try {
+      const data = {
+        email: user ? user.email : "",
+        callback_url: `http://localhost:3000/payment/confirm?totalCost=${
+          state.totalCost
+        }&amountPaid=${state.totalCost - state.discount}&discount=${
+          state.discount
+        }&paymentMethod=paymentMethod&paymentType=${state.paymentType}`,
+        amount: state.totalCost - state.discount,
+      };
+      const res = await axios.post(
+        `http://lextutor-001-site1.itempurl.com/api/v1/Payment/paystack`,
+        data,
+        {
+          headers: {
+            Accept: "*/*",
+          },
+        }
+      );
+
+      if (res.IsSuccess) {
+        return history.replace(res.data.AuthorizationUrl);
+      }
+      propagateMessage({
+        content: "Unable to complete payement, please try again",
+        title: "Error",
+        type: "danger",
+        timeout: 5000,
+      });
+    } catch (e) {
+      // console.log(e.response);
+      propagateMessage({
+        content: formatErrors(e),
+        title: "Error",
+        type: "danger",
+        timeout: 5000,
+      });
+    } finally {
+      window.scrollTo(0, 0);
+      setStateValue("showFinalPrompt", false);
+    }
+  };
+
+  const flutterwavePayment = async () => {
+    try {
+      const data = {};
+      const res = await API.patch(`/api/v1/BusinessRequest`, data);
+
+      if (res.data.success) {
+        propagateMessage({
+          content:
+            "Business request submitted. You will be redirected to make payment shortly.",
+          title: "Success",
+          type: "success",
+          timeout: 3000,
+        });
+      }
+    } catch (e) {
+      // console.log(e.response);
+      propagateMessage({
+        content: formatErrors(e),
+        title: "Error",
+        type: "danger",
+        timeout: 5000,
+      });
+    } finally {
+      window.scrollTo(0, 0);
+      setStateValue("showFinalPrompt", false);
+    }
+  };
+
+  const handlePayment = () => {
+    if (state.paymentMethod === "paystack") return paystackPayment();
+    if (state.paymentMethod === "flutterwave") return flutterwavePayment();
+
+    window.scrollTo(0, 0);
+    return propagateMessage({
+      content: "Please choose a payment method",
+      title: "Error",
+      type: "danger",
+      timeout: 5000,
+    });
+  };
 
   return (
     <div className="container-fluid payment">
@@ -97,17 +186,24 @@ const MakePayment = () => {
       <div className="row">
         <div className="col-md-2"></div>
         <div className="col-md-8  mx-4 my-2">
+          <PaymentSubscription setPricingPlan={setStateValue} />
+        </div>
+        <div className="col-md-2"></div>
+      </div>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8  mx-4 my-2">
           <div className="choose-option">
             <div className="choose-option-imgs">
               <img src={Flutterwave} alt="flutterwave" className="img-fluid" />
               <img src={Paystack} alt="paystack" className="img-fluid" />
-              <img src={MasterCard} alt="Master Card" className="img-fluid" />
+              {/* <img src={MasterCard} alt="Master Card" className="img-fluid" />
               <img src={Visa} alt="visa" className="img-fluid" />
               <img
                 src={AmericanExpress}
                 alt="American Express"
                 className="img-fluid"
-              />
+              /> */}
             </div>
             {!Object.values(state.pricingPlan).length && !request_code ? (
               <>
@@ -119,7 +215,7 @@ const MakePayment = () => {
                   name="subscribe"
                   value="20"
                   checked={state.subscribe}
-                  onClick={toggleSubscribe}
+                  onChange={toggleSubscribe}
                 />
               </>
             ) : (
@@ -128,7 +224,7 @@ const MakePayment = () => {
             <h3 className="payment-total choose-header">
               Total Cost: ${state.totalCost}
             </h3>
-            {state.paymentType && (
+            {state.paymentType !== "Subscription" && (
               <>
                 <p className="payment-total choose-text">
                   {Object.values(state.pricingPlan).length
@@ -147,8 +243,11 @@ const MakePayment = () => {
             <input
               type="radio"
               id="flutter-wave input"
-              name="payment-method"
+              name="paymentMethod"
               value="flutterwave"
+              onChange={(e) => {
+                setStateValue(e.target.name, e.target.value);
+              }}
             />
             <label htmlFor="flutter-wave">
               <h3 className="choose-header">Flutterwave</h3>
@@ -160,9 +259,11 @@ const MakePayment = () => {
             <input
               type="radio"
               id="paystack input"
-              name="payment-method"
+              name="paymentMethod"
               value="paystack"
-              checked
+              onChange={(e) => {
+                setStateValue(e.target.name, e.target.value);
+              }}
             />
             <label htmlFor="paystack ">
               <h3 className="choose-header">Paystack</h3>
@@ -170,7 +271,7 @@ const MakePayment = () => {
             </label>
             <img src={Paystack} alt="paystack" className="img-fluid" />
           </div>
-          <div className="bank-card choose-option">
+          {/* <div className="bank-card choose-option">
             <input
               type="radio"
               id="bank-card input"
@@ -192,7 +293,7 @@ const MakePayment = () => {
                 className="img-fluid"
               />
             </div>
-          </div>
+          </div> */}
           <div className="check-terms-and-conditions">
             {/* <input
             type="checkbox"
@@ -213,17 +314,10 @@ const MakePayment = () => {
             </label>
           </div>
           <div className="payment-btn-wrapper">
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="primary" onClick={handlePayment}>
               Make payment
             </Button>
           </div>
-        </div>
-        <div className="col-md-2"></div>
-      </div>
-      <div className="row">
-        <div className="col-md-2"></div>
-        <div className="col-md-8  mx-4 my-2">
-          <PaymentSubscription setPricingPlan={setStateValue} />
         </div>
         <div className="col-md-2"></div>
       </div>
