@@ -23,10 +23,7 @@ const Dashboard = () => {
           <p className={dashStyles.text}>
             View your business requests and report history
           </p>
-          <Link
-            to={`/reports`}
-            className={`${dashStyles.link}`}
-          >
+          <Link to={`/reports`} className={`${dashStyles.link}`}>
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </Link>
         </Card>
@@ -66,7 +63,7 @@ const Dashboard = () => {
           </Link>
         </Card> */}
         <Card className={dashStyles.service_card}>
-        <FontAwesomeIcon
+          <FontAwesomeIcon
             icon={["fas", "dungeon"]}
             className={dashStyles.icon}
           />
@@ -82,16 +79,13 @@ const Dashboard = () => {
           </Link>
         </Card>
         <Card className={dashStyles.service_card}>
-        <FontAwesomeIcon
+          <FontAwesomeIcon
             icon={["fas", "chart-line"]}
             className={dashStyles.icon}
           />
           <h2>Make Business Requests</h2>
           <p>Request business service and get feedback in 48hrs</p>
-          <Link
-            to={`/business-request/add`}
-            className={`${dashStyles.link}`}
-          >
+          <Link to={`/business-request/add`} className={`${dashStyles.link}`}>
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </Link>
         </Card>

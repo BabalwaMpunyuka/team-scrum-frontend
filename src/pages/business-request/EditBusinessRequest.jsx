@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Spinner } from "react-bootstrap";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import ModalMessage from "../../components/message/ModalMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -63,9 +63,9 @@ const EditBusinessRequest = () => {
   let dataLoaded = false;
 
   useEffect(() => {
-    if (!Object.values(businessRequest).length) {
-      loadData();
-    }
+    //if (!Object.values(businessRequest).length) {
+    loadData();
+    //}
     // eslint-disable-next-line
     return (dataLoaded = true);
     //eslint-disable-next-line
@@ -160,7 +160,6 @@ const EditBusinessRequest = () => {
         });
       }
     } catch (e) {
-      
       propagateMessage({
         content: formatErrors(e),
         title: "Error",
@@ -174,7 +173,7 @@ const EditBusinessRequest = () => {
   };
   const finalSubmission = async () => {
     try {
-      const data={
+      const data = {
         businessRequestId: businessRequest.id,
         businessMobileNumber: businessRequest.businessMobileNumber,
         businessEmail: businessRequest.businessEmail,
@@ -182,8 +181,8 @@ const EditBusinessRequest = () => {
         jobTitle: businessRequest.jobTitle,
         requestDetails: businessRequest.requestDetails,
         requestStatus: "Submitted",
-        requestType: businessRequest.requestType
-      }
+        requestType: businessRequest.requestType,
+      };
       const res = await API.patch(`/api/v1/BusinessRequest`, data);
 
       if (res.data.success) {
@@ -197,7 +196,7 @@ const EditBusinessRequest = () => {
         });
         setTimeout(() => {
           history.replace(
-            `/payment/makePayment?plan=0&request_code=${res.data.data.id}`
+            `/payment/makePayment?request_code=${res.data.data.id}`
           );
         }, 1000);
       }
@@ -214,7 +213,19 @@ const EditBusinessRequest = () => {
       setStateValue("showFinalPrompt", false);
     }
   };
-
+const handleShowPrompt=()=>{
+  if(businessRequest.businessRequestFiles.$values.length){
+    return setStateValue("showFinalPrompt", true);
+   }
+   window.scrollTo(0, 0);
+   propagateMessage({
+    content:
+      "No file or supporting document has been uploaded for this request.",
+    title: "Supporting documents",
+    type: "danger",
+    timeout: 5000,
+  });
+}
   return (
     <div className="container">
       <div className="row">
@@ -412,12 +423,12 @@ const EditBusinessRequest = () => {
             )}
           </div>
         </div>
-        {Object.values(businessRequest).length &&
-           (
-            <div className="col-md-12">
-              <div className={styles.content_wrapper}>
-                {businessRequest.businessRequestFiles.$values.map(
-                  (businessFile, index) =>{ return (
+        {Object.values(businessRequest).length && (
+          <div className="col-md-12">
+            <div className={styles.content_wrapper}>
+              {businessRequest.businessRequestFiles.$values.map(
+                (businessFile, index) => {
+                  return (
                     <div className={styles.file_details_wrapper} key={index}>
                       <Icon
                         icon="majesticons:file-report-line"
@@ -425,16 +436,18 @@ const EditBusinessRequest = () => {
                       />
                       <span className={styles.file_details}>
                         <span>
-                          {businessFile.filename}:{businessFile.fileDescription} <em>Download</em>
+                          {businessFile.filename}:{businessFile.fileDescription}{" "}
+                          <em>Download</em>
                         </span>
                         <p className={styles.line}>&nbsp;</p>
                       </span>
                     </div>
-                  )}
-                )}
-              </div>
+                  );
+                }
+              )}
             </div>
-          )}
+          </div>
+        )}
 
         {businessRequest && businessRequest.requestStatus === "Pending" && (
           <div className="col-md-12">
@@ -447,17 +460,16 @@ const EditBusinessRequest = () => {
               setFormValue={setStateValue}
               handleUpload={handleUpload}
             />
-            <div className={styles.button_wrapper}>
-              <button
-                className={`btn btn-sm btn-outline-primary ${styles.request_btn}`}
-                type="button"
-                onClick={() => {
-                  setStateValue("showFinalPrompt", true);
-                }}
-              >
-                Confirm and make payment
-              </button>
-            </div>
+            {businessRequest.requestStatus === "Pending" && (
+              <div className={styles.button_wrapper}>
+                <button
+                  className={`btn btn-sm btn-outline-primary ${styles.request_btn}`}
+                  type="button"
+                  onClick={handleShowPrompt}>
+                  Confirm and make payment
+                </button>
+              </div>
+            )}
             {state.showFinalPrompt && (
               <ModalMessage
                 title={
@@ -489,6 +501,20 @@ const EditBusinessRequest = () => {
                 </div>
               </ModalMessage>
             )}
+          </div>
+        )}
+        {businessRequest.requestStatus === "Submitted" && (
+          <div className={styles.button_wrapper}>
+            <Link
+              to={`/payment/makePayment?request_code=${businessRequest.id}`}
+            >
+              <button
+                className={`btn btn-lg btn-primary ${styles.request_btn}`}
+                type="button"
+              >
+                Pay now
+              </button>
+            </Link>
           </div>
         )}
       </div>

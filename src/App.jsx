@@ -28,7 +28,9 @@ import ForgotPassword from "./pages/signup/ForgotPassword";
 import ChangePassword from "./pages/signup/ChangePassword";
 import AddBusinessRequest from "./pages/business-request/AddBusinessRequest";
 import EditBusinessRequest from "./pages/business-request/EditBusinessRequest";
-import MakePayment from "./pages/payment/MakePayment";
+import MakePayment from "./pages/Payment/MakePayment";
+import PaymentHistory from "./pages/Payment/PaymentHistory";
+import Payment from "./pages/Payment/Payment";
 // import ScrollToTop from "./components/ScrollToTop";
 
 // dotenv.config();
@@ -53,7 +55,7 @@ function App() {
           </Route>
 
           <Route exact path="/account/changePassword">
-              <ChangePassword />
+            <ChangePassword />
           </Route>
 
           <GlobalLayout>
@@ -95,7 +97,15 @@ function App() {
 
             <ProtectedRoute exact routePath="/payment/makePayment">
               <MakePayment />
-              </ProtectedRoute>
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/confirm">
+              <Payment />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/history">
+              <PaymentHistory />
+            </ProtectedRoute>
 
             <ProtectedRoute exact routePath="/reports">
               <Report />
