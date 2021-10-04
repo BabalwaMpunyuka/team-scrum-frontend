@@ -14,14 +14,14 @@ export const SidebarItems = [
       id: '2'
     },
     {
-      title: 'Report History',
+      title: 'History',
       path: '/reports',
       icon: <Icon icon="majesticons:file-report-line" />,
       id: '3'
     },
     {
-      title: 'Settings',
-      path: '/settings',
+      title: 'Plans & Payments',
+      path: '/payment/history',
       icon: <Icon icon="ci:settings" />,
       id: '5'
     },

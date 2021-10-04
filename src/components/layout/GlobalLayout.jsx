@@ -8,7 +8,6 @@ export default function GlobalLayout({ children }) {
   const { messages, isAuth, login } = useContext(AppContext);
   const isLoggedIn = localStorage.getItem("isAuth");
   const user = JSON.parse(localStorage.getItem("user"));
-
   useEffect(() => {
     if (!isAuth && isLoggedIn) {
       login(user);

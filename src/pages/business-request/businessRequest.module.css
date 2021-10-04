@@ -1,0 +1,142 @@
+.content_wrapper {
+  margin-top: 20px;
+  padding: 25px 30px;
+  background: #f8fafc;
+}
+
+.prompt {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #111;
+}
+
+.button_wrapper {
+  margin: 10px auto;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.field_label {
+  padding: 10px 0px;
+  font-size: 16px;
+  line-height: 10px;
+  letter-spacing: 0.01em;
+  color: #6f7482;
+}
+
+.field {
+  padding: 12px;
+  width: 100%;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #e1edfa;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+}
+
+.field_textarea {
+  height: 104px;
+}
+
+.request_btn {
+  border-radius: 30px;
+  padding: 10px 25px;
+}
+
+.content_no_bg {
+  margin-top: 20px;
+  padding: 25px 30px;
+}
+
+.view_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.field_text {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 21px;
+  color: #111;
+  outline: none;
+}
+
+.file_description {
+  height: 48px;
+}
+
+.file_details_wrapper {
+  margin: 2px auto;
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  width: 100%;
+  min-height: 46px;
+
+  background: #ffffff;
+  border: 1px solid #d4e2fe;
+  box-sizing: border-box;
+  border-radius: 9px;
+}
+
+.file_details_wrapper span {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #6f7482;
+  border: 1px solid #ffffff;
+  display: inline-block;
+}
+
+.file_details_wrapper em {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #4ecb71;
+  border: 1px solid #ffffff;
+  text-align: right;
+}
+.file_details_wrapper .line {
+  display: block;
+  margin-top: 5px;
+  width: 100%;
+  min-width: 700px;
+  position: relative;
+  background-color: #4ecb71;
+  height: 10px;
+  border-radius: 30px;
+}
+
+.file_icon {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  color: #699bf7;
+  padding-left: 10px;
+}
+
+.file_details {
+  width: 100%;
+  min-width: 700px;
+  padding: 5px;
+}

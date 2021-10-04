@@ -19,22 +19,25 @@
   color: #000;
 }
 .logo {
-  font-size: 30px;
+  position: relative;
+ width: 10%;
+ height: 100%;
 }
 .nav_links {
+  margin: 0px 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   align-content: center;
   list-style: none;
-  width: 75%;
+  width: 90%;
   transition: width 200ms ease;
 }
 
 .nav_link {
   color: #000;
-  font-size: 16px;
-  padding: 10px 20px;
+  font-size: 15px;
+  padding: 10px;
   margin: 0 10px;
   cursor: pointer;
 }
@@ -55,7 +58,6 @@
 .mobile_menu_icon,.mobile_icon {
   display: none;
 }
-
 @media screen and (min-width: 786px) and (max-width: 990px) {
   .nav_links {
     margin-left: 10px;

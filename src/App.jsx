@@ -1,3 +1,4 @@
+// import * as dotenv from 'dotenv';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +27,14 @@ import Support from "./pages/support/Support";
 import ForgotPassword from "./pages/signup/ForgotPassword";
 import ChangePassword from "./pages/signup/ChangePassword";
 import Admin from "./pages/admin/Admin";
+import AddBusinessRequest from "./pages/business-request/AddBusinessRequest";
+import EditBusinessRequest from "./pages/business-request/EditBusinessRequest";
+import MakePayment from "./pages/Payment/MakePayment";
+import PaymentHistory from "./pages/Payment/PaymentHistory";
+import Payment from "./pages/Payment/Payment";
 // import ScrollToTop from "./components/ScrollToTop";
+
+// dotenv.config();
 
 library.add(fab, fas);
 
@@ -48,6 +56,10 @@ function App() {
 
           <Route exact path="/auth/forgot-password">
             <ForgotPassword />
+          </Route>
+
+          <Route exact path="/account/changePassword">
+            <ChangePassword />
           </Route>
 
           <GlobalLayout>
@@ -75,12 +87,28 @@ function App() {
               <EditProfile />
             </ProtectedRoute>
 
-            <Route exact path="/acount/change-password">
-              <ChangePassword />
-            </Route>
-
             <ProtectedRoute exact routePath="/settings">
               <Settings />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/business-request/add">
+              <AddBusinessRequest />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/business-request/edit">
+              <EditBusinessRequest />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/makePayment">
+              <MakePayment />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/confirm">
+              <Payment />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/history">
+              <PaymentHistory />
             </ProtectedRoute>
 
             <ProtectedRoute exact routePath="/reports">

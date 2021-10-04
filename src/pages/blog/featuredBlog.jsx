@@ -2,7 +2,7 @@ import blogStyles from "./Blog.module.css";
 import BlogFooter from "../../components/blog/blogFooter";
 
 //images
-import percent_image from "../../images/logo.png";
+import logo_image from "../../images/logo.png";
 
 const FeaturedBlog = () => {
   return (
@@ -10,7 +10,7 @@ const FeaturedBlog = () => {
       <h1 className={blogStyles.heading}>ITIAA INVESTMENT NEWS BLOG</h1>
       <div className={`${blogStyles.featured_blog} row`}>
         <div className={`col-md-5 ${blogStyles.topic_image}`}>
-          <img src={percent_image} alt="Blog news" className="img-fluid" />
+          <img src={logo_image} alt="Blog news" className="img-fluid" />
           <h3 className="text-center">About ITIAA Consults</h3>
         </div>
         <div className={`col-md-6 ${blogStyles.featured_text_wrapper}`}>
