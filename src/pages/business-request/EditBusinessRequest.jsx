@@ -195,9 +195,7 @@ const EditBusinessRequest = () => {
           timeout: 3000,
         });
         setTimeout(() => {
-          history.replace(
-            `/payment/makePayment?request_code=${res.data.data.id}`
-          );
+          window.location.href=`/payment/makePayment?request_code=${res.data.data.id}`;
         }, 1000);
       }
     } catch (e) {
@@ -400,7 +398,7 @@ const handleShowPrompt=()=>{
                   </span>
                 </div>
                 <div className={`col-sm-12 py-2 ${styles.field_wrapper}`}>
-                  <span className={styles.prompt}>Detailed request:</span>
+                  <span className={styles.prompt}>Business request details:</span>
                   <span className={styles.field_text}>
                     {businessRequest.requestDetails}
                   </span>
