@@ -26,12 +26,14 @@ import Report from "./pages/report/Report";
 import Support from "./pages/support/Support";
 import ForgotPassword from "./pages/signup/ForgotPassword";
 import ChangePassword from "./pages/signup/ChangePassword";
+import Admin from "./pages/admin/Admin";
 import AddBusinessRequest from "./pages/business-request/AddBusinessRequest";
 import EditBusinessRequest from "./pages/business-request/EditBusinessRequest";
 import MakePayment from "./pages/Payment/MakePayment";
 import PaymentHistory from "./pages/Payment/PaymentHistory";
 import Payment from "./pages/Payment/Payment";
 import ConfirmFlutterPayment from "./pages/Payment/ConfirmFluttterPayment";
+import AdminSignUp from "./pages/signup/AdminSignup";
 // import ScrollToTop from "./components/ScrollToTop";
 
 // dotenv.config();
@@ -44,8 +46,14 @@ function App() {
       {/* <ScrollToTop /> */}
       <AppState>
         <Switch>
+          <Route exact path="/admin">
+            <Admin />
+          </Route>
           <Route exact path="/signup">
             <SignUp />
+          </Route>
+          <Route exact path="/signup/admin">
+            <AdminSignUp />
           </Route>
           <Route exact path="/login">
             <Login />
