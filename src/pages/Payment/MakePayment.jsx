@@ -206,7 +206,6 @@ const MakePayment = () => {
            });
          }
        } catch (e) {
-        //    console.log(e.response)
          propagateMessage({
            content: "An error occured, please try again",
            title: "Error",
