@@ -33,6 +33,7 @@ import MakePayment from "./pages/Payment/MakePayment";
 import PaymentHistory from "./pages/Payment/PaymentHistory";
 import Payment from "./pages/Payment/Payment";
 import ConfirmFlutterPayment from "./pages/Payment/ConfirmFluttterPayment";
+import AdminSignUp from "./pages/signup/AdminSignup";
 // import ScrollToTop from "./components/ScrollToTop";
 
 // dotenv.config();
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <SignUp />
+          </Route>
+          <Route exact path="/signup/admin">
+            <AdminSignUp />
           </Route>
           <Route exact path="/login">
             <Login />
