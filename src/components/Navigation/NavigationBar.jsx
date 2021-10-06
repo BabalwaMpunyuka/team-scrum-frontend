@@ -53,7 +53,7 @@ const NavigationBar = () => {
                 handleActive("Blog");
               }}
             >
-              <Link to="/blog" className="blog">
+              <Link to="/admin" className="blog">
                 Blog
               </Link>
             </li>
