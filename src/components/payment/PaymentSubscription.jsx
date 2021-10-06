@@ -36,7 +36,7 @@ function PaymentSubscription({setPricingPlan}) {
 
   const getDaysDiff=(date)=>{
     const Difference_In_Time = new Date().getTime() - new Date(date).getTime();
-    const difference_in_days=Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+    const difference_in_days=Math.round(Difference_In_Time / (1000 * 3600 * 24));
     if(difference_in_days<2){
       return "1 day"
     }
