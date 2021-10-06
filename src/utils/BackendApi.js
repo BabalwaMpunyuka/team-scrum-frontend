@@ -1,7 +1,6 @@
 import axios from "axios";
 const API = axios.create({
-  //http://Itiaacon.azurewebsites.net
-  //,
+  //  //"https://itiaacons.azurewebsites.net",
   baseURL: process.env.REACT_APP_NODE_ENV === "development"?process.env.REACT_APP_BACKEND_DEV_HOST:process.env.REACT_APP_BACKEND_HOST,
   headers: {
       "Accept":"*/*",
