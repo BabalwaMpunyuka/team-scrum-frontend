@@ -113,7 +113,7 @@ const UploadBusinessRequestFile = ({
             {!isSubmitting  ? (
               "Upload"
             ) : (
-              <Spinner animation="border" variant="light" />
+              <Spinner animation="border" variant="primary" />
             )}
           </button>}
         </div>

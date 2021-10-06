@@ -80,9 +80,9 @@
   margin-right: 35px;
 }
 
-/* .choose-option img{
-    margin-left: 20px;
-} */
+.choose-option span{
+   font-size: 12px;
+}
 
 .choose-header {
   font-weight: 700;

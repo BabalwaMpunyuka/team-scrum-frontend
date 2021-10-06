@@ -129,7 +129,7 @@ function Report() {
       </div>
       <h3>Request History</h3>
       {state.businessRequests.length ? (
-        <div className={`w-100 mt-4 ${styles.report_history}`}>
+        <div className={`my-4 ${styles.report_history}`}>
           {state.businessRequests.map((businessRequest,index)=>{ return(
           <div className={`row my-2 ${styles.report_row}`} key={index}>
             <div className="col-sm-1">{++index}</div>

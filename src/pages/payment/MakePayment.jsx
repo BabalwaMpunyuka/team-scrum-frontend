@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import useContextGetter from "../../hooks/useContextGetter";
 import API from "../../utils/BackendApi";
 import axios from "axios";
-import Button from "../../components/form/button/Button";
+import { Spinner } from "react-bootstrap";
 import "./Payment.css";
 import Flutterwave from "../../images/flutterwave.PNG";
 import Paystack from "../../images/paystack.PNG";
-import { formatErrors } from "../../utils/error.utils";
-import { useHistory } from "react-router-dom";
+// import { formatErrors } from "../../utils/error.utils";
+// import { useHistory } from "react-router-dom";
 // import MasterCard from "../../images/mastercard.PNG";
 // import Visa from "../../images/visa.PNG";
 // import AmericanExpress from "../../images/americanExpress.PNG";
@@ -21,10 +21,10 @@ const initialstate = {
   amountPaid: 0,
   discount: 0,
   paymentMethod: "paystack",
-  paymentStatus: "",
   paymentType: "",
-  paymentId: "",
   subscribe: false,
+  isSubmitting: false,
+  pageLoaded:false,
 };
 
 const MakePayment = () => {
@@ -32,7 +32,7 @@ const MakePayment = () => {
   const { propagateMessage, user } = useContextGetter();
   const query = useQuery();
   const request_code = query.get("request_code");
-  const history = useHistory();
+  //   const history = useHistory();
 
   const setStateValue = (key, value) => {
     setState((prevState) => ({
@@ -43,6 +43,7 @@ const MakePayment = () => {
 
   const loadData = async () => {
     try {
+        if(!request_code) setStateValue("paymentType","Subscription")
       const res = await API.get(`/api/v1/BusinessRequest?id=${request_code}`);
       if (res.data.success) {
         setState((prevState) => ({
@@ -51,29 +52,36 @@ const MakePayment = () => {
           paymentType: res.data.data
             ? res.data.data.requestType
             : "Subscription",
+            pageLoaded:true,
         }));
-      }
+      }  
     } catch (e) {
       //   console.log(e.response);
     }
   };
 
   const setTotalCost = () => {
+      let totalCost=0;
+      let discount=0;
     if (state.paymentType === "Appraisals") {
-      setStateValue("totalCost", 200);
+      totalCost=200;
     }
     if (state.paymentType === "Diagnostics") {
-      setStateValue("totalCost", 300);
+        totalCost=300;
     }
     if (state.paymentType === "Modelling") {
-      setStateValue("totalCost", 300);
+        totalCost=300;
     }
-  };
-  const setTotalDiscount = () => {
     if (Object.values(state.pricingPlan).length) {
-      setStateValue("discount", state.totalCost * 0.3);
+        discount=totalCost*0.3;
     }
+    setState((prevState) => ({
+        ...prevState,
+        totalCost,
+        discount: discount
+      }));
   };
+ 
 
   const toggleSubscribe = () => {
     setState((prevState) => ({
@@ -83,97 +91,143 @@ const MakePayment = () => {
     }));
   };
 
-  let pageLoaded = false;
-
   useEffect(() => {
-    if (request_code && state.requestType !== "Subscription") {
-      loadData();
-    }
+    loadData();
     setTotalCost();
-    setTotalDiscount();
+
     // eslint-disable-next-line
-    return (pageLoaded = true);
-  }, [pageLoaded,state.businessRequest]);
+  }, [state.pageLoaded,state.pricingPlan]);
 
   const paystackPayment = async () => {
     try {
+     setStateValue("isSubmitting", true);
       const data = {
         email: user ? user.email : "",
-        callback_url: `http://localhost:3000/payment/confirm?totalCost=${
-          state.totalCost
-        }&amountPaid=${state.totalCost - state.discount}&discount=${
-          state.discount
-        }&paymentMethod=paymentMethod&paymentType=${state.paymentType}`,
+        callback_url: `http://localhost:3000/payment/confirm?id=${request_code}`,
         amount: state.totalCost - state.discount,
+      };
+      
+      const paymentDetails = {
+        discount: state.discount,
+        email: user ? user.email : "",
+        userId: user ? user.id : "",
+        paymentMethod: "paystack",
+        paymentType: state.paymentType,
+        totalCost: state.totalCost,
+        amountPaid: state.totalCost - state.discount,
+        businessRequestId: request_code
       };
       const res = await axios.post(
         `http://lextutor-001-site1.itempurl.com/api/v1/Payment/paystack`,
         data,
         {
-          headers: {
-            Accept: "*/*",
-          },
-        }
+            headers: {
+              "accept": "*/*",
+              "content-type":"application/json"
+            },
+          }
       );
 
-      if (res.IsSuccess) {
-        return history.replace(res.data.AuthorizationUrl);
+      if (res.data.IsSuccess) {
+        localStorage.setItem(
+          "payment",
+          JSON.stringify({
+            paymentAPI: res.data.Data,
+            paymentDetails: paymentDetails,
+          })
+        );
+        return (window.location.href = res.data.Data.AuthorizationUrl);
+      } else {
+        propagateMessage({
+          content: "Unable to complete payement, please try again",
+          title: "Error",
+          type: "danger",
+          timeout: 5000,
+        });
       }
-      propagateMessage({
-        content: "Unable to complete payement, please try again",
-        title: "Error",
-        type: "danger",
-        timeout: 5000,
-      });
     } catch (e) {
-      // console.log(e.response);
       propagateMessage({
-        content: formatErrors(e),
+        content: "An error occured, please try again",
         title: "Error",
         type: "danger",
         timeout: 5000,
       });
     } finally {
       window.scrollTo(0, 0);
-      setStateValue("showFinalPrompt", false);
+      setStateValue("isSubmitting", false);
     }
   };
 
   const flutterwavePayment = async () => {
     try {
-      const data = {};
-      const res = await API.patch(`/api/v1/BusinessRequest`, data);
-
-      if (res.data.success) {
-        propagateMessage({
-          content:
-            "Business request submitted. You will be redirected to make payment shortly.",
-          title: "Success",
-          type: "success",
-          timeout: 3000,
-        });
-      }
-    } catch (e) {
-      // console.log(e.response);
-      propagateMessage({
-        content: formatErrors(e),
-        title: "Error",
-        type: "danger",
-        timeout: 5000,
-      });
-    } finally {
-      window.scrollTo(0, 0);
-      setStateValue("showFinalPrompt", false);
-    }
+        setStateValue("isSubmitting", true);
+         const data = {
+           email: user ? user.email : "",
+           callback_url: `http://localhost:3000/payment/confirm/flutterwave?id=${request_code}`,
+           amount: state.totalCost - state.discount,
+         };
+         console.log(data);
+         const paymentDetails = {
+           discount: state.discount,
+           email: user ? user.email : "",
+           userId: user ? user.id : "",
+           paymentMethod: "flutterwave",
+           paymentType: state.paymentType,
+           totalCost: state.totalCost,
+           amountPaid: state.totalCost - state.discount,
+           businessRequestId: request_code
+         };
+         const res = await axios.post(
+           `http://lextutor-001-site1.itempurl.com/api/v1/Payment/flutterwave`,
+           data,
+           {
+             headers: {
+               "accept": "*/*",
+               "content-type":"application/json"
+             },
+           }
+         );
+   
+         if (res.data.IsSuccess) {
+           localStorage.setItem(
+             "payment",
+             JSON.stringify({
+               paymentAPI: res.data.Data,
+               paymentDetails: paymentDetails,
+             })
+           );
+           return (window.location.href = res.data.Data.AuthorizationUrl);
+         } else {
+           propagateMessage({
+             content: "Unable to complete payement, please try again",
+             title: "Error",
+             type: "danger",
+             timeout: 5000,
+           });
+         }
+       } catch (e) {
+        //    console.log(e.response)
+         propagateMessage({
+           content: "An error occured, please try again",
+           title: "Error",
+           type: "danger",
+           timeout: 5000,
+         });
+       } finally {
+         window.scrollTo(0, 0);
+         setStateValue("isSubmitting", false);
+       }
   };
 
   const handlePayment = () => {
-    if (state.paymentMethod === "paystack") return paystackPayment();
-    if (state.paymentMethod === "flutterwave") return flutterwavePayment();
-
+    
+    if (state.totalCost && state.paymentMethod === "paystack") return paystackPayment();
+    if (state.totalCost && state.paymentMethod === "flutterwave") return flutterwavePayment();
+    
     window.scrollTo(0, 0);
+    
     return propagateMessage({
-      content: "Please choose a payment method",
+      content: "There must be an amount to pay and a payment method",
       title: "Error",
       type: "danger",
       timeout: 5000,
@@ -215,7 +269,7 @@ const MakePayment = () => {
                   name="subscribe"
                   value="20"
                   checked={state.subscribe}
-                  onChange={toggleSubscribe}
+                  onClick={toggleSubscribe}
                 />
               </>
             ) : (
@@ -314,9 +368,18 @@ const MakePayment = () => {
             </label>
           </div>
           <div className="payment-btn-wrapper">
-            <Button type="submit" variant="primary" onClick={handlePayment}>
-              Make payment
-            </Button>
+            <button
+              className={`btn btn-sm btn-outline-primary`}
+              type="buttom"
+              onClick={handlePayment}
+              disabled={state.isSubmitting}
+            >
+              {!state.isSubmitting ? (
+                " Make payment"
+              ) : (
+                <Spinner animation="border" variant="primary" />
+              )}
+            </button>
           </div>
         </div>
         <div className="col-md-2"></div>

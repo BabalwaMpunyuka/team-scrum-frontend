@@ -31,6 +31,7 @@ import EditBusinessRequest from "./pages/business-request/EditBusinessRequest";
 import MakePayment from "./pages/Payment/MakePayment";
 import PaymentHistory from "./pages/Payment/PaymentHistory";
 import Payment from "./pages/Payment/Payment";
+import ConfirmFlutterPayment from "./pages/Payment/ConfirmFluttterPayment";
 // import ScrollToTop from "./components/ScrollToTop";
 
 // dotenv.config();
@@ -101,6 +102,10 @@ function App() {
 
             <ProtectedRoute exact routePath="/payment/confirm">
               <Payment />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/payment/confirm/flutterwave">
+              <ConfirmFlutterPayment />
             </ProtectedRoute>
 
             <ProtectedRoute exact routePath="/payment/history">

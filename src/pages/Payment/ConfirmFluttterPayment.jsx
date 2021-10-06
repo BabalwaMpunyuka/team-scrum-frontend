@@ -6,23 +6,27 @@ import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/BackendApi";
 import axios from "axios";
+import useQuery from "../../hooks/useQuery";
 
 let runCount=0;
 
-function Payment() {
+function ConfirmFlutterPayment() {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
   const [isError, setIsError] = useState(false);
   const { paymentAPI, paymentDetails } = JSON.parse(localStorage.getItem("payment") );
+  const query=useQuery();
+  const tx_ref=query.get("tx_ref");
+  const transaction_id=query.get("transaction_id");
 
-  useEffect(() => {
+  useEffect(() => { 
      if(runCount===0){ setTimeout(()=>{verifyPayment()}, 10000);} 
      // eslint-disable-next-line
   },[]);
 
   const verifyPayment = async () => {
-    try {
+    try { 
       const res = await axios.get(
-        `http://lextutor-001-site1.itempurl.com/api/v1/Payment/Verify?paymentId=${paymentAPI.paymentId}&providerName=${paymentDetails.paymentMethod}`,
+        `http://lextutor-001-site1.itempurl.com/api/v1/Payment/flutter-confirm?tx_ref=${tx_ref}&transaction_id=${transaction_id}`,
         {
           headers: {
             Accept: "*/*",
@@ -118,4 +122,4 @@ function Payment() {
   );
 }
 
-export default Payment;
+export default ConfirmFlutterPayment;
