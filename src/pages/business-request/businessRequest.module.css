@@ -116,6 +116,11 @@
   border: 1px solid #ffffff;
   text-align: right;
 }
+
+.file_details_wrapper a{
+  text-decoration: none;
+  color: inherit;
+}
 .file_details_wrapper .line {
   display: block;
   margin-top: 5px;

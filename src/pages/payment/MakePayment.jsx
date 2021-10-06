@@ -6,7 +6,7 @@ import { Spinner } from "react-bootstrap";
 import "./Payment.css";
 import Flutterwave from "../../images/flutterwave.PNG";
 import Paystack from "../../images/paystack.PNG";
-import { formatErrors } from "../../utils/error.utils";
+// import { formatErrors } from "../../utils/error.utils";
 // import { useHistory } from "react-router-dom";
 // import MasterCard from "../../images/mastercard.PNG";
 // import Visa from "../../images/visa.PNG";
@@ -22,7 +22,6 @@ const initialstate = {
   discount: 0,
   paymentMethod: "paystack",
   paymentType: "",
-  paymentId: "",
   subscribe: false,
   isSubmitting: false,
   pageLoaded:false,
@@ -97,7 +96,7 @@ const MakePayment = () => {
     setTotalCost();
 
     // eslint-disable-next-line
-  }, [state.pageLoaded]);
+  }, [state.pageLoaded,state.pricingPlan]);
 
   const paystackPayment = async () => {
     try {
@@ -107,6 +106,7 @@ const MakePayment = () => {
         callback_url: `http://localhost:3000/payment/confirm?id=${request_code}`,
         amount: state.totalCost - state.discount,
       };
+      
       const paymentDetails = {
         discount: state.discount,
         email: user ? user.email : "",
@@ -121,10 +121,11 @@ const MakePayment = () => {
         `http://lextutor-001-site1.itempurl.com/api/v1/Payment/paystack`,
         data,
         {
-          headers: {
-            Accept: "*/*",
-          },
-        }
+            headers: {
+              "accept": "*/*",
+              "content-type":"application/json"
+            },
+          }
       );
 
       if (res.data.IsSuccess) {
@@ -159,30 +160,63 @@ const MakePayment = () => {
 
   const flutterwavePayment = async () => {
     try {
-      const data = {};
-      const res = await API.patch(`/api/v1/BusinessRequest`, data);
-
-      if (res.data.success) {
-        propagateMessage({
-          content:
-            "Business request submitted. You will be redirected to make payment shortly.",
-          title: "Success",
-          type: "success",
-          timeout: 3000,
-        });
-      }
-    } catch (e) {
-      // console.log(e.response);
-      propagateMessage({
-        content: formatErrors(e),
-        title: "Error",
-        type: "danger",
-        timeout: 5000,
-      });
-    } finally {
-      window.scrollTo(0, 0);
-      setStateValue("showFinalPrompt", false);
-    }
+        setStateValue("isSubmitting", true);
+         const data = {
+           email: user ? user.email : "",
+           callback_url: `http://localhost:3000/payment/confirm/flutterwave?id=${request_code}`,
+           amount: state.totalCost - state.discount,
+         };
+         console.log(data);
+         const paymentDetails = {
+           discount: state.discount,
+           email: user ? user.email : "",
+           userId: user ? user.id : "",
+           paymentMethod: "flutterwave",
+           paymentType: state.paymentType,
+           totalCost: state.totalCost,
+           amountPaid: state.totalCost - state.discount,
+           businessRequestId: request_code
+         };
+         const res = await axios.post(
+           `http://lextutor-001-site1.itempurl.com/api/v1/Payment/flutterwave`,
+           data,
+           {
+             headers: {
+               "accept": "*/*",
+               "content-type":"application/json"
+             },
+           }
+         );
+   
+         if (res.data.IsSuccess) {
+           localStorage.setItem(
+             "payment",
+             JSON.stringify({
+               paymentAPI: res.data.Data,
+               paymentDetails: paymentDetails,
+             })
+           );
+           return (window.location.href = res.data.Data.AuthorizationUrl);
+         } else {
+           propagateMessage({
+             content: "Unable to complete payement, please try again",
+             title: "Error",
+             type: "danger",
+             timeout: 5000,
+           });
+         }
+       } catch (e) {
+        //    console.log(e.response)
+         propagateMessage({
+           content: "An error occured, please try again",
+           title: "Error",
+           type: "danger",
+           timeout: 5000,
+         });
+       } finally {
+         window.scrollTo(0, 0);
+         setStateValue("isSubmitting", false);
+       }
   };
 
   const handlePayment = () => {

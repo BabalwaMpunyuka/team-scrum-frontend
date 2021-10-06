@@ -3,8 +3,8 @@
   width: 100%;
   margin: 0px;
   padding: 10px;
-  overflow: hidden !important;
-  height: 100vh;
+  /* overflow: hidden !important; */
+  min-height: 100vh;
 }
 
 .report_wrapper h1 {
@@ -28,6 +28,7 @@
   font-size: 16px;
   line-height: 19px;
 }
+
 .report_history h3 {
   font-weight: 500;
   font-size: 18px;
@@ -38,6 +39,7 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 19px;
+
   }
 
 #date_posted {

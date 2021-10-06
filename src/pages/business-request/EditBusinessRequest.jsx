@@ -7,12 +7,13 @@ import * as Yup from "yup";
 import { Spinner } from "react-bootstrap";
 import API from "../../utils/BackendApi";
 import { formatErrors } from "../../utils/error.utils";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import ModalMessage from "../../components/message/ModalMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UploadBusinessRequest from "../../components/business-request/UploadBusinessRequestFile";
 import { Icon } from "@iconify/react";
+import downloadFile from "../../utils/FileDownload.utils";
 
 const initialstate = {
   showEditForm: false,
@@ -28,7 +29,7 @@ const EditBusinessRequest = () => {
   const [state, setState] = useState(initialstate);
   const { propagateMessage, businessRequest, addBusinessRequest } =
     useContextGetter();
-  const history = useHistory();
+  // const history = useHistory();
   let query = useQuery();
 
   const initialValues = {
@@ -195,7 +196,7 @@ const EditBusinessRequest = () => {
           timeout: 3000,
         });
         setTimeout(() => {
-          window.location.href=`/payment/makePayment?request_code=${res.data.data.id}`;
+          window.location.href = `/payment/makePayment?request_code=${res.data.data.id}`;
         }, 1000);
       }
     } catch (e) {
@@ -211,19 +212,19 @@ const EditBusinessRequest = () => {
       setStateValue("showFinalPrompt", false);
     }
   };
-const handleShowPrompt=()=>{
-  if(businessRequest.businessRequestFiles.$values.length){
-    return setStateValue("showFinalPrompt", true);
-   }
-   window.scrollTo(0, 0);
-   propagateMessage({
-    content:
-      "No file or supporting document has been uploaded for this request.",
-    title: "Supporting documents",
-    type: "danger",
-    timeout: 5000,
-  });
-}
+  const handleShowPrompt = () => {
+    if (businessRequest.businessRequestFiles.$values.length) {
+      return setStateValue("showFinalPrompt", true);
+    }
+    window.scrollTo(0, 0);
+    propagateMessage({
+      content:
+        "No file or supporting document has been uploaded for this request.",
+      title: "Supporting documents",
+      type: "danger",
+      timeout: 5000,
+    });
+  };
   return (
     <div className="container">
       <div className="row">
@@ -398,7 +399,9 @@ const handleShowPrompt=()=>{
                   </span>
                 </div>
                 <div className={`col-sm-12 py-2 ${styles.field_wrapper}`}>
-                  <span className={styles.prompt}>Business request details:</span>
+                  <span className={styles.prompt}>
+                    Business request details:
+                  </span>
                   <span className={styles.field_text}>
                     {businessRequest.requestDetails}
                   </span>
@@ -435,7 +438,9 @@ const handleShowPrompt=()=>{
                       <span className={styles.file_details}>
                         <span>
                           {businessFile.filename}:{businessFile.fileDescription}{" "}
-                          <em>Download</em>
+                          <a href={businessFile.fileUrl} download>
+                            <em>Download</em>
+                          </a>
                         </span>
                         <p className={styles.line}>&nbsp;</p>
                       </span>
@@ -463,7 +468,8 @@ const handleShowPrompt=()=>{
                 <button
                   className={`btn btn-sm btn-outline-primary ${styles.request_btn}`}
                   type="button"
-                  onClick={handleShowPrompt}>
+                  onClick={handleShowPrompt}
+                >
                   Confirm and make payment
                 </button>
               </div>
