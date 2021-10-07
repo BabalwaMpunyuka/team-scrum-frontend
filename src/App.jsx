@@ -33,7 +33,9 @@ import MakePayment from "./pages/Payment/MakePayment";
 import PaymentHistory from "./pages/Payment/PaymentHistory";
 import Payment from "./pages/Payment/Payment";
 import ConfirmFlutterPayment from "./pages/Payment/ConfirmFluttterPayment";
-import AdminSignUp from "./pages/signup/AdminSignup";
+import AdminViewBusinessRequest from "./pages/business-request/AdminViewBusinessRequest";
+import AdminViewSingleBusinessRequest from "./pages/business-request/AdminViewSingleBusinessRequest";
+// import AdminSignUp from "./pages/signup/AdminSignup";
 // import ScrollToTop from "./components/ScrollToTop";
 
 // dotenv.config();
@@ -46,15 +48,12 @@ function App() {
       {/* <ScrollToTop /> */}
       <AppState>
         <Switch>
-          <Route exact path="/admin">
-            <Admin />
-          </Route>
           <Route exact path="/signup">
             <SignUp />
           </Route>
-          <Route exact path="/signup/admin">
+          {/* <Route exact path="/signup/admin">
             <AdminSignUp />
-          </Route>
+          </Route> */}
           <Route exact path="/login">
             <Login />
           </Route>
@@ -122,6 +121,18 @@ function App() {
 
             <ProtectedRoute exact routePath="/reports">
               <Report />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/admin/users">
+              <Admin />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/admin/business-request">
+              <AdminViewBusinessRequest />
+            </ProtectedRoute>
+
+            <ProtectedRoute exact routePath="/admin/business-request/single">
+              <AdminViewSingleBusinessRequest />
             </ProtectedRoute>
 
             <ProtectedRoute exact routePath="/dashboard">

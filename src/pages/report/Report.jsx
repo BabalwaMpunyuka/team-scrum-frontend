@@ -137,15 +137,15 @@ function Report() {
               <span>{businessRequest.businessName}</span>
             </div>
             <div className="col-md-2">
-              <span>{businessRequest.businessType}</span>
+              <span>{businessRequest.requestType}</span>
             </div>
             <div className="col-md-2">
             <span>
-              <span>{businessRequest.requestStatus}</span>
-              {businessRequest.requestStatus!=="pending" && <Icon
+              <span>{businessRequest.requestStatus} </span>
+              {businessRequest.requestStatus!=="pending" && <Link to={`/business-reports?businessRequestId=${businessRequest.id}`}><Icon
                   icon="majesticons:file-report-line"
                   className="text-primary"
-                />}
+                /></Link>}
               </span>
             </div>
             <div className="col-md-2">

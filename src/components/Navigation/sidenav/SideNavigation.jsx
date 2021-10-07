@@ -2,13 +2,13 @@ import { useState } from "react";
 import styles from "./SideNav.module.css";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { SidebarItems } from "./SidebarItems";
+import { SidebarItems,AdminItems } from "./SidebarItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useContextGetter from "../../../hooks/useContextGetter";
 import Logo_img from "../../../images/logo.png";
 
 const SideNavigation = () => {
-  const { logout } = useContextGetter();
+  const { logout,user } = useContextGetter();
   const [isMobile, setIsMobile] = useState(false);
   const [isActive, setIsActive] = useState("1");
 
@@ -46,6 +46,27 @@ const SideNavigation = () => {
               </li>
             );
           })}
+           {user.roles.$values.includes("SuperAdmin") || user.roles.$values.includes("Admin") 
+           ? <><li className="mt-1"><hr/></li>
+           {AdminItems.map((item, index) => {
+            return (
+              <li
+                key={index}
+                className={`${styles.nav_menu_item} ${
+                  isActive === item.id ? styles.active_item : ""
+                }`}
+                onClick={() => {
+                  handleActive(item.id);
+                }}
+              >
+                <Link to={item.path}>
+                  <span className={styles.icon}>{item.icon} </span>
+                  <span className={styles.text}>{item.title}</span>
+                </Link>
+              </li>
+            );
+          })}</>:""}
+          <li className="mt-4"><br/></li>
           <li
             className={`${styles.logout}`}
             onClick={() => {
