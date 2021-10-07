@@ -1,7 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
   margin: 20px auto;
@@ -14,11 +14,12 @@
   justify-content: center;
   width: 50%;
   flex-direction: column;
-  padding: 10px;
-  left: 70px;
-  top: 40px;
+  padding: 10px 15px;
+  left: 50px;
+  top: 30px;
   text-align: left;
   margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 .header_content h1 {
@@ -26,11 +27,10 @@
   line-height: 1;
   font-weight: 600;
   letter-spacing: 0.04em;
+  word-wrap: wrap;
 }
 
 .header_content p {
-  font-family: "Work Sans";
-  font-style: normal;
   font-weight: 300;
   line-height: 34px;
   letter-spacing: 0.005em;
@@ -39,8 +39,7 @@
 
 .header_image {
   position: relative;
-  width: 50%;
-  max-width: 716px;
+  width: 45%;
   height: 576px;
   right: 10px;
   top: 40px;
