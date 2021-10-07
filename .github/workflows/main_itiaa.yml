@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - itiaaconsults
+name: Build and deploy Node.js app to Azure Web App - itiaa
 
 on:
   push:
@@ -24,18 +24,14 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          #npm run build --if-present
-          npm build
-          
-          
-      - name: 'Tar files'
-        run: tar -cvf frontend.tar .
+          npm run build --if-present
+     
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: frontend-artifact
-          path: frontend.tar
+          name: node-app
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,16 +44,13 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: frontend-artifact
-          
-      - name: ‘Extract artifact’
-        run: tar -xvf frontend.tar 
+          name: node-app
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'itiaaconsults'
+          app-name: 'itiaa'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E1E4D8297764041AF20619E43C9A844 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A1B7C9A1968E41B48140A13ED91F4023 }}
           package: .
