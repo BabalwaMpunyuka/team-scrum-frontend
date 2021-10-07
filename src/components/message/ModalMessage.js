@@ -11,7 +11,9 @@ function ModalMessage({ title, dismissible = true, onHide, children, show, rest 
           <Button
             type={"button"}
             onClick={onHide}
-          >X</Button>
+            variant="white-outline"
+            className="btn btn-sm btn-light px-4 py-2"
+          ><strong>X</strong></Button>
         </Modal.Header>
       ) : (
         <Modal.Header>

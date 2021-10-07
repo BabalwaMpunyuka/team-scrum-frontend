@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Icon } from "@iconify/react";
 
 export const SidebarItems = [
@@ -25,4 +26,19 @@ export const SidebarItems = [
       icon: <Icon icon="ci:settings" />,
       id: '5'
     },
+  ];
+
+  export const AdminItems = [
+    {
+        title: 'Users',
+        path: '/admin/users',
+        icon: <FontAwesomeIcon icon={["fas","users"]}/>,
+        id: 'admin1'
+      },
+      {
+        title: 'Business Requests',
+        path: '/admin/business-request',
+        icon: <Icon icon="majesticons:file-report-line" />,
+        id: 'admin2'
+      }
   ];
